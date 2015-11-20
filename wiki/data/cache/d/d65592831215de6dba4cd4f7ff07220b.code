@@ -1,0 +1,36 @@
+<span class="co0"># přepnout na roota</span>
+$ <span class="kw2">sudo</span> <span class="kw2">su</span>
+&nbsp;
+<span class="co0"># vytvoření složky pro vsftpd</span>
+$ <span class="kw2">mkdir</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd
+&nbsp;
+<span class="co0"># vytvoření certifikátu</span>
+$ openssl req <span class="re5">-x509</span> <span class="re5">-nodes</span> <span class="re5">-days</span> <span class="nu0">3650</span> <span class="re5">-newkey</span> rsa:<span class="nu0">2048</span> <span class="re5">-keyout</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem <span class="re5">-out</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem
+&nbsp;
+<span class="co0"># vyplnění základních informací o majiteli certifikátu</span>
+&nbsp;
+<span class="co0"># bezpečnost pouze pro čtení</span>
+$ <span class="kw2">chmod</span> <span class="re5">-R</span> <span class="nu0">444</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd
+&nbsp;
+<span class="co0"># nastavení /etc/vsftpd.conf</span>
+&nbsp;
+<span class="re2">write_enable</span>=YES
+&nbsp;
+<span class="re2">ssl_enable</span>=YES
+<span class="re2">allow_anon_ssl</span>=NO
+<span class="re2">force_local_data_ssl</span>=YES
+<span class="re2">force_local_logins_ssl</span>=YES
+&nbsp;
+<span class="re2">ssl_tlsv1</span>=YES
+<span class="re2">ssl_sslv2</span>=NO
+<span class="re2">ssl_sslv3</span>=NO
+<span class="re2">rsa_cert_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem
+<span class="re2">rsa_private_key_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem
+&nbsp;
+<span class="re2">port_enable</span>=YES
+<span class="re2">pasv_enable</span>=YES
+<span class="re2">pasv_max_port</span>=<span class="nu0">12100</span>
+<span class="re2">pasv_min_port</span>=<span class="nu0">12000</span>
+&nbsp;
+<span class="co0"># toto zajistí zabezpečené připojení přes TLS (nezapomenout na povolení firewallu pro port **21, 12000-12100**) a restartovat ftp server</span>
+$ service vsftpd restart

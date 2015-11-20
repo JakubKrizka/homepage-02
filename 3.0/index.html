@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--[if IE]><script>alert("chyba");</script><![endif]-->
+        <title>Jakub Křižka | Osobní Web</title>
+        <meta name="description" content="Jakub Křižka | Osobní Web"/>
+        <link rel="shortcut icon" href="http://php.net/images/logos/php_xpstyle.ico" type="image/ico">
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/3.0.2/normalize.css">
+        <link rel="stylesheet" href="http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.css">
+        <!-- Font Awesome + Google Fonts -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Cutive+Mono&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-messages.min.js"></script>
+        <script src="http://cdn.rawgit.com/angular/bower-material/v0.10.0/angular-material.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js"></script>
+        <script src="https://raw.githubusercontent.com/d-oliveros/ngSmoothScroll/master/lib/angular-smooth-scroll.js"></script>
+        <script>
+        angular
+  .module('MyApp')
+  .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+
+    
+    $scope.toggleLeft = buildToggler('left');
+    $scope.toggleRight = buildToggler('right');
+
+    /**
+     * Build handler to open/close a SideNav; when animation finishes
+     * report completion in console
+     */
+    function buildToggler(navID) {
+      var debounceFn =  $mdUtil.debounce(function(){
+            $mdSidenav(navID)
+              .toggle()
+              .then(function () {
+                $log.debug("toggle " + navID + " is done");
+              });
+          },300);
+
+      return debounceFn;
+    }
+
+  })
+  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      $mdSidenav('left').close()
+        .then(function () {
+          $log.debug("close LEFT is done");
+        });
+
+    };
+  })
+  .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      $mdSidenav('right').close()
+        .then(function () {
+          $log.debug("close RIGHT is done");
+        });
+    };
+  });
+
+
+
+
+
+
+        </script>
+        <style type="text/css">
+#content {
+	background-color: #82eb63;
+background-image: url(http://www.transparenttextures.com/patterns/basketball.png);
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+			}
+		
+.toolbardemoScrollShrink .face {
+  width: 48px;
+  margin: 16px;
+  border-radius: 48px;
+  border: 1px solid #ddd; }
+.gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5; }
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca; }
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d; }
+.gridListdemoBasicUsage .blue {
+  background: #84ffff; }
+.gridListdemoBasicUsage .purple {
+  background: #b388ff; }
+.gridListdemoBasicUsage .red {
+  background: #ff8a80; }
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 666ms ease-out 333ms; }
+  .right {
+      float: right;
+  }
+  .md-fab {
+position: static;
+top: 20px; left: 20px;
+  }
+        </style>
+    </head>
+    <body>
+
+
+<div ng-controller="AppCtrl" layout="column" class="sidenavdemoBasicUsage" ng-app="MyApp">
+
+  <section layout="row" flex="">
+
+    <md-sidenav md-is-locked-open="$mdMedia('gt-md')" style="position: static;" class="md-sidenav-left md-whiteframe-z4" md-component-id="left">
+
+      <md-toolbar class="md-theme-indigo" ng-controller="LeftCtrl">
+
+
+
+
+
+
+  <h3 class="md-toolbar-tools">Menu</h3>
+
+
+      </md-toolbar>
+      <md-content>
+
+
+
+
+
+        <md-list>
+        <md-item>
+          <a>
+            <md-item-content style="background-color: #f5f5f5; cursor:pointer;" md-ink-ripple layout="row" layout-align="start center">
+              <div class="inset">
+                <md-icon md-svg-icon="home.svg"></md-icon>
+              </div>
+              <div class="inset">Domovská stránka
+              </div>
+            </md-item-content>
+          </a>
+        </md-item>
+		
+      <!--  <md-divider></md-divider>
+        <md-subheader>Pod kategorie</md-subheader>
+        <md-item>
+          <a>
+            <md-item-content md-ink-ripple layout="row" layout-align="start center">
+              <div class="inset">
+                <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+              </div>
+              <div class="inset">{{item.title}}
+              </div>
+            </md-item-content>
+          </a>
+        </md-item> -->
+      </md-list>
+
+
+
+
+
+
+
+
+
+
+      </md-content>
+
+    </md-sidenav>
+
+    <md-content flex="" style="position: relative;" >
+
+
+
+
+
+      <div layout="column" layout-fill="" class="toolbardemoScrollShrink">
+
+  <md-toolbar class="md-whiteframe-z3c">
+
+
+
+
+    <div class="md-toolbar-tools">
+      <md-button style="margin:0;" class="md-icon-button md-primary" ng-click="toggleLeft()" hide-gt-md="" aria-label="Menu">
+
+              <md-icon md-svg-icon="menu.svg"></md-icon>
+          </md-button>
+              <h3>
+                Domovská stránka
+              </h3>
+              <span flex></span>
+              
+              <i class="fa fa-2x fa-twitter" ng-click="toggleRight()"></i>
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </md-toolbar>
+
+      <div id="content" flex="" layout-padding="">
+
+
+
+<my-element-3>
+</my-element-3>
+
+
+          <div class="col-xs-12 col-md-6">
+  <md-grid-list  class="gridListdemoBasicUsage" md-cols-sm="1" md-cols-md="3" md-cols-gt-md="4" md-row-height-gt-md="1:1" md-row-height="3:3" md-gutter="12px" md-gutter-gt-sm="8px">
+          
+		  <md-grid-tile class="gray" md-colspan-sm="1" md-colspan="2" md-rowspan-sm="1" md-rowspan="2"  class="md-whiteframe-z4">
+   <md-whiteframe class="md-whiteframe-z5" layout-fill=""  layout-align="center center">
+            
+			 <md-grid-tile-header>
+                <h3>O mě</h3>
+              </md-grid-tile-header>
+			 
+        </md-whiteframe>
+
+             
+            </md-grid-tile>
+
+			
+			<md-grid-tile class="yellow" md-rowspan-sm="1" md-rowspan-gt-md="2">
+              <md-grid-tile-header>
+                <h3>2</h3>
+              </md-grid-tile-header;>
+            </md-grid-tile>
+			
+			
+              <md-grid-tile class="red" md-rowspan-sm="1" md-rowspan-gt-md="2">
+              <md-grid-tile-footer>
+                <h3>3</h3>
+              </md-grid-tile-footer>
+            </md-grid-tile>
+
+			
+               </md-grid-list>  
+</div> 
+
+
+
+			   <div class="col-xs-12 col-md-6">
+
+
+
+  <md-grid-list  class="gridListdemoBasicUsage" md-cols-sm="1" md-cols-md="3" md-cols-gt-md="4" md-row-height-gt-md="1:1" md-row-height="1:1" md-gutter="12px" md-gutter-gt-sm="8px">
+
+
+           
+
+            <md-grid-tile class="blue" md-colspan-sm="1" md-colspan="2">
+              <md-grid-tile-footer>
+                <h3>#4: (2r x 1c)</h3>
+              </md-grid-tile-footer>
+            </md-grid-tile>
+ <md-grid-tile class="yellow" md-rowspan-gt-md="2">
+              <md-grid-tile-footer>
+                <h3>#3: (1r x 1c)</h3>
+              </md-grid-tile-footer>
+            </md-grid-tile>
+			 <md-grid-tile class="yellow" md-rowspan-gt-md="2" md-rowspan-md="2">
+              <md-grid-tile-footer>
+                <h3>#3: (1r x 1c)</h3>
+              </md-grid-tile-footer>
+            </md-grid-tile>
+			
+			<md-grid-tile class="red" md-rowspan-md="2" md-rowspan-gt-md="1" md-colspan="2" md-colspan-sm="2">
+          
+ <md-whiteframe class="md-whiteframe-z5" layout-fill="">
+          
+
+
+
+			 
+            </md-grid-tile>
+
+			   </div>
+
+          </md-grid-list>
+
+
+
+
+                <div layout-fill="" >
+
+
+<!-- SnapWidget -->
+<iframe src="http://snapwidget.com/sc/?u=amFrdWJrcml6a2F8aW58MjAwfDN8M3x8bm98NXxmYWRlSW58b25TdGFydHx5ZXN8bm8=&ve=050715" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:130px"></iframe>
+
+
+
+
+
+                  <p>
+                  The left sidenav will 'lock open' on a medium (&gt;=960px wide) device.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p><p>
+                The right sidenav will focus on a specific child element.
+                </p>
+                <p>
+                The right sidenav will focus on a specific child element.
+                </p><p>
+                The right sidenav will focus on a specific child element.
+                </p><p>
+                The right sidenav will focus on a specific child element.
+                </p><p>
+                The right sidenav will focus on a specific child element.
+                </p><p>
+                The right sidenav will focus on a specific child element.
+                </p><p>
+                The right sidenav will focus on a specific child element.
+                </p>  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p><p>
+                  The right sidenav will focus on a specific child element.
+                  </p>
+                  <p>
+                  The right sidenav will focus on a specific child element.
+                  </p><p>
+                  The right sidenav will focus on a specific child element.
+                  </p><p>
+                  The right sidenav will focus on a specific child element.
+                  </p><p>
+                  The right sidenav will focus on a specific child element.
+                  </p><p>
+                  The right sidenav will focus on a specific child element.
+                  </p><p>
+                  The right sidenav will focus on a specific child element.
+                  </p>  </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p><p>
+                    The right sidenav will focus on a specific child element.
+                    </p>
+                    <p>
+                    The right sidenav will focus on a specific child element.
+                    </p><p>
+                    The right sidenav will focus on a specific child element.
+                    </p><p>
+                    The right sidenav will focus on a specific child element.
+                    </p><p>
+                    The right sidenav will focus on a specific child element.
+                    </p><p>
+                    The right sidenav will focus on a specific child element.
+                    </p><p>
+                    The right sidenav will focus on a specific child element.
+                    </p>  </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p><p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+                      <p>
+                      The right sidenav will focus on a specific child element.
+                      </p><p>
+                      The right sidenav will focus on a specific child element.
+                      </p><p>
+                      The right sidenav will focus on a specific child element.
+                      </p><p>
+                      The right sidenav will focus on a specific child element.
+                      </p><p>
+                      The right sidenav will focus on a specific child element.
+                      </p><p>
+                      The right sidenav will focus on a specific child element.
+                      </p>
+
+
+  <md-button class="md-fab" aria-label="Up" href="#" scroll-to="my-element-3">
+  <md-icon md-svg-src="up.svg"></md-icon>
+  </md-button>
+  <md-content>
+
+
+                </div>
+
+
+
+      </div>
+
+
+
+  </md-content>
+
+</div>
+
+
+
+
+    <md-sidenav style="position: fixed; overflow:hidden;" class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+
+      <md-toolbar class="md-theme-light" style="position:fixed;">
+          <div class="md-toolbar-tools"><i class="fa fa-2x fa-twitter"></i><h1 style="margin-left:9px;">Twitter</h1></div>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" style="padding-top: 33px; overflow:hidden; padding-bottom: 33px">
+       <!-- <form>
+          <md-input-container>
+            <label for="testInput">Test input</label>
+            <input type="text" id="testInput" ng-model="data" md-sidenav-focus="">
+          </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-primary">
+          Close Sidenav Right
+        </md-button>
+		-->
+		<a class="twitter-timeline" 
+		   href="https://twitter.com/jakubkrizkacz/favorites" 
+		   noscrollbar 
+		   height="999"
+		   data-widget-id="594774841913430017">Tweety od uživatele @jakubkrizkacz</a>
+		   
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </md-content>
+
+    </md-sidenav>
+
+  </section>
+
+</div>
+
+  </body>
+</html>

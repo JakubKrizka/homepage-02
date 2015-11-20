@@ -1,0 +1,123 @@
+
+<h1 class="sectionedit1" id="ffmpeg_-_video_converter">ffmpeg - video converter</h1>
+<div class="level1">
+<pre class="code"># ffmpeg [[infile options][-i infile]]... {[outfile options] outfile}...</pre>
+
+<p>
+<a href="http://manpages.ubuntu.com/manpages/oneiric/man1/ffmpeg.1.html" class="urlextern" title="http://manpages.ubuntu.com/manpages/oneiric/man1/ffmpeg.1.html"  rel="nofollow">(man ffmpeg)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "ffmpeg - video converter" [1-215] -->
+<h2 class="sectionedit2" id="instalace">Instalace</h2>
+<div class="level2">
+
+<p>
+Je to složité popisovat, proč není program ffmpeg k dizpozici pomocí <em>apt-get install ffmpeg</em>. Pokud Vás to přece jen zajímá, stačí googlit nebo je to i na jejich <a href="https://www.ffmpeg.org" class="urlextern" title="https://www.ffmpeg.org"  rel="nofollow">officiílních strínkách</a>. Je to tedy potřeba instovat poněkud složitěji ale výsledek stojí za to ;).
+</p>
+
+<p>
+<em class="u">Návod je určený pro Linux Ubuntu 14.04 (32bit/64bit) pro ostatní <a href="https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty" class="urlextern" title="https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty"  rel="nofollow">zde</a></em>
+</p>
+
+<p>
+Nejprve upravíme soubor <strong>/etc/apt/sources.list</strong> na konec doplníme 2 řádky:
+</p>
+<pre class="code bash">deb http:<span class="sy0">//</span>ppa.launchpad.net<span class="sy0">/</span>mc3man<span class="sy0">/</span>trusty-media<span class="sy0">/</span>ubuntu trusty main 
+deb-src http:<span class="sy0">//</span>ppa.launchpad.net<span class="sy0">/</span>mc3man<span class="sy0">/</span>trusty-media<span class="sy0">/</span>ubuntu trusty main </pre>
+
+<p>
+uložit a spustit příkaz:
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> add-apt-repository ppa:mc3man<span class="sy0">/</span>trusty-media
+<span class="br0">&#40;</span>enter<span class="br0">&#41;</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get update</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="re5">-y</span> <span class="kw2">ffmpeg</span></pre>
+
+<p>
+a nakonec kontrola, zda je vše ok
+</p>
+<pre class="code bash"><span class="kw2">ffmpeg</span></pre>
+
+<p>
+pokud je vše jak má vypíše Vám seznam co je zapnuto co je vypnuto a závěrem toto:
+</p>
+<pre class="code bash">Hyper fast Audio and Video encoder
+usage: <span class="kw2">ffmpeg</span> <span class="br0">&#91;</span>options<span class="br0">&#93;</span> <span class="br0">&#91;</span><span class="br0">&#91;</span>infile options<span class="br0">&#93;</span> <span class="re5">-i</span> infile<span class="br0">&#93;</span>... <span class="br0">&#123;</span><span class="br0">&#91;</span>outfile options<span class="br0">&#93;</span> outfile<span class="br0">&#125;</span>...
+&nbsp;
+Use <span class="re5">-h</span> to get full <span class="kw3">help</span> or, even better, run <span class="st_h">'man ffmpeg'</span></pre>
+
+<p>
+doporučuji si přečíst manulál příkazem <em>man ffmpeg</em> je tam vše co potřebujete, případně můžete prolést <a href="https://www.ffmpeg.org/documentation.html" class="urlextern" title="https://www.ffmpeg.org/documentation.html"  rel="nofollow">dokumentaci</a> na oficiální stránkách. 
+</p>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Instalace" [216-1695] -->
+<h2 class="sectionedit3" id="pouziti">Použití</h2>
+<div class="level2">
+
+<p>
+První příkaz kterým by se mělo začít je příkaz na vložení (input) souboru a výpisu co obsahuje:
+</p>
+<pre class="code bash"><span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.mkv</pre>
+
+<p>
+Krásně vypíše video, audio stopu i titulky a k nim přiřazený kód (0:0 nebo 0:1 případně 0:2 apod.). pomocí toho kódu se pak definuje, co chcete zanechat, co chcete zkopírovat nebo převést. Vypíše i použitý codec, bitrate, atd. Vypadá to takto:
+</p>
+<pre class="code bash">Input <span class="co0">#0, mov,mp4,m4a,3gp,3g2,mj2, from 'OUTPUT.mp4':</span>
+  Metadata:
+    major_brand     : isom
+    minor_version   : <span class="nu0">512</span>
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf54.63.104
+  Duration: 00:00:<span class="nu0">30.03</span>, start: <span class="nu0">0.000000</span>, bitrate: <span class="nu0">3929</span> kb<span class="sy0">/</span>s
+    Chapter <span class="co0">#0.0: start 0.000000, end 30.030000</span>
+&nbsp;
+    Metadata:
+      title           : 00:00:<span class="nu0">00.000</span>
+&nbsp;
+    Stream <span class="co0">#0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 1635 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc </span>
+    Metadata:
+      handler_name    : VideoHandler
+&nbsp;
+    Stream <span class="co0">#0:1(cze): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 768 kb/s   </span>
+    Metadata:
+      handler_name    : SoundHandler
+&nbsp;
+    Stream <span class="co0">#0:2(eng): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 1536 kb/s</span>
+    Metadata:
+      handler_name    : SoundHandler</pre>
+
+<p>
+dále pak jen zadáváte preference, co a do čeho převést atd. syntaxe:
+</p>
+<pre class="code">ffmpeg [global_options] {[input_file_options] -i input_file} ... {[output_file_options] output_file}</pre>
+
+<p>
+příklady naleznete <a href="https://trac.ffmpeg.org/wiki/How%20to%20use%20-map%20option" class="urlextern" title="https://trac.ffmpeg.org/wiki/How%20to%20use%20-map%20option"  rel="nofollow">ZDE</a> a <a href="https://trac.ffmpeg.org/wiki" class="urlextern" title="https://trac.ffmpeg.org/wiki"  rel="nofollow">wiki ffmpeg</a>.
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Použití" [1696-3364] -->
+<h2 class="sectionedit4" id="mozne_chyby">Možné chyby</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "Možné chyby" [3365-3391] -->
+<h3 class="sectionedit5" id="sudoadd-apt-repositorycommand_not_found">sudo: add-apt-repository: command not found</h3>
+<div class="level3">
+
+<p>
+Při zadávání příkazu: <em>sudo add-apt-repository ppa:jon-severinsson/ffmpeg</em> vypíše tuto hlášku? Je potřeba doinstalovat balík python-software-properties, příkazem: 
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="re5">-y</span> python-software-properties</pre>
+
+<p>
+ — <em><a href="mailto:&#x6b;&#x75;&#x62;&#x61;&#x6b;&#x72;&#x69;&#x7a;&#x6b;&#x61;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x6b;&#x75;&#x62;&#x61;&#x6b;&#x72;&#x69;&#x7a;&#x6b;&#x61;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">Jakub Křižka</a> 2014/08/24 13:59</em>
+</p>
+
+</div>
+<!-- EDIT5 SECTION "sudo: add-apt-repository: command not found" [3392-] -->

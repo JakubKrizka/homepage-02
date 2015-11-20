@@ -1,0 +1,1 @@
+<span class="kw2">sudo</span> lshw <span class="re5">-C</span> display

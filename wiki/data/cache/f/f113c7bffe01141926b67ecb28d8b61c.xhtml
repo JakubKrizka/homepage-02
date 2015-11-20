@@ -1,0 +1,61 @@
+
+<h1 class="sectionedit1" id="filtry">filtry</h1>
+<div class="level1">
+
+<p>
+<a href="http://campus.codeschool.com/courses/try-sql/level/1/section/3/video/1" class="urlextern" title="http://campus.codeschool.com/courses/try-sql/level/1/section/3/video/1"  rel="nofollow">http://campus.codeschool.com/courses/try-sql/level/1/section/3/video/1</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "filtry" [1-100] -->
+<h2 class="sectionedit2" id="hodnoty_pouze_vetsi_100">hodnoty pouze větší 100</h2>
+<div class="level2">
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> cena <span class="sy0">&gt;</span> <span class="nu0">100</span>;</pre>
+
+</div>
+<!-- EDIT2 SECTION "hodnoty pouze větší 100" [101-200] -->
+<h2 class="sectionedit3" id="mensi_nebo_rovno">menší nebo rovno</h2>
+<div class="level2">
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> cena <span class="sy0">&lt;=</span> <span class="nu0">50</span>;</pre>
+
+</div>
+<!-- EDIT3 SECTION "menší nebo rovno" [201-292] -->
+<h2 class="sectionedit4" id="vsechno_krome_50">všechno kromě 50</h2>
+<div class="level2">
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> cena <span class="sy0">&lt;&gt;</span> <span class="nu0">50</span>;</pre>
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> cena !<span class="sy0">=</span> <span class="nu0">50</span>;</pre>
+
+</div>
+<!-- EDIT4 SECTION "všechno kromě 50" [293-443] -->
+<h2 class="sectionedit5" id="vice_podminek">více podmínek</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT5 SECTION "více podmínek" [444-472] -->
+<h3 class="sectionedit6" id="a">a</h3>
+<div class="level3">
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> id<span class="sy0">=</span><span class="st0">'1'</span>
+<span class="kw1">AND</span> skladem<span class="sy0">=</span><span class="st0">'ano'</span>;</pre>
+
+</div>
+<!-- EDIT6 SECTION "a" [473-558] -->
+<h3 class="sectionedit7" id="nebo">nebo</h3>
+<div class="level3">
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> skladem<span class="sy0">=</span><span class="st0">'ano'</span>
+<span class="kw1">OR</span> na_cestě<span class="sy0">=</span><span class="st0">'ano'</span>;</pre>
+
+</div>
+<!-- EDIT7 SECTION "nebo" [559-] -->

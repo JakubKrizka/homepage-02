@@ -1,0 +1,5 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:005:<span class="nu0">0</span><span class="sy0">&gt;</span> a = <span class="nu0">3.14159</span>
+=<span class="sy0">&gt;</span> <span class="nu0">3.14159</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:006:<span class="nu0">0</span><span class="sy0">&gt;</span> a.class
+=<span class="sy0">&gt;</span> Float
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:007:<span class="nu0">0</span><span class="sy0">&gt;</span>

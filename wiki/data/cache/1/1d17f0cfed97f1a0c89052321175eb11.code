@@ -1,0 +1,8 @@
+<span class="co0"># odebrání všech metadat a chapterdat</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-c</span> copy -map_metadata <span class="re5">-1</span> -map_chapters <span class="re5">-1</span> output.file
+&nbsp;
+<span class="co0"># zadání nových metadata</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;název&quot;</span> -metadata:s:a:<span class="nu0">0</span> <span class="re2">language</span>=jazyk <span class="re5">-codec</span> copy output.file
+&nbsp;
+<span class="co0"># mobile 360p</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">0</span> <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">2</span> -c:v libvpx -b:v 360k <span class="re5">-vf</span> <span class="re2">scale</span>=<span class="st0">&quot;-1:360&quot;</span> -c:a libvorbis -b:a 128k <span class="re5">-ac</span> <span class="nu0">1</span> <span class="re5">-af</span> <span class="re2">volume</span>=<span class="st0">&quot;2.5&quot;</span> <span class="re5">-cpu-used</span> <span class="nu0">16</span> <span class="re5">-threads</span> <span class="nu0">2</span> <span class="re5">-deadline</span> good <span class="re5">-f</span> webm output.file

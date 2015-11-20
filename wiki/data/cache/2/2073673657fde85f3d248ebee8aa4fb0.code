@@ -1,0 +1,5 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:017:<span class="nu0">0</span><span class="sy0">&gt;</span> pozdrav.downcase<span class="sy0">!</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;ahoj, svete!&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:018:<span class="nu0">0</span><span class="sy0">&gt;</span> pozdrav
+=<span class="sy0">&gt;</span> <span class="st0">&quot;ahoj, svete!&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:019:<span class="nu0">0</span><span class="sy0">&gt;</span>

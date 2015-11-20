@@ -1,0 +1,13 @@
+====== vložení ======
+
+vložení všech hodnot postupně do sloupců
+<code sql>
+INSERT INTO tabulka
+VALUES ('hodnota1','hodnota2', 'hodnota3', ...);
+</code>
+
+vložení třeba jen určité hodnoty
+<code sql>
+INSERT INTO tabulka ('sloupec2','sloupec4','sloupec5',...)
+VALUES ('hodnota2','hodnota4', 'hodnota5', ...);
+</code>

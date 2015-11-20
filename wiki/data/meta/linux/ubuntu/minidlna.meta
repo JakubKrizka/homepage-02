@@ -1,0 +1,10 @@
+a:2:{s:7:"current";a:8:{s:4:"date";a:2:{s:7:"created";i:1421539730;s:8:"modified";i:1428746812;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";b:0;s:5:"title";s:8:"miniDLNA";s:11:"description";a:2:{s:15:"tableofcontents";a:5:{i:0;a:4:{s:3:"hid";s:8:"minidlna";s:5:"title";s:8:"miniDLNA";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:9:"instalace";s:5:"title";s:9:"Instalace";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:11:"konfigurace";s:5:"title";s:11:"Konfigurace";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:11:"mozne_chyby";s:5:"title";s:13:"Možné chyby";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:56:"parsing_error_file_etc_minidlnaconf_line_62user_minidlna";s:5:"title";s:61:"parsing error file /etc/minidlna.conf line 62 : user=minidlna";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:273:"miniDLNA
+
+lightweight DLNA/UPnP-AV server
+
+
+# minidlnad [-f config_file] [-d] [-v] [-u user] [-a ip_address]
+            [-i interface] [-p port] [-s serial] [-m model_number]
+            [-t notify_interval] [-P pid_filename] [-w url] [-S] [-L] [-R]
+
+# minidlnad [-h | -V]";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:4:{s:4:"date";a:1:{s:7:"created";i:1421539730;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";b:0;}}

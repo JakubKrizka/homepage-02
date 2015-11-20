@@ -1,0 +1,12 @@
+<note tip>byl to jen nápad ale tak uvidíme</note>
+
+----
+
+<code bash>
+# instalace
+# python... ok když to říká i amazon... dejte mi 3 týdny :-/ 
+
+
+</code>
+
+ --- //2015/03/06 11:47 [[email@jakubkrizka.cz|Jakub Křižka]] //

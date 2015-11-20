@@ -1,0 +1,11 @@
+a:2:{s:7:"current";a:8:{s:4:"date";a:2:{s:7:"created";i:1434104456;s:8:"modified";i:1434104456;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";a:7:{s:4:"date";i:1434104456;s:2:"ip";s:14:"37.188.131.241";s:4:"type";s:1:"C";s:2:"id";s:13:"windows_putty";s:4:"user";s:11:"jakubkrizka";s:3:"sum";s:10:"vytvořeno";s:5:"extra";s:0:"";}s:5:"title";s:5:"Putty";s:11:"description";a:2:{s:15:"tableofcontents";a:7:{i:0;a:4:{s:3:"hid";s:5:"putty";s:5:"title";s:5:"Putty";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:17:"prvotni_pripojeni";s:5:"title";s:20:"Prvotní připojení";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:10:"public_key";s:5:"title";s:10:"Public Key";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:9:"nastaveni";s:5:"title";s:10:"Nastavení";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:5:"pisma";s:5:"title";s:6:"Písma";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:6:"pozadi";s:5:"title";s:7:"Pozadí";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:6;a:4:{s:3:"hid";s:8:"logovani";s:5:"title";s:10:"Logování";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:291:"Putty
+
+Ano i já začínal prvně začínal na Windows m( a přes Windows terminál (pokud se to dá nazvat terminál) se mi podařilo jen ipconfig ale máme tady <http://www.putty.org/> (portable i install)
+
+----------
+
+Prvotní připojení
+
+
+
+	*  Host Name & Port - adresa kam se připojit";}s:8:"relation";a:3:{s:5:"media";a:6:{s:14:"windows:01.png";b:1;s:14:"windows:02.png";b:1;s:14:"windows:03.png";b:1;s:14:"windows:04.png";b:1;s:14:"windows:06.png";b:1;s:14:"windows:07.png";b:1;}s:10:"references";a:1:{s:16:"linux:ubuntu:ssh";b:1;}s:10:"firstimage";s:14:"windows:01.png";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:4:{s:4:"date";a:1:{s:7:"created";i:1434104456;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";a:7:{s:4:"date";i:1434104456;s:2:"ip";s:14:"37.188.131.241";s:4:"type";s:1:"C";s:2:"id";s:13:"windows_putty";s:4:"user";s:11:"jakubkrizka";s:3:"sum";s:10:"vytvořeno";s:5:"extra";s:0:"";}}}

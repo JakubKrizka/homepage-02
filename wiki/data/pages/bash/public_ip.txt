@@ -1,0 +1,22 @@
+====== public_ip ======
+
+
+----
+
+<code bash>
+# banchmark speed test
+wget https://raw.githubusercontent.com/rsp/scripts/master/externalip-benchmark
+chmod a+x externalip-benchmark
+./externalip-benchmark
+
+# secure solution
+curl -s https://4.ifcfg.me/
+# nebo klasik 
+curl -s icanhazip.com
+# nebo 
+curl -s http://ifconfig.me
+# nebo
+curl -s http://whatismijnip.nl |cut -d " " -f 5
+# nebo
+dig +short myip.opendns.com @resolver1.opendns.com
+</code>

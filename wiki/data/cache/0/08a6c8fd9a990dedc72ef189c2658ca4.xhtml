@@ -1,0 +1,31 @@
+
+<h1 class="sectionedit1" id="ntp">ntp</h1>
+<div class="level1">
+
+<p>
+Network Time Protocol (NTP) daemon
+</p>
+<pre class="code">ntpd [ -46aAbdDgLmnNqx ] [ -c conffile ] [ -f driftfile ] [ -i jaildir ] [ -I iface ] [ -k keyfile] [ -l logfile ] [ -p pidfile ] [ -P priority ] [ -r broadcastdelay ] [ -s statsdir] [ -t key ] [ -u user[:group] ] [ -U interface_update_interval ] [ -v variable] [ -V variable ]</pre>
+
+<p>
+<a href="http://linux.die.net/man/8/ntpd" class="urlextern" title="http://linux.die.net/man/8/ntpd"  rel="nofollow">(man ntpd)</a>
+</p>
+<hr />
+<pre class="code bash"><span class="co0"># instalace</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> ntp
+&nbsp;
+<span class="co0"># zastavení procesu</span>
+$ <span class="kw2">sudo</span> service ntp stop
+&nbsp;
+<span class="co0"># synchronizace </span>
+$ <span class="kw2">sudo</span> ntpd <span class="re5">-gq</span>
+ntpd: <span class="kw1">time</span> <span class="kw1">set</span> +28.282913s
+&nbsp;
+<span class="co0"># spuštění procesu</span>
+$ <span class="kw2">sudo</span> service ntp start
+&nbsp;
+<span class="co0"># kontrola</span>
+$ <span class="kw2">date</span>
+Pá led <span class="nu0">9</span> 03:<span class="nu0">29</span>:<span class="nu0">51</span> CET <span class="nu0">2015</span></pre>
+
+</div>

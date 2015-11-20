@@ -1,0 +1,10 @@
+<span class="co0">#&lt;h1&gt;&lt;%= #insert zombie name here %&gt;&lt;/h1&gt;</span>
+<span class="co0">#</span>
+<span class="co0">#&lt;p&gt;</span>
+<span class="co0">#  &lt;%= # insert zombie graveyard here %&gt;</span>
+<span class="co0">#&lt;/p&gt;</span>
+<span class="co0">#&lt;h1&gt;&lt;%= #insert zombie name here %&gt;&lt;/h1&gt;</span>
+<span class="co0">#</span>
+<span class="co0">#&lt;p&gt;</span>
+<span class="co0">#  &lt;%= # insert zombie graveyard here %&gt;</span>
+<span class="co0">#&lt;/p&gt;==== Nadpis 3. úrovně ====</span>

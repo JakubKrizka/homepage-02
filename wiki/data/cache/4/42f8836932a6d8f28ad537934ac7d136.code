@@ -1,0 +1,94 @@
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- set language --&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;!-- refresh page for test javascript --&gt;
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;5&quot;&gt;
+    &lt;!-- no robots here --&gt;
+    &lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+    &lt;!-- import normalize css sheet --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/normalize.css&quot;&gt;
+    &lt;!-- title of the page --&gt;
+    &lt;title&gt;Please enable javascript&lt;/title&gt;
+    &lt;style&gt;
+      body {
+        text-align: center;
+        font-weight: bold;
+      }
+      h1, .red {
+        color: red;
+      }
+      h2 {
+        font-style: italic;
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        margin-top: 15px;
+      }
+      #back {
+        font-size: 27px;
+        font-weight: bold;
+        text-decoration: none;
+        color: green;
+      }
+    &lt;/style&gt;
+    &lt;!-- test javascript, if ok redirect back --&gt;
+    &lt;script type='text/javascript'&gt;
+      window.location.replace(&quot;/&quot;);
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;You have disabled javascript in your browser&lt;br&gt;please enable it for continue. &lt;a href=&quot;https://www.google.cz/search?q=enable+javascript+in+browser&quot; target=&quot;_blank&quot;&gt;(How?)&lt;/a&gt;&lt;/h1&gt;
+    &lt;hr&gt;
+      <span class="kw2">&lt;?php</span>
+        <span class="kw1">echo</span> <span class="st0">&quot;&lt;i&gt;&quot;</span><span class="sy0">.</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot;&lt;/i&gt;&quot;</span><span class="sy0">;</span>
+      <span class="sy1">?&gt;</span>
+    &lt;hr&gt;
+    &lt;!-- define user browser and show link to set javascript of this browser --&gt;
+    <span class="kw2">&lt;?php</span>
+      <span class="re0">$a_link</span><span class="sy0">=</span><span class="st0">&quot;0&quot;</span><span class="sy0">;</span>
+      <span class="co1">// chrome</span>
+      <span class="kw1">if</span> <span class="br0">&#40;</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'Chrome'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="co1">// new opera</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'OPR'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+          <span class="re0">$a_link</span><span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">;</span>
+          <span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;https://www.google.cz/search?q=how+to+enable+javascript+in+opera&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/img/browsers/opera.png&quot; width=&quot;150px&quot; alt=&quot;Opera&quot;&gt;'</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span>
+          <span class="re0">$a_link</span><span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">;</span>
+          <span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;https://www.google.cz/search?q=how+to+enable+javascript+in+chrome&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/img/browsers/chrome.png&quot; width=&quot;150px&quot; alt=&quot;Chrome&quot;&gt;'</span><span class="sy0">;</span>  
+        <span class="br0">&#125;</span>
+      <span class="br0">&#125;</span>
+      <span class="co1">// firefox</span>
+      <span class="kw1">if</span> <span class="br0">&#40;</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'Firefox'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="re0">$a_link</span><span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">;</span>
+        <span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;https://www.google.cz/search?q=how+to+enable+javascript+in+firefox&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/img/browsers/firefox.png&quot; width=&quot;150px&quot; alt=&quot;Firefox (//people.mozilla.org/~faaborg/files/shiretoko/firefoxIcon/firefox-256-noshadow.png)&quot;&gt;'</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+      <span class="co1">// Mac OS</span>
+      <span class="kw1">if</span> <span class="br0">&#40;</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'Mac OS'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="re0">$a_link</span><span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">;</span>
+        <span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;https://www.google.cz/search?q=how+to+enable+javascript+in+safari&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/img/browsers/safari.png&quot; width=&quot;150px&quot; alt=&quot;Safari (//www.yourdailymac.net/wp-content/uploads/2011/11/Safari-Logo.png)&quot;&gt;'</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+      <span class="co1">// old opera</span>
+      <span class="kw1">if</span> <span class="br0">&#40;</span><a href="http://www.php.net/strpos"><span class="kw3">strpos</span></a><span class="br0">&#40;</span><span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st_h">'Opera'</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="re0">$a_link</span><span class="sy0">=</span><span class="st0">&quot;1&quot;</span><span class="sy0">;</span>
+        <span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;https://www.google.cz/search?q=how+to+enable+javascript+in+opera&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/img/browsers/opera.png&quot; width=&quot;150px&quot; alt=&quot;Opera&quot;&gt;'</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+      <span class="co1">// if anyone is detect</span>
+      <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$a_link</span> <span class="sy0">==</span> <span class="st0">&quot;1&quot;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="kw1">echo</span> <span class="st_h">'&lt;br&gt;
+              &lt;h2 class=&quot;red&quot;&gt;Click here, how to set up in your browser&lt;/h2&gt;
+              &lt;br&gt;
+              &lt;img src=&quot;/assets/img/icon.png&quot; alt=&quot;Click (http://www.logodazzle.com/img/layouts/v3/iconx1.png)&quot;&gt;&lt;/a&gt;'</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span> 
+      <span class="co1">// or if is not detect known browser, show this message</span>
+      <span class="kw1">else</span> <span class="br0">&#123;</span>
+        <span class="kw1">echo</span> <span class="st_h">'&lt;a href=&quot;https://www.google.cz/search?q=enable+javascript+in+browser&quot; target=&quot;_blank&quot;&gt;Click here to enable javascript&lt;/a&gt;'</span><span class="sy0">;</span>
+      <span class="br0">&#125;</span>
+    <span class="sy1">?&gt;</span>
+    &lt;hr&gt;
+    &lt;hr&gt;
+    &lt;a href=&quot;/&quot; id=&quot;back&quot;&gt;&lt;&lt; Back&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;

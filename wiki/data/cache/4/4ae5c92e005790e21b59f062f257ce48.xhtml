@@ -1,0 +1,15 @@
+<pre class="code bash">genpasswd<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	<span class="kw3">local</span> <span class="re2">l</span>=<span class="re4">$1</span>
+       	<span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$l</span>&quot;</span> == <span class="st0">&quot;&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="re2">l</span>=<span class="nu0">20</span>
+      	<span class="kw2">tr</span> <span class="re5">-dc</span> A-Za-z0-<span class="nu0">9</span>_ <span class="sy0">&lt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>urandom <span class="sy0">|</span> <span class="kw2">head</span> <span class="re5">-c</span> <span class="co1">${l}</span> <span class="sy0">|</span> <span class="kw2">xargs</span>
+<span class="br0">&#125;</span></pre>
+
+<p>
+Run it:
+</p>
+<pre class="code bash">genpasswd <span class="nu0">16</span></pre>
+
+<p>
+Output:
+</p>
+<pre class="code bash">uw8CnDVMwC6vOKgW</pre>

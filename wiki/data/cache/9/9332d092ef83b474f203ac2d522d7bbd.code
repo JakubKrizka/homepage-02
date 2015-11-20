@@ -1,0 +1,4 @@
+<span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> skladem<span class="sy0">=</span><span class="st0">'ano'</span>
+<span class="kw1">OR</span> na_cestě<span class="sy0">=</span><span class="st0">'ano'</span>;

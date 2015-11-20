@@ -1,0 +1,20 @@
+<span class="co0"># instalace</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="kw2">screen</span>
+&nbsp;
+<span class="co0"># spuštění screen</span>
+$ <span class="kw2">screen</span>
+&nbsp;
+<span class="co0"># nyní se pustil tzv. demon, který běží na pozadí, při přerušení kominikace stačí zadat:</span>
+$ <span class="kw2">screen</span> <span class="re5">-r</span>
+&nbsp;
+<span class="co0"># někdy je potřeba více screen oken, v otevřeném screen stiskneme</span>
+$ ctrl+a+c
+&nbsp;
+<span class="co0"># přepínání mezi screeny lze:</span>
+$ ctrl+a ctrl+a
+&nbsp;
+<span class="co0"># nebo pokud je více oken</span>
+$ ctrl+a+<span class="nu0">0</span>...<span class="nu0">9</span>
+&nbsp;
+<span class="co0"># zavření okna:</span>
+$ <span class="kw3">exit</span>

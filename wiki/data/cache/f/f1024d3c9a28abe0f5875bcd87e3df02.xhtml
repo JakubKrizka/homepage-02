@@ -1,0 +1,42 @@
+
+<h1 class="sectionedit1" id="btsync">btsync</h1>
+<div class="level1">
+
+<p>
+<a href="https://www.getsync.com/" class="urlextern" title="https://www.getsync.com/"  rel="nofollow">(bittorrent sync)
+</a>
+</p>
+
+<p>
+<a href="https://launchpad.net/~tuxpoldo/+archive/ubuntu/btsync" class="urlextern" title="https://launchpad.net/~tuxpoldo/+archive/ubuntu/btsync"  rel="nofollow">https://launchpad.net/~tuxpoldo/+archive/ubuntu/btsync</a>
+</p>
+
+<p>
+<em class="u">Návod je určený pro Linux Ubuntu 14.04 (32bit/64bit) pro ostatní <a href="https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty" class="urlextern" title="https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty"  rel="nofollow">zde</a></em>
+</p>
+
+<p>
+Nejprve upravíme soubor <strong>/etc/apt/sources.list</strong> na konec doplníme 2 řádky:
+</p>
+<pre class="code bash">deb http:<span class="sy0">//</span>ppa.launchpad.net<span class="sy0">/</span>tuxpoldo<span class="sy0">/</span>btsync<span class="sy0">/</span>ubuntu trusty main
+deb-src http:<span class="sy0">//</span>ppa.launchpad.net<span class="sy0">/</span>tuxpoldo<span class="sy0">/</span>btsync<span class="sy0">/</span>ubuntu trusty main </pre>
+
+<p>
+uložit a spustit příkaz:
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> add-apt-repository <span class="re5">-y</span> ppa:tuxpoldo<span class="sy0">/</span>btsync
+<span class="kw2">sudo</span> <span class="kw2">apt-get update</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="re5">-y</span> btsync</pre>
+<ul>
+<li class="level1"><div class="li"> při instalaci můžete nastavit prvotní konfigurační soubor, který je jinak umístěný <strong>/etc/btsync</strong></div>
+</li>
+<li class="level1"><div class="li"> webGUI naslouchá ze základu na localhost:8888 zde se nastaví zbytek…</div>
+</li>
+</ul>
+
+<p>
+<a href="http://www.yeasoft.com/site/projects:btsync-deb:btsync-server" class="urlextern" title="http://www.yeasoft.com/site/projects:btsync-deb:btsync-server"  rel="nofollow">http://www.yeasoft.com/site/projects:btsync-deb:btsync-server</a>
+<a href="http://forum.bittorrent.com/topic/18974-debian-and-ubuntu-server-unofficial-packages-for-bittorrent-sync/" class="urlextern" title="http://forum.bittorrent.com/topic/18974-debian-and-ubuntu-server-unofficial-packages-for-bittorrent-sync/"  rel="nofollow">http://forum.bittorrent.com/topic/18974-debian-and-ubuntu-server-unofficial-packages-for-bittorrent-sync/</a>
+</p>
+
+</div>

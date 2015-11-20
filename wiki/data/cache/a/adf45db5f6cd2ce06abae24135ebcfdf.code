@@ -1,0 +1,5 @@
+<span class="kw2">sudo</span> <span class="kw2">su</span>
+<span class="kw2">apt-get install</span> lm-sensors
+sensors-detect
+yes...yes....yes...yes...enter... <span class="kw2">yes</span>
+sensors

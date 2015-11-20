@@ -1,0 +1,18 @@
+
+<h1 class="sectionedit1" id="cron">cron</h1>
+<div class="level1">
+<hr />
+
+<p>
+<a href="http://code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800" class="urlextern" title="http://code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800"  rel="nofollow">http://code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800</a>
+</p>
+<pre class="code bash"><span class="co0"># edit</span>
+crontab <span class="re5">-e</span>
+<span class="co0"># výpis</span>
+crontab <span class="re5">-l</span>
+<span class="co0"># výmaz</span>
+crontab <span class="re5">-r</span>
+<span class="co0"># tvar příkazu který se spouští každé 3 minuty, to co soubor vypíše se zapíše do index.log a chyby do index.err</span>
+<span class="sy0">*/</span><span class="nu0">3</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> <span class="sy0">*</span> php <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>html<span class="sy0">/</span>index.php <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>html<span class="sy0">/</span>index.log <span class="nu0">2</span><span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>html<span class="sy0">/</span>index.err</pre>
+
+</div>

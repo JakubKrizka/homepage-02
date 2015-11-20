@@ -1,0 +1,118 @@
+@media screen and (orientation: landscape) {
+  nav {
+    float: right;
+    margin-right: 13px;
+  }
+  header {
+    height: 88px;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  header {
+    height: 77px;
+  }
+    nav {
+    text-align: center;
+  }
+}
+
+@media (min-width: 480px) { 
+    .row ul {
+        padding-left: 19px;
+    }
+    
+    #logo {
+        width: 99px;
+        float: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 9px;
+    }
+}
+
+@media (max-width: 480px) { 
+    #druhy {
+        margin-bottom: 0;
+    }
+    
+    #logo {
+        width: 99px;
+        position: static;
+        margin: 9px;
+    }
+    
+    .col-xxs {
+        display: block;
+        text-align: center;
+        float: none;
+        width: 100%;
+    }
+    
+    .row ul {
+        text-align: left;
+        padding-left: 21px;
+        font-size: 1.15em;
+    }
+     
+    h1 {
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom: 17px;
+    }
+    
+    h3 {
+        margin-top: 33px;
+        margin-bottom: 21px;
+        text-align: left;
+    }
+    
+    p {
+        font-size: 1.15em;
+    }
+    
+    #about hr {
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    
+    footer {
+        bottom: -200px;
+    }
+}
+@media (min-width: 480px) and (max-width: 992px) {
+    #prvni {
+        margin-top: 41px;
+    }
+    
+    #druhy {
+        margin-bottom: 33px;
+    }
+    
+    #treti {
+        clear:both;
+    }
+    
+    #about hr {
+        margin: 0 9px;
+        border: 1px solid gray;
+    }
+}
+
+@media (min-width: 992px) { 
+    #prvni {
+        margin-top: 41px;
+    }
+    
+    .row ul {
+        margin-top: 21px;
+    }
+    
+    #about hr {
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+    }
+}

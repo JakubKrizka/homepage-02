@@ -1,0 +1,29 @@
+====== shellinabox ======
+
+publish command line shell through AJAX interface
+
+<code>
+shellinaboxd
+
+[ -b | --background[=pidfile] ] [ -c | --cert=certdir ] [ --cert-fd=fd ] [ --css=filename ] [ --cgi[=portrange] ] [ -d | --debug ] [ -f | --static-file=url:file ] [ -g | --group=gid ] [ -h | --help ] [ --linkify=[none|normal|aggressive] ] [ --localhost-only ] [ --no-beep ] [ -n | --numeric ] [ --pidfile=pidfile ] [ -p | --port=port ] [ -s | --service=service ] [ -t | --disable-ssl ] [ --disable-ssl-menu ] [ -q | --quiet ] [ -u | --user=uid ] [ --user-css=styles ] [ -v | --verbose ] [ --version ]
+</code>
+
+[[http://linux.die.net/man/1/shellinaboxd|(man shellinabox)]]
+
+----
+
+Shell In A Box implements a web server that can export arbitrary command line tools to a web based terminal emulator. This emulator is accessible to any JavaScript and CSS enabled web browser and does not require any additional browser plugins.
+
+[[http://www.google.cz/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CCIQFjAA&url=http%3A%2F%2Fcode.google.com%2Fp%2Fshellinabox%2F&ei=-8ZcVPHYPObY7Abs8YD4Aw&usg=AFQjCNGT454I0C17B-rbZZdmII_Dguc1OQ&sig2=SlTVBO14netFeeglDw05ig&bvm=bv.79184187,d.ZGU&cad=rja|Home Page]]
+----
+
+<code bash>
+sudo apt-get install shellinabox
+</code>
+
+This command starts a web server at **http://localhost:4200** that allows users to login with their username and password and to get access to their login shell. 
+
+All client-server communications are encrypted, if SSL/TLS certificates have been installed. 
+More details are available in the manual page (man shellinabox). 
+
+Config file: **/etc/default/shellinabox**

@@ -1,0 +1,2 @@
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> postgresql postgresql-client
+<span class="kw2">sudo</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>postgresql start

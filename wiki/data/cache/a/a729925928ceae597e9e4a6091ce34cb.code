@@ -1,0 +1,51 @@
+processor	: <span class="nu0">0</span>
+vendor_id	: GenuineIntel
+cpu family	: <span class="nu0">6</span>
+model		: <span class="nu0">15</span>
+model name	: Intel<span class="br0">&#40;</span>R<span class="br0">&#41;</span> Xeon<span class="br0">&#40;</span>R<span class="br0">&#41;</span> CPU            <span class="nu0">3060</span>  <span class="sy0">@</span> 2.40GHz
+stepping	: <span class="nu0">6</span>
+microcode	: 0x44
+cpu MHz		: <span class="nu0">2399.903</span>
+cache <span class="kw2">size</span>	: <span class="nu0">4096</span> KB
+physical <span class="kw2">id</span>	: <span class="nu0">0</span>
+siblings	: <span class="nu0">2</span>
+core <span class="kw2">id</span>		: <span class="nu0">0</span>
+cpu cores	: <span class="nu0">2</span>
+apicid		: <span class="nu0">0</span>
+initial apicid	: <span class="nu0">0</span>
+fpu		: <span class="kw2">yes</span>
+fpu_exception	: <span class="kw2">yes</span>
+cpuid level	: <span class="nu0">10</span>
+wp		: <span class="kw2">yes</span>
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow
+bogomips	: <span class="nu0">4799.80</span>
+clflush <span class="kw2">size</span>	: <span class="nu0">64</span>
+cache_alignment	: <span class="nu0">64</span>
+address sizes	: <span class="nu0">36</span> bits physical, <span class="nu0">48</span> bits virtual
+power management:
+&nbsp;
+processor	: <span class="nu0">1</span>
+vendor_id	: GenuineIntel
+cpu family	: <span class="nu0">6</span>
+model		: <span class="nu0">15</span>
+model name	: Intel<span class="br0">&#40;</span>R<span class="br0">&#41;</span> Xeon<span class="br0">&#40;</span>R<span class="br0">&#41;</span> CPU            <span class="nu0">3060</span>  <span class="sy0">@</span> 2.40GHz
+stepping	: <span class="nu0">6</span>
+microcode	: 0x44
+cpu MHz		: <span class="nu0">2399.903</span>
+cache <span class="kw2">size</span>	: <span class="nu0">4096</span> KB
+physical <span class="kw2">id</span>	: <span class="nu0">0</span>
+siblings	: <span class="nu0">2</span>
+core <span class="kw2">id</span>		: <span class="nu0">1</span>
+cpu cores	: <span class="nu0">2</span>
+apicid		: <span class="nu0">1</span>
+initial apicid	: <span class="nu0">1</span>
+fpu		: <span class="kw2">yes</span>
+fpu_exception	: <span class="kw2">yes</span>
+cpuid level	: <span class="nu0">10</span>
+wp		: <span class="kw2">yes</span>
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx lm constant_tsc arch_perfmon pebs bts rep_good nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow
+bogomips	: <span class="nu0">4799.80</span>
+clflush <span class="kw2">size</span>	: <span class="nu0">64</span>
+cache_alignment	: <span class="nu0">64</span>
+address sizes	: <span class="nu0">36</span> bits physical, <span class="nu0">48</span> bits virtual
+power management:

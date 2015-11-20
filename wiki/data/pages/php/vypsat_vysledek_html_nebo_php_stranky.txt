@@ -1,0 +1,4 @@
+<code bash>
+$contents = file_get_contents('hostname');
+echo $contents;
+</code>

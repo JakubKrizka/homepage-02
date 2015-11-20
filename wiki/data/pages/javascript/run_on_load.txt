@@ -1,0 +1,12 @@
+<code javascript>
+window.onload = codeAddress;
+function codeAddress() {
+            alert('ok');
+        }
+   
+// a nebo s jquery
+
+$(document).ready ( function(){
+   alert('ok');
+});​ 
+</code>

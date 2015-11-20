@@ -1,0 +1,48 @@
+
+<h1 class="sectionedit1" id="info_about">info about</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "info about" [1-26] -->
+<h2 class="sectionedit2" id="cpu">CPU</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">cat</span> <span class="sy0">/</span>proc<span class="sy0">/</span>cpuinfo</pre>
+
+</div>
+<!-- EDIT2 SECTION "CPU" [27-82] -->
+<h2 class="sectionedit3" id="gpu">GPU</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">sudo</span> lshw <span class="re5">-C</span> display</pre>
+
+</div>
+<!-- EDIT3 SECTION "GPU" [83-141] -->
+<h2 class="sectionedit4" id="os">OS</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">uname</span> <span class="re5">-a</span></pre>
+
+</div>
+<!-- EDIT4 SECTION "OS" [142-187] -->
+<h2 class="sectionedit5" id="hdd_smart">HDD (smart)</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># instalace</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> smartmontools
+<span class="co0"># mapování /dev/sdX</span>
+<span class="kw2">sudo</span> <span class="kw2">fdisk</span> <span class="re5">-l</span>
+<span class="co0"># vypsat info</span>
+<span class="kw2">sudo</span> smartctl <span class="re5">--health</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdX
+<span class="co0"># vše</span>
+<span class="kw2">sudo</span> smartctl <span class="re5">--all</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdX</pre>
+<hr />
+
+</div>
+<!-- EDIT5 SECTION "HDD (smart)" [188-404] -->
+<h2 class="sectionedit6" id="testovane_hdd">Testované HDD</h2>
+<div class="level2">
+
+<p>
+<a href="http://jakubkrizka.cz/wiki/doku.php/linux:ubuntu:info_about:01-faster" class="wikilink1" title="linux:ubuntu:info_about:01-faster">Dell PowerEdge 860 Intel Xeon 3060 2.4GHZ DualCore</a>
+<a href="http://jakubkrizka.cz/wiki/doku.php/linux:ubuntu:200gb" class="wikilink1" title="linux:ubuntu:200gb">250GB</a>
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Testované HDD" [405-] -->

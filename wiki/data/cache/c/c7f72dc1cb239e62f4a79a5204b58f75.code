@@ -1,0 +1,8 @@
+<span class="co0"># výpis vypalovaček</span>
+$ <span class="kw2">wodim</span> <span class="re5">--devices</span>
+&nbsp;
+<span class="co0"># informace o vypalovačce</span>
+$ <span class="kw2">wodim</span> <span class="re5">-prcap</span> <span class="re2">dev</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>cdrom
+&nbsp;
+<span class="co0"># vypalování</span>
+$ <span class="kw2">wodim</span> <span class="re5">-eject</span> <span class="re5">-tao</span> <span class="re2">speed</span>=<span class="nu0">3</span> <span class="re2">dev</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>cdrom <span class="re5">-v</span> <span class="re5">-data</span> myiso.iso

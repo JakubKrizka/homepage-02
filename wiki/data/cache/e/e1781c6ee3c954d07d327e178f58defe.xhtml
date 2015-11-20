@@ -1,0 +1,148 @@
+
+<h1 class="sectionedit1" id="vsftpd">vsftpd</h1>
+<div class="level1">
+
+<p>
+Very Secure <abbr title="File Transfer Protocol">FTP</abbr> Daemon
+</p>
+<pre class="code">vsftpd [configuration file and / or options]</pre>
+
+<p>
+<a href="http://linux.die.net/man/8/vsftpd" class="urlextern" title="http://linux.die.net/man/8/vsftpd"  rel="nofollow">(man vsftpd)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "vsftpd" [1-165] -->
+<h1 class="sectionedit2" id="secure_tls">Secure TLS</h1>
+<div class="level1">
+
+<p>
+Zabezpečené připojení <abbr title="File Transfer Protocol">FTP</abbr> (<a href="https://help.ubuntu.com/lts/serverguide/ftp-server.html" class="urlextern" title="https://help.ubuntu.com/lts/serverguide/ftp-server.html"  rel="nofollow">více info o FTP přípojení</a>)
+<br/>
+
+<p><div class="noteclassic">Protokol TLS je založen na výměně záznamů. Každý záznam může být volitelně komprimován, může k němu být připojen autentizační kód (message authentication code, MAC) a může být zašifrován. Každému záznamu je přiřazen typ obsahu, který určuje protokol vyšší úrovně. (<a href="http://cs.wikipedia.org/wiki/Transport_Layer_Security" class="urlextern" title="http://cs.wikipedia.org/wiki/Transport_Layer_Security"  rel="nofollow">Wikipedia</a>)
+</div></p>
+</p>
+<pre class="code bash"><span class="co0"># přepnout na roota</span>
+$ <span class="kw2">sudo</span> <span class="kw2">su</span>
+&nbsp;
+<span class="co0"># vytvoření složky pro vsftpd</span>
+$ <span class="kw2">mkdir</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd
+&nbsp;
+<span class="co0"># vytvoření certifikátu</span>
+$ openssl req <span class="re5">-x509</span> <span class="re5">-nodes</span> <span class="re5">-days</span> <span class="nu0">3650</span> <span class="re5">-newkey</span> rsa:<span class="nu0">2048</span> <span class="re5">-keyout</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem <span class="re5">-out</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem
+&nbsp;
+<span class="co0"># vyplnění základních informací o majiteli certifikátu</span>
+&nbsp;
+<span class="co0"># bezpečnost pouze pro čtení</span>
+$ <span class="kw2">chmod</span> <span class="re5">-R</span> <span class="nu0">444</span> <span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd
+&nbsp;
+<span class="co0"># nastavení /etc/vsftpd.conf</span>
+&nbsp;
+<span class="re2">write_enable</span>=YES
+&nbsp;
+<span class="re2">ssl_enable</span>=YES
+<span class="re2">allow_anon_ssl</span>=NO
+<span class="re2">force_local_data_ssl</span>=YES
+<span class="re2">force_local_logins_ssl</span>=YES
+&nbsp;
+<span class="re2">ssl_tlsv1</span>=YES
+<span class="re2">ssl_sslv2</span>=NO
+<span class="re2">ssl_sslv3</span>=NO
+<span class="re2">rsa_cert_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem
+<span class="re2">rsa_private_key_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>vsftpd<span class="sy0">/</span>vsftpd.pem
+&nbsp;
+<span class="re2">port_enable</span>=YES
+<span class="re2">pasv_enable</span>=YES
+<span class="re2">pasv_max_port</span>=<span class="nu0">12100</span>
+<span class="re2">pasv_min_port</span>=<span class="nu0">12000</span>
+&nbsp;
+<span class="co0"># toto zajistí zabezpečené připojení přes TLS </span>
+<span class="co0"># nezapomenout na povolení firewallu pro port **21, 12000-12100** a restartovat ftp server</span>
+$ service vsftpd restart</pre>
+
+</div>
+<!-- EDIT2 SECTION "Secure TLS" [166-1574] -->
+<h2 class="sectionedit3" id="pripojeni_pres_filezillu">Připojení přes FileZillu:</h2>
+<div class="level2">
+
+<p>
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-01.png" class="media" title="linux:ubuntu:filezilla-01.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-01.png?w=666&amp;tok=3f3ed1" class="mediacenter" alt="" width="666" /></a>
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-02.png" class="media" title="linux:ubuntu:filezilla-02.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-02.png?w=666&amp;tok=38ab3a" class="mediacenter" alt="" width="666" /></a>
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-03.png" class="media" title="linux:ubuntu:filezilla-03.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-03.png?w=666&amp;tok=7931ed" class="mediacenter" alt="" width="666" /></a>
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-04.png" class="media" title="linux:ubuntu:filezilla-04.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:filezilla-04.png?w=666&amp;tok=f85461" class="mediacenter" alt="" width="666" /></a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Připojení přes FileZillu:" [1575-1820] -->
+<h1 class="sectionedit4" id="pasiv">pasiv</h1>
+<div class="level1">
+<pre class="code bash"><span class="co0"># /etc/vsftpd.conf</span>
+&nbsp;
+<span class="re2">port_enable</span>=YES
+<span class="re2">pasv_enable</span>=YES
+<span class="re2">pasv_max_port</span>=<span class="nu0">12100</span>
+<span class="re2">pasv_min_port</span>=<span class="nu0">12000</span>
+&nbsp;
+<span class="co0"># nezapomenout nastavit firewall !!!</span></pre>
+<hr />
+
+</div>
+<!-- EDIT4 SECTION "pasiv" [1821-1997] -->
+<h1 class="sectionedit5" id="chroot">chroot</h1>
+<div class="level1">
+
+<p>
+aneb uzamčení uživatele v home složce
+</p>
+
+<p>
+<strong>/etc/vsftpd.conf</strong>
+</p>
+<pre class="code bash"><span class="re2">chroot_local_user</span>=YES
+<span class="re2">allow_writeable_chroot</span>=YES</pre>
+<hr />
+
+</div>
+<!-- EDIT5 SECTION "chroot" [1998-2160] -->
+<h1 class="sectionedit6" id="errors">Errors</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT6 SECTION "Errors" [2161-2181] -->
+<h2 class="sectionedit7" id="error_500">error 500</h2>
+<div class="level2">
+
+<p>
+In vsftpd version 3 add this line in vsftpd.conf (/etc/vsftpd.conf or /etc/vsftpd/vsftpd.conf):
+</p>
+<pre class="code bash"><span class="re2">allow_writeable_chroot</span>=YES
+&nbsp;
+<span class="co0"># And restart service</span>
+$ service vsftpd restart</pre>
+
+<p>
+<a href="http://stackoverflow.com/questions/22420177/500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-login-faile" class="urlextern" title="http://stackoverflow.com/questions/22420177/500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-login-faile"  rel="nofollow">Nepomohlo?</a>
+</p>
+
+</div>
+<!-- EDIT7 SECTION "error 500" [2182-2534] -->
+<h2 class="sectionedit8" id="error_530">error 530</h2>
+<div class="level2">
+
+<p>
+/etc/vsftpd.conf
+</p>
+<pre class="code bash"><span class="re2">pam_service_name</span>=<span class="kw2">ftp</span>
+&nbsp;
+<span class="co0"># And restart service</span>
+$ service vsftpd restart</pre>
+
+<p>
+<a href="http://askubuntu.com/questions/413677/vsftpd-530-login-incorrect" class="urlextern" title="http://askubuntu.com/questions/413677/vsftpd-530-login-incorrect"  rel="nofollow">Nepomohlo?</a>
+</p>
+
+</div>
+<!-- EDIT8 SECTION "error 530" [2535-] -->

@@ -1,0 +1,102 @@
+
+<h1 class="sectionedit1" id="samba">samba</h1>
+<div class="level1">
+
+<p>
+Server to provide AD and SMB/CIFS services to clients
+</p>
+<pre class="code">samba [-D] [-i] [-M &lt;model&gt;] [--maximum-runtime=&lt;seconds&gt;] [-b]
+        [--help] [--usage] [-d &lt;debug level&gt;] [--debug-stderr]
+        [-s &lt;configuration file&gt;] [--option=&lt;smb_conf_param&gt;=&lt;value&gt;]
+        [-l &lt;log directory&gt;] [--leak-report] [--leak-report-full] [-V]</pre>
+
+<p>
+<a href="http://linux.die.net/man/7/samba" class="urlextern" title="http://linux.die.net/man/7/samba"  rel="nofollow">(man samba)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "samba" [1-415] -->
+<h2 class="sectionedit2" id="firewall">firewall</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># seznam použitých portů</span>
+$ <span class="kw2">sudo</span> <span class="kw2">netstat</span> <span class="re5">-tulpn</span> <span class="sy0">|</span> <span class="kw2">egrep</span> <span class="st0">&quot;samba|smbd|nmbd|winbind&quot;</span> 
+&nbsp;
+tcp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">139</span>             0.0.0.0:<span class="sy0">*</span>               LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+tcp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">445</span>             0.0.0.0:<span class="sy0">*</span>               LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+tcp6       <span class="nu0">0</span>      <span class="nu0">0</span> :::<span class="nu0">139</span>                  :::<span class="sy0">*</span>                    LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+tcp6       <span class="nu0">0</span>      <span class="nu0">0</span> :::<span class="nu0">445</span>                  :::<span class="sy0">*</span>                    LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.255:<span class="nu0">137</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.111:<span class="nu0">137</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">137</span>             0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.255:<span class="nu0">138</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.111:<span class="nu0">138</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">138</span>             0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd</pre>
+
+<p>
+hlavní porty pro komunikaci: <strong>139</strong> &amp; <strong>445</strong>
+</p>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "firewall" [416-1504] -->
+<h2 class="sectionedit3" id="nastaveni_tiskarny">nastavení tiskárny</h2>
+<div class="level2">
+<pre class="code bash">$ <span class="kw2">sudo</span> <span class="kw2">su</span>
+$ <span class="kw2">apt-get install</span> cups samba</pre>
+<ul>
+<li class="level1"><div class="li"> <strong>/etc/cups/cupsd.conf</strong></div>
+</li>
+</ul>
+<pre class="code bash"><span class="co0"># ze základu cups naslouchá pouze na localhost:631</span>
+http:<span class="sy0">//</span>localhost:<span class="nu0">631</span>
+&nbsp;
+<span class="co0"># pokud bude stránka vyžadovat přihlášení, jedná se o udaje uživatele Linuxu</span></pre>
+
+<p>
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek1.png" class="media" title="linux:ubuntu:snimek1.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek1.png?w=333&amp;tok=37021f" class="mediacenter" alt="" width="333" /></a>
+<br/>
+
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek2.png" class="media" title="linux:ubuntu:snimek2.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek2.png?w=333&amp;tok=716652" class="mediacenter" alt="" width="333" /></a>
+<br/>
+
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek3.png" class="media" title="linux:ubuntu:snimek3.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek3.png?w=333&amp;tok=4d6e27" class="mediacenter" alt="" width="333" /></a>
+<br/>
+
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek4.png" class="media" title="linux:ubuntu:snimek4.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek4.png?w=333&amp;tok=755a88" class="mediacenter" alt="" width="333" /></a>
+<br/>
+
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek5.png" class="media" title="linux:ubuntu:snimek5.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek5.png?w=333&amp;tok=d3fa26" class="mediacenter" alt="" width="333" /></a>
+<br/>
+
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek6.png" class="media" title="linux:ubuntu:snimek6.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek6.png?w=333&amp;tok=b3a57c" class="mediacenter" alt="" width="333" /></a>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT3 SECTION "nastavení tiskárny" [1505-2092] -->
+<h2 class="sectionedit4" id="nastaveni_samba_serveru">nastavení samba serveru</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> <strong>/etc/samba/smb.conf</strong></div>
+</li>
+</ul>
+<pre class="code bash"><span class="br0">&#91;</span>samba<span class="br0">&#93;</span>
+path = <span class="sy0">/</span>home<span class="sy0">/</span>user
+available = <span class="kw2">yes</span>
+valid <span class="kw2">users</span> = user
+<span class="kw2">read</span> only = no
+browseable = <span class="kw2">yes</span>
+public = no
+writable = <span class="kw2">yes</span></pre>
+<pre class="code bash"><span class="co0"># přidání uživatele</span>
+$ smbpasswd <span class="re5">-a</span> user</pre>
+
+<p>
+<a href="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek7.png" class="media" title="linux:ubuntu:snimek7.png"><img src="http://old.jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:snimek7.png?w=333&amp;tok=de5dd3" class="mediacenter" alt="" width="333" /></a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT4 SECTION "nastavení samba serveru" [2093-] -->

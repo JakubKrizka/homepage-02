@@ -1,0 +1,4 @@
+https://code.google.com/p/chromium/issues/detail?id=394478 \\
+https://productforums.google.com/forum/#!topic/chrome/TtjaQx7wyog \\
+
+disable hardware acceleration  from Chrome's settings by unchecking Use hardware acceleration? (Menu> Settings> Show Advanced Settings > System menu)

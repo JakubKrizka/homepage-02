@@ -1,0 +1,10 @@
+window.<span class="me1">onload</span> <span class="sy0">=</span> codeAddress<span class="sy0">;</span>
+<span class="kw1">function</span> codeAddress<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+            alert<span class="br0">&#40;</span><span class="st0">'ok'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+&nbsp;
+<span class="co1">// a nebo s jquery</span>
+&nbsp;
+$<span class="br0">&#40;</span>document<span class="br0">&#41;</span>.<span class="me1">ready</span> <span class="br0">&#40;</span> <span class="kw1">function</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+   alert<span class="br0">&#40;</span><span class="st0">'ok'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span><span class="br0">&#41;</span><span class="sy0">;</span>​ 

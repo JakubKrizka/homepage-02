@@ -1,0 +1,2 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:020:<span class="nu0">0</span><span class="sy0">&gt;</span> pelmel = <span class="br0">&#91;</span><span class="nu0">3</span>, <span class="st0">&quot;Ahoj&quot;</span>, -<span class="nu0">12.4</span><span class="br0">&#93;</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="nu0">3</span>, <span class="st0">&quot;Ahoj&quot;</span>, -<span class="nu0">12.4</span><span class="br0">&#93;</span>

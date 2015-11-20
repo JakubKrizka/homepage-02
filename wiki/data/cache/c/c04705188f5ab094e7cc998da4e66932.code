@@ -1,0 +1,4 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:043:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena.delete<span class="br0">&#40;</span><span class="st0">&quot;Jaromir&quot;</span><span class="br0">&#41;</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Jaromir&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:044:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Radek&quot;</span>, <span class="st0">&quot;Jiri&quot;</span>, nil, nil, nil, <span class="st0">&quot;Martin&quot;</span><span class="br0">&#93;</span>

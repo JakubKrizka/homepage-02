@@ -1,0 +1,9 @@
+<code bash>
+# instalace
+sudo npm install -g bower
+# spustit jako uživatel
+bower init
+# ok tak uvidíme
+bower install --save Polymer/polymer
+
+</code>

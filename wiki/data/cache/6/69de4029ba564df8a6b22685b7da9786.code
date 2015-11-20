@@ -1,0 +1,1 @@
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> inputfile <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;Movie Title&quot;</span> <span class="re5">-metadata</span> <span class="re2">year</span>=<span class="st0">&quot;2010&quot;</span> outputfile

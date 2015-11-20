@@ -1,0 +1,32 @@
+====== df ======
+
+report file system disk space usage
+
+<code>
+df [OPTION]... [FILE]...
+</code>
+
+[[http://linux.die.net/man/1/df|(man df)]]
+
+----
+
+<note>zobrazení využití disku v terminále</note>
+
+<code bash>
+$ df -h
+
+Souborový systém     Velikost Užito Volno Uži% Připojeno do
+/dev/sda1                228G  2,2G  214G   2% /
+none                     4,0K     0  4,0K   0% /sys/fs/cgroup
+udev                     954M   12K  954M   1% /dev
+tmpfs                    194M  1,5M  192M   1% /run
+none                     5,0M     0  5,0M   0% /run/lock
+none                     967M  4,0K  967M   1% /run/shm
+none                     100M     0  100M   0% /run/user
+/home/jakub/.Private     228G  2,2G  214G   2% /home/jakub
+/dev/sdb1                1,9T  1,8T   75G  96% /media/hdd_usb
+</code>
+
+Pro windows je k dispozici open-source GUI program [[http://windirstat.info/]] stejně tak je program i pro linux. 
+
+----

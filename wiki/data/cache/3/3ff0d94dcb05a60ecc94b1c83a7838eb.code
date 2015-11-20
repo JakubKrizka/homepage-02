@@ -1,0 +1,4 @@
+<span class="kw2">sudo</span> add-apt-repository ppa:nilarimogard<span class="sy0">/</span>webupd
+<span class="kw2">sudo</span> add-apt-repository ppa:thefanclub<span class="sy0">/</span>grive-tools
+<span class="kw2">sudo</span> <span class="kw2">apt-get update</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> grive-tools

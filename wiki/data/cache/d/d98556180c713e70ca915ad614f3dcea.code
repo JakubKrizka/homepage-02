@@ -1,0 +1,4 @@
+<span class="co0"># ze základu cups naslouchá pouze na localhost:631</span>
+http:<span class="sy0">//</span>localhost:<span class="nu0">631</span>
+&nbsp;
+<span class="co0"># pokud bude stránka vyžadovat přihlášení, jedná se o udaje uživatele Linuxu</span>

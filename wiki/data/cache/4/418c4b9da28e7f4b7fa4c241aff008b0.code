@@ -1,0 +1,4 @@
+<span class="co0"># instalace balíčku</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> putty-tools
+<span class="co0"># převod</span>
+$ puttygen private-key.file <span class="re5">-o</span> keyname.ppk

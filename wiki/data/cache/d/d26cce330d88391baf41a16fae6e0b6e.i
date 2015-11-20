@@ -1,0 +1,48 @@
+a:106:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:24:"ffmpeg - video converter";i:1;i:1;i:2;i:1;}i:2;i:1;}i:2;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:1;}i:2;i:1;}i:3;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:74:"
+# ffmpeg [[infile options][-i infile]]... {[outfile options] outfile}...
+";i:1;N;i:2;N;}i:2;i:46;}i:4;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:46;}i:5;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:62:"http://manpages.ubuntu.com/manpages/oneiric/man1/ffmpeg.1.html";i:1;s:12:"(man ffmpeg)";}i:2;i:129;}i:6;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:0:"";}i:2;i:208;}i:7;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:209;}i:8;a:3:{i:0;s:2:"hr";i:1;a:0:{}i:2;i:209;}i:9;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:216;}i:10;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:9:"Instalace";i:1;i:2;i:2;i:216;}i:2;i:216;}i:11;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:2;}i:2;i:216;}i:12;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:216;}i:13;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:74:"Je to složité popisovat, proč není program ffmpeg k dizpozici pomocí ";}i:2;i:239;}i:14;a:3:{i:0;s:13:"emphasis_open";i:1;a:0:{}i:2;i:313;}i:15;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:22:"apt-get install ffmpeg";}i:2;i:315;}i:16;a:3:{i:0;s:14:"emphasis_close";i:1;a:0:{}i:2;i:337;}i:17;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:76:". Pokud Vás to přece jen zajímá, stačí googlit nebo je to i na jejich ";}i:2;i:339;}i:18;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:22:"https://www.ffmpeg.org";i:1;s:26:"officiílních strínkách";}i:2;i:415;}i:19;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:82:". Je to tedy potřeba instovat poněkud složitěji ale výsledek stojí za to ;).";}i:2;i:468;}i:20;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:550;}i:21;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:550;}i:22;a:3:{i:0;s:14:"underline_open";i:1;a:0:{}i:2;i:553;}i:23;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:69:"Návod je určený pro Linux Ubuntu 14.04 (32bit/64bit) pro ostatní ";}i:2;i:555;}i:24;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:88:"https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty";i:1;s:3:"zde";}i:2;i:624;}i:25;a:3:{i:0;s:15:"underline_close";i:1;a:0:{}i:2;i:720;}i:26;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:722;}i:27;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:722;}i:28;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:25:"Nejprve upravíme soubor ";}i:2;i:724;}i:29;a:3:{i:0;s:11:"strong_open";i:1;a:0:{}i:2;i:749;}i:30;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:21:"/etc/apt/sources.list";}i:2;i:751;}i:31;a:3:{i:0;s:12:"strong_close";i:1;a:0:{}i:2;i:772;}i:32;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:30:" na konec doplníme 2 řádky:";}i:2;i:774;}i:33;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:804;}i:34;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:143:"
+deb http://ppa.launchpad.net/mc3man/trusty-media/ubuntu trusty main 
+deb-src http://ppa.launchpad.net/mc3man/trusty-media/ubuntu trusty main 
+";i:1;s:4:"bash";i:2;N;}i:2;i:811;}i:35;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:811;}i:36;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:27:"uložit a spustit příkaz:";}i:2;i:969;}i:37;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:996;}i:38;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:108:"
+sudo add-apt-repository ppa:mc3man/trusty-media
+(enter)
+sudo apt-get update
+sudo apt-get install -y ffmpeg
+";i:1;s:4:"bash";i:2;N;}i:2;i:1003;}i:39;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1003;}i:40;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:34:"a nakonec kontrola, zda je vše ok";}i:2;i:1126;}i:41;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1160;}i:42;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:8:"
+ffmpeg
+";i:1;s:4:"bash";i:2;N;}i:2;i:1167;}i:43;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1167;}i:44;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:88:"pokud je vše jak má vypíše Vám seznam co je zapnuto co je vypnuto a závěrem toto:";}i:2;i:1190;}i:45;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1278;}i:46;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:182:"
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
+
+Use -h to get full help or, even better, run 'man ffmpeg'
+";i:1;s:4:"bash";i:2;N;}i:2;i:1285;}i:47;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1285;}i:48;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:46:"doporučuji si přečíst manulál příkazem ";}i:2;i:1482;}i:49;a:3:{i:0;s:13:"emphasis_open";i:1;a:0:{}i:2;i:1528;}i:50;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:10:"man ffmpeg";}i:2;i:1530;}i:51;a:3:{i:0;s:14:"emphasis_close";i:1;a:0:{}i:2;i:1540;}i:52;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:60:" je tam vše co potřebujete, případně můžete prolést ";}i:2;i:1542;}i:53;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:41:"https://www.ffmpeg.org/documentation.html";i:1;s:11:"dokumentaci";}i:2;i:1602;}i:54;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:29:" na oficiální stránkách. ";}i:2;i:1659;}i:55;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1689;}i:56;a:3:{i:0;s:2:"hr";i:1;a:0:{}i:2;i:1689;}i:57;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:1696;}i:58;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:9:"Použití";i:1;i:2;i:2;i:1696;}i:2;i:1696;}i:59;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:2;}i:2;i:1696;}i:60;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1696;}i:61;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:107:"První příkaz kterým by se mělo začít je příkaz na vložení (input) souboru a výpisu co obsahuje:";}i:2;i:1719;}i:62;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1826;}i:63;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:21:"
+ffmpeg -i input.mkv
+";i:1;s:4:"bash";i:2;N;}i:2;i:1833;}i:64;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1833;}i:65;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:264:"Krásně vypíše video, audio stopu i titulky a k nim přiřazený kód (0:0 nebo 0:1 případně 0:2 apod.). pomocí toho kódu se pak definuje, co chcete zanechat, co chcete zkopírovat nebo převést. Vypíše i použitý codec, bitrate, atd. Vypadá to takto:";}i:2;i:1869;}i:66;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:2133;}i:67;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:872:"
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'OUTPUT.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf54.63.104
+  Duration: 00:00:30.03, start: 0.000000, bitrate: 3929 kb/s
+    Chapter #0.0: start 0.000000, end 30.030000
+    
+    Metadata:
+      title           : 00:00:00.000
+    
+    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 1635 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc 
+    Metadata:
+      handler_name    : VideoHandler
+    
+    Stream #0:1(cze): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 768 kb/s   
+    Metadata:
+      handler_name    : SoundHandler
+    
+    Stream #0:2(eng): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 1536 kb/s
+    Metadata:
+      handler_name    : SoundHandler
+";i:1;s:4:"bash";i:2;N;}i:2;i:2140;}i:68;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:2140;}i:69;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:74:"dále pak jen zadáváte preference, co a do čeho převést atd. syntaxe:";}i:2;i:3027;}i:70;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:3101;}i:71;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:102:"
+ffmpeg [global_options] {[input_file_options] -i input_file} ... {[output_file_options] output_file}
+";i:1;N;i:2;N;}i:2;i:3108;}i:72;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:3108;}i:73;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:21:"příklady naleznete ";}i:2;i:3220;}i:74;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:59:"https://trac.ffmpeg.org/wiki/How%20to%20use%20-map%20option";i:1;s:3:"ZDE";}i:2;i:3241;}i:75;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:3:" a ";}i:2;i:3308;}i:76;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:28:"https://trac.ffmpeg.org/wiki";i:1;s:11:"wiki ffmpeg";}i:2;i:3311;}i:77;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:1:".";}i:2;i:3355;}i:78;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:3357;}i:79;a:3:{i:0;s:2:"hr";i:1;a:0:{}i:2;i:3357;}i:80;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:3365;}i:81;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:13:"Možné chyby";i:1;i:2;i:2;i:3365;}i:2;i:3365;}i:82;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:2;}i:2;i:3365;}i:83;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:3392;}i:84;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:43:"sudo: add-apt-repository: command not found";i:1;i:3;i:2;i:3392;}i:2;i:3392;}i:85;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:3;}i:2;i:3392;}i:86;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:3392;}i:87;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:28:"Při zadávání příkazu: ";}i:2;i:3447;}i:88;a:3:{i:0;s:13:"emphasis_open";i:1;a:0:{}i:2;i:3475;}i:89;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:50:"sudo add-apt-repository ppa:jon-severinsson/ffmpeg";}i:2;i:3477;}i:90;a:3:{i:0;s:14:"emphasis_close";i:1;a:0:{}i:2;i:3527;}i:91;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:97:" vypíše tuto hlášku? Je potřeba doinstalovat balík python-software-properties, příkazem: ";}i:2;i:3529;}i:92;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:3626;}i:93;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:52:"
+sudo apt-get install -y python-software-properties
+";i:1;s:4:"bash";i:2;N;}i:2;i:3633;}i:94;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:3633;}i:95;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:1:" ";}i:2;i:3701;}i:96;a:3:{i:0;s:6:"entity";i:1;a:1:{i:0;s:3:"---";}i:2;i:3702;}i:97;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:1:" ";}i:2;i:3705;}i:98;a:3:{i:0;s:13:"emphasis_open";i:1;a:0:{}i:2;i:3706;}i:99;a:3:{i:0;s:9:"emaillink";i:1;a:2:{i:0;s:20:"kubakrizka@gmail.com";i:1;s:14:"Jakub Křižka";}i:2;i:3708;}i:100;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:17:" 2014/08/24 13:59";}i:2;i:3747;}i:101;a:3:{i:0;s:14:"emphasis_close";i:1;a:0:{}i:2;i:3764;}i:102;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:0:"";}i:2;i:3766;}i:103;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:3766;}i:104;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:3766;}i:105;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:3766;}}

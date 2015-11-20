@@ -1,0 +1,3 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:022:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;PI = %0.3f<span class="es1">\n</span>&quot;</span>, <span class="nu0">3.14159</span>
+PI = <span class="nu0">3.142</span>
+=<span class="sy0">&gt;</span> nil

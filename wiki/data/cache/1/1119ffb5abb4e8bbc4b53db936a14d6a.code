@@ -1,0 +1,12 @@
+$ <span class="kw2">df</span> <span class="re5">-h</span>
+&nbsp;
+Souborový systém     Velikost Užito Volno Uži<span class="sy0">%</span> Připojeno <span class="kw1">do</span>
+<span class="sy0">/</span>dev<span class="sy0">/</span>sda1                228G  <span class="nu0">2</span>,2G  214G   <span class="nu0">2</span><span class="sy0">%</span> <span class="sy0">/</span>
+none                     <span class="nu0">4</span>,0K     <span class="nu0">0</span>  <span class="nu0">4</span>,0K   <span class="nu0">0</span><span class="sy0">%</span> <span class="sy0">/</span>sys<span class="sy0">/</span>fs<span class="sy0">/</span>cgroup
+udev                     954M   12K  954M   <span class="nu0">1</span><span class="sy0">%</span> <span class="sy0">/</span>dev
+tmpfs                    194M  <span class="nu0">1</span>,5M  192M   <span class="nu0">1</span><span class="sy0">%</span> <span class="sy0">/</span>run
+none                     <span class="nu0">5</span>,0M     <span class="nu0">0</span>  <span class="nu0">5</span>,0M   <span class="nu0">0</span><span class="sy0">%</span> <span class="sy0">/</span>run<span class="sy0">/</span>lock
+none                     967M  <span class="nu0">4</span>,0K  967M   <span class="nu0">1</span><span class="sy0">%</span> <span class="sy0">/</span>run<span class="sy0">/</span>shm
+none                     100M     <span class="nu0">0</span>  100M   <span class="nu0">0</span><span class="sy0">%</span> <span class="sy0">/</span>run<span class="sy0">/</span>user
+<span class="sy0">/</span>home<span class="sy0">/</span>jakub<span class="sy0">/</span>.Private     228G  <span class="nu0">2</span>,2G  214G   <span class="nu0">2</span><span class="sy0">%</span> <span class="sy0">/</span>home<span class="sy0">/</span>jakub
+<span class="sy0">/</span>dev<span class="sy0">/</span>sdb1                <span class="nu0">1</span>,9T  <span class="nu0">1</span>,8T   75G  <span class="nu0">96</span><span class="sy0">%</span> <span class="sy0">/</span>media<span class="sy0">/</span>hdd_usb

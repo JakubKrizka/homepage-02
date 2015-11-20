@@ -1,0 +1,28 @@
+
+<h1 class="sectionedit1" id="ruby_on_rails">Ruby On Rails</h1>
+<div class="level1">
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "Ruby On Rails" [1-35] -->
+<h2 class="sectionedit2" id="instalace">Instalace</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># přihlášené jako root</span>
+<span class="kw2">sudo</span> <span class="kw2">su</span>
+<span class="co0"># přidání rezitáře pro nodeJS</span>
+add-apt-repository <span class="re5">-y</span> ppa:chris-lea<span class="sy0">/</span>node.js
+<span class="co0"># update</span>
+<span class="kw2">apt-get update</span>
+<span class="co0"># instalace potřebných knihoven</span>
+<span class="kw2">apt-get install</span> git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties <span class="kw2">git</span> ruby rails irb nodejs
+<span class="co0"># instalace gemu rails</span>
+gem <span class="kw2">install</span> rails
+<span class="co0"># kontrola nainstalované verze</span>
+rails <span class="re5">-v</span>
+<span class="co0"># vytvoření aplikace</span>
+rails new myapp
+<span class="co0"># start server</span>
+rails server <span class="re5">-e</span> development <span class="re5">-p</span> <span class="nu0">3000</span> <span class="re5">-b</span> 0.0.0.0</pre>
+
+</div>
+<!-- EDIT2 SECTION "Instalace" [36-] -->

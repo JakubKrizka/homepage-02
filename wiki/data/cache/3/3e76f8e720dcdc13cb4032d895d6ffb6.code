@@ -1,0 +1,5 @@
+<span class="co0"># výpis screenů</span>
+$ <span class="kw2">screen</span> <span class="re5">-list</span>
+&nbsp;
+<span class="co0"># odpojení určitého screenu, př:</span>
+$ <span class="kw2">screen</span> <span class="re5">-D</span> <span class="nu0">1636</span>.pts-<span class="nu0">21</span>.hostname

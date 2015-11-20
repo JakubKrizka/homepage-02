@@ -1,0 +1,10 @@
+1422056299	84.42.226.13	C	linux:ubuntu:vsftpd	jakubkrizka	vytvořeno	
+1422056340	84.42.226.13	E	linux:ubuntu:vsftpd	jakubkrizka	[error 500] 	
+1422873874	95.80.217.226	E	linux:ubuntu:vsftpd	jakubkrizka	[error 500] 	
+1422878021	95.80.217.226	E	linux:ubuntu:vsftpd	jakubkrizka	[Errors] 	
+1423384217	37.188.139.233	E	linux:ubuntu:vsftpd	jakubkrizka		
+1423389570	37.188.139.233	E	linux:ubuntu:vsftpd	jakubkrizka	[pasiv] 	
+1423390598	37.188.139.233	E	linux:ubuntu:vsftpd	jakubkrizka	[Secure TLS FTP] 	
+1423390713	37.188.139.233	E	linux:ubuntu:vsftpd	jakubkrizka	[Secure TLS FTP] 	
+1423390758	37.188.139.233	E	linux:ubuntu:vsftpd	jakubkrizka	[Secure TLS FTP] 	
+1423390842	37.188.139.233	E	linux:ubuntu:vsftpd	jakubkrizka		

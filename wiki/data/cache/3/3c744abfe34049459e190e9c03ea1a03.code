@@ -1,0 +1,22 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:057:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.length  <span class="co0"># vrati pocet prvku</span>
+=<span class="sy0">&gt;</span> <span class="nu0">3</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:058:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.keys  <span class="co0"># vrati pole vsech klicu</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;jmeno&quot;</span>, <span class="st0">&quot;prijmeni&quot;</span>, <span class="st0">&quot;pohlavi&quot;</span><span class="br0">&#93;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:059:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.values  <span class="co0"># vrati pole vsech hodnot</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;Hradilek&quot;</span>, <span class="st0">&quot;muz&quot;</span><span class="br0">&#93;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:060:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.index<span class="br0">&#40;</span><span class="st0">&quot;Jaromir&quot;</span><span class="br0">&#41;</span>  <span class="co0"># vrati klic k dane hodnote</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;jmeno&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:061:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.invert  <span class="co0"># zameni klice s hodnotami</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#123;</span><span class="st0">&quot;Hradilek&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;prijmeni&quot;</span>, <span class="st0">&quot;Jaromir&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;jmeno&quot;</span>, <span class="st0">&quot;muz&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;pohlavi&quot;</span><span class="br0">&#125;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:062:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.has_key?<span class="br0">&#40;</span><span class="st0">&quot;prijmeni&quot;</span><span class="br0">&#41;</span> <span class="co0"># zjištění existujícího klíče</span>
+=<span class="sy0">&gt;</span> <span class="kw2">true</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:063:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.has_value?<span class="br0">&#40;</span><span class="st0">&quot;Pavel&quot;</span><span class="br0">&#41;</span> <span class="co0"># zjištění existující hodnoty</span>
+=<span class="sy0">&gt;</span> <span class="kw2">false</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:064:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.delete<span class="br0">&#40;</span><span class="st0">&quot;pohlavi&quot;</span><span class="br0">&#41;</span> <span class="co0"># odstranění hodnoty</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;muz&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:065:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje
+=<span class="sy0">&gt;</span> <span class="br0">&#123;</span><span class="st0">&quot;jmeno&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;prijmeni&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;Hradilek&quot;</span><span class="br0">&#125;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:066:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje.clear <span class="co0"># kompletní smazání</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:067:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje
+=<span class="sy0">&gt;</span> <span class="br0">&#123;</span><span class="br0">&#125;</span>

@@ -1,0 +1,3 @@
+<code html>
+https://api.qrserver.com/v1/create-qr-code/?size=333x333&bgcolor=000080&color=fff&format=svg&data=Example
+</code>

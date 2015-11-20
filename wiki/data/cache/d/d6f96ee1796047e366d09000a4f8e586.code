@@ -1,0 +1,4 @@
+<span class="re2">port_enable</span>=YES
+<span class="re2">pasv_enable</span>=YES
+<span class="re2">pasv_max_port</span>=<span class="nu0">12100</span>
+<span class="re2">pasv_min_port</span>=<span class="nu0">12000</span>

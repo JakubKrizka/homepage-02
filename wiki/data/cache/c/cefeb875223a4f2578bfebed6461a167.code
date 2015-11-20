@@ -1,0 +1,2 @@
+<span class="kw1">INSERT</span> <span class="kw1">INTO</span> tabulka
+<span class="kw1">VALUES</span> <span class="br0">&#40;</span><span class="st0">'hodnota1'</span><span class="sy0">,</span><span class="st0">'hodnota2'</span><span class="sy0">,</span> <span class="st0">'hodnota3'</span><span class="sy0">,</span> <span class="sy0">...</span><span class="br0">&#41;</span>;

@@ -1,0 +1,342 @@
+====== ffmpeg ======
+
+FFmpeg video converter
+
+<code>
+ffmpeg [[infile options][-i infile]]... {[outfile options] outfile}...
+</code>
+
+[[http://linux.die.net/man/1/ffmpeg|(man ffmpeg)]]
+
+----
+
+===== Instalace =====
+
+Je to složité popisovat, proč není program ffmpeg k dizpozici pomocí //apt-get install ffmpeg//. Pokud Vás to přece jen zajímá, stačí googlit nebo je to i na jejich [[https://www.ffmpeg.org|officiílních strínkách]]. Je to tedy potřeba instovat poněkud složitěji ale výsledek stojí za to ;).
+
+
+__Návod je určený pro Linux Ubuntu 14.04 (32bit/64bit) pro ostatní [[https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty|zde]]__
+
+Nejprve upravíme soubor **/etc/apt/sources.list** na konec doplníme 2 řádky:
+
+<code bash>
+deb http://ppa.launchpad.net/mc3man/trusty-media/ubuntu trusty main 
+deb-src http://ppa.launchpad.net/mc3man/trusty-media/ubuntu trusty main 
+</code>
+
+uložit a spustit příkaz:
+
+<code bash>
+sudo add-apt-repository ppa:mc3man/trusty-media
+(enter)
+sudo apt-get update
+sudo apt-get install -y ffmpeg
+</code>
+
+a nakonec kontrola, zda je vše ok
+
+<code bash>
+ffmpeg
+</code>
+
+pokud je vše jak má vypíše Vám seznam co je zapnuto co je vypnuto a závěrem toto:
+
+<code bash>
+Hyper fast Audio and Video encoder
+usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
+
+Use -h to get full help or, even better, run 'man ffmpeg'
+</code>
+
+doporučuji si přečíst manulál příkazem //man ffmpeg// je tam vše co potřebujete, případně můžete prolést [[https://www.ffmpeg.org/documentation.html|dokumentaci]] na oficiální stránkách. 
+
+----
+
+===== Použití =====
+
+První příkaz kterým by se mělo začít je příkaz na vložení (input) souboru a výpisu co obsahuje:
+
+<code bash>
+ffmpeg -i input.mkv
+</code>
+
+Krásně vypíše video, audio stopu i titulky a k nim přiřazený kód (0:0 nebo 0:1 případně 0:2 apod.). pomocí toho kódu se pak definuje, co chcete zanechat, co chcete zkopírovat nebo převést. Vypíše i použitý codec, bitrate, atd. Vypadá to takto:
+
+<code bash>
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'OUTPUT.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf54.63.104
+  Duration: 00:00:30.03, start: 0.000000, bitrate: 3929 kb/s
+    Chapter #0.0: start 0.000000, end 30.030000
+    
+    Metadata:
+      title           : 00:00:00.000
+    
+    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 1635 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc 
+    Metadata:
+      handler_name    : VideoHandler
+    
+    Stream #0:1(cze): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 768 kb/s   
+    Metadata:
+      handler_name    : SoundHandler
+    
+    Stream #0:2(eng): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 1536 kb/s
+    Metadata:
+      handler_name    : SoundHandler
+</code>
+
+dále pak jen zadáváte preference, co a do čeho převést atd. syntaxe:
+
+<code>
+ffmpeg [global_options] {[input_file_options] -i input_file} ... {[output_file_options] output_file}
+</code>
+
+příklady naleznete [[https://trac.ffmpeg.org/wiki/How%20to%20use%20-map%20option|ZDE]] a [[https://trac.ffmpeg.org/wiki|wiki ffmpeg]].
+
+----
+
+
+===== Možné chyby =====
+
+==== sudo: add-apt-repository: command not found ====
+
+Při zadávání příkazu: //sudo add-apt-repository ppa:jon-severinsson/ffmpeg// vypíše tuto hlášku? Je potřeba doinstalovat balík python-software-properties, příkazem: 
+
+<code bash>
+sudo apt-get install -y python-software-properties
+</code>
+
+
+----
+
+====== titulky - export ======
+
+  * http://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/subtitle_options
+  * ffmpeg -threads 2 -i xxx.mkv -vn -an -codec:s:0.2 webvtt xxxSubtitle.vtt
+  * ffmpeg -threads 2 -i xxx.mkv -vn -an -codec:s:0.2 srt xxxSubtitle.srt
+  * ffmpeg -sub_charenc ISO-8859-2 -i subtitle.srt subtitle.ass
+
+
+----
+
+====== metadata ======
+
+<code bash>
+# video
+ ffmpeg -i video.mkv -metadata title="Name" out.mkv
+
+# audio
+ffmpeg -i video.mkv -metadata:s:a:0 language=eng out.mkv
+
+# subtitle
+ffmpeg -i video.mkv -metadata:s:s:0 language=ces out.mkv
+
+</code>
+
+----
+===== praxe =====
+
+
+
+<code bash>
+# odebrání všech metadat a chapterdat
+ffmpeg -i input.file -c copy -map_metadata -1 -map_chapters -1 output.file
+
+# zadání nových metadata
+ffmpeg -i input.file -metadata title="název" -metadata:s:a:0 language=jazyk -codec copy output.file
+
+# mobile 360p
+ffmpeg -i input.file -map 0:0 -map 0:2 -c:v libvpx -b:v 360k -vf scale="-1:360" -c:a libvorbis -b:a 128k -ac 1 -af volume="2.5" -cpu-used 16 -threads 2 -deadline good -f webm output.file
+
+# good
+ffmpeg -i film.mkv -i sub.srt -metadata title="film" -metadata:s:a:0 language=eng -c:v libx264 -b:v 6000k -minrate 6000k -maxrate 6000k -bufsize 3835k -profile:v baseline -level 3.0 -movflags +faststart -vf scale=1024x768 -c:a libfdk_aac -b:a 384k -preset:v slow -af volume="1.3" -cpu-used 16 -threads 2 -c:s mov_text -metadata:s:s:0 language=ces -f mp4 out-final.mp4
+</code>
+----
+
+
+
+
+
+
+
+
+
+
+===== Basic Usage =====
+
+FFmpeg has a free-form command line option that allows the user to specify key/value pairs for encoding metadata. The option is -metadata and is used as such:
+
+<code bash>
+ffmpeg -i inputfile -metadata title="Movie Title" -metadata year="2010" outputfile
+</code>
+Whether the metadata key/value pairs are actually encoded into the output file is dependent upon the file format being muxed. Many formats only support a handful of metadata keys. This page documents which keys FFmpeg will encode into which formats.
+
+===== QuickTime/MOV/MP4/M4A/et al. =====
+
+----
+
+The following table shows the metadata keys that FFmpeg honors when muxing a QuickTime file. The low-level identifier column lists the atom name that the format uses to encode the data on disc, which is not interesting to most readers. For the interested but uninitiated, the notation, e.g., '\251nam' indicates a 4-byte code consisting of the byte A9 in hexadecimal (or 251 in octal) followed by the ASCII characters 'n', 'a', and 'm'.
+
+^ Key            ^ iTunes field   ^ Low-level identifier ^
+| "title"        | Name	          | '\251nam'            |
+| "author"       | Artist         | '\251ART'            |
+| "album_artist" | Album Artist   | 'aART'               |
+| "album"	 | Album	  | '\251alb'            |
+| "grouping"	 | Grouping	  | '\251grp'            |
+| "composer"	 | Composer	  | '\251wrt'            |
+| "year"	 | Year	          | '\251day'            |
+| "track"	 | Track Number	  | 'trkn'               |
+| "comment"      | Comments	  | '\251cmt'            |
+| "genre"	 | Genre	  | '\251gen'            |
+| "copyright" 	 | ??	          | '\251cpy'            |
+| "description"	 | Description	  | 'desc'               |
+| "synopsis"	 | Information dialog when selecting "Show Description" in context menu | 'ldes' |
+| "show"	 | Show	          | 'tvsh'               |
+| "episode_id"	 | Episode ID	  | 'tven'               | 
+| "network"	 | ??	          | 'tvnn'               |
+| "lyrics"	 | Lyrics	  | '\251lyr'            |
+
+Further, the MOV muxer encodes libavformat version string into the '\251too' field. FFmpeg does not allow this key to be overridden from the command line.
+
+===== ASF/WMV/WMA =====
+
+----
+
+FFmpeg’s ASF muxer honors the following metadata keys:
+
+“title”
+“author”
+“copyright”
+“comment”
+"rating"
+Beyond these keys, the ASF muxer accepts free-form key/value metadata keys to be encoded into the header. Further, libavformat encodes its version using the key "WM/EncodingSettings".
+
+===== AVI =====
+
+----
+
+FFmpeg’s AVI muxer honors the following metadata keys, writing them into FourCC chunks in the file header:
+
+"IARL"
+"IART", "artist"
+"ICMS"
+"ICMT", "comment"
+"ICOP", "copyright"
+"ICRD", "date"
+"ICRP"
+"IDIM"
+"IDPI"
+"IENG"
+"IGNR", "genre"
+"IKEY"
+"ILGT"
+"ILNG", "language"
+"IMED"
+"INAM", "title"
+"IPLT"
+"IPRD", "album"
+"IPRT", "track"
+"ISBJ"
+"ISFT", "encoder" - note that this is automatically filled in by libavformat
+"ISHP"
+"ISRC"
+"ISRF"
+"ITCH", "encoded_by"
+
+===== FLV =====
+
+----
+
+FFmpeg's FLV muxer generates an onMetaData tag when creating a FLV file. This tag may contain free-form metadata key/value pairs. These key/value pairs are presented to the Adobe Flash Player through the onMetaData event when loading the FLV.
+
+In addition to user-specified key/value metadata pairs, FFmpeg's FLV muxer also encodes the following metadata fields:
+
+'duration'
+'filesize'
+'encoder'
+if video is present in FLV:
+'width'
+'height'
+'videodatarate'
+'framerate'
+'videocodecid'
+if audio is present in FLV:
+'audiodatarate'
+'audiosamplerate'
+'audiosamplesize'
+'stereo'
+'audiocodecid'
+
+===== Matroska =====
+
+
+----
+
+FFmpeg's Matroska muxer honors the following metadata keys:
+
+“title”
+“description”
+“language”
+Beyond these keys, the Matroska muxer also accepts free-form key/value metadata pairs.
+
+===== MP3 =====
+
+----
+
+FFmpeg's mp3 muxer honors the following metadata keys:
+
+“title”
+“author”
+“album”
+“year”
+“comment”
+“track”
+“genre”
+
+===== MPEG Transport Streams =====
+
+----
+
+FFmpeg's transport stream muxer honors the following metadata keys:
+
+"title"
+"language"
+
+===== NUT =====
+
+
+----
+
+FFmpeg’s NUT muxer honors the following metadata keys:
+
+“title”
+“author”
+“copyright”
+
+===== Realmedia =====
+
+----
+
+FFmpeg’s Realmedia muxer encodes a “CONT” chunk by concatenating certain metadata values specified on the command line. These are the recognized metadata keys:
+
+“title”
+“author”
+“copyright”
+“comment”
+
+Example:
+<code bash>
+ ffmpeg -i track05.wav \
+   -metadata title="This is the title" \
+   -metadata author="Made by Me" \
+   -metadata copyright="Copyright 2009 Me"
+   -metadata comment="An exercise in Realmedia metadata" \
+   -y track05.rm
+</bash>
+
+<code bash>
+ffmpeg -i Fifty.mkv -c:v libx264 -b:v 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k -profile:v baseline -level 3.0 -movflags +faststart -vf scale=1024x768 -c:a libfdk_aac -b:a 384k -map 0:0 -map 0:1 -af volume=1.3 -f mp4 fifty.mp4
+</code>

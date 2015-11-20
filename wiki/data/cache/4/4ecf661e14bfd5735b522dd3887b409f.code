@@ -1,0 +1,5 @@
+<span class="co0"># pro zobrazení průbehu je potřeba mít nainstalovaný balíček pv (sudo apt-get install pv)</span>
+$ <span class="kw2">sudo</span> <span class="kw2">tar</span> cf - <span class="sy0">/</span>folder-with-big-files <span class="re5">-P</span> <span class="sy0">|</span> pv <span class="re5">-s</span> $<span class="br0">&#40;</span><span class="kw2">du</span> <span class="re5">-sb</span> <span class="sy0">/</span>folder-with-big-files <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{print $1}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">gzip</span> <span class="sy0">&gt;</span> big-files.tar.gz
+&nbsp;
+<span class="co0"># výsledek:</span>
+231MB <span class="nu0">0</span>:00:<span class="nu0">14</span> <span class="br0">&#91;</span><span class="nu0">15</span>,8MB<span class="sy0">/</span>s<span class="br0">&#93;</span> <span class="br0">&#91;</span>=============<span class="sy0">&gt;</span>               <span class="br0">&#93;</span> <span class="nu0">51</span><span class="sy0">%</span>

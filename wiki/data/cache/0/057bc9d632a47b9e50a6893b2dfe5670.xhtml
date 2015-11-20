@@ -1,0 +1,47 @@
+
+<h1 class="sectionedit1" id="image_color_palet">Image Color Palet</h1>
+<div class="level1">
+<hr />
+
+<p>
+Dlouho jsem to hledal a hledal a hledal. Až jsem našel :) Hlavní podmínkou bylo co: 
+</p>
+<ul>
+<li class="level1"><div class="li"> nejrychleji </div>
+</li>
+<li class="level1"><div class="li"> nejefektivněji</div>
+</li>
+<li class="level1"><div class="li"> nejsrozumitelněji</div>
+</li>
+<li class="level1"><div class="li"> pokud možno, tak aby to bylo v jazyku RUBY :)</div>
+</li>
+</ul>
+
+<p>
+…vypreparovat s fotky/obrázku dominantní barvy a podle jich přizpůsobit barvu textu/stránky atd…
+</p>
+
+<p>
+Základ je postaven na tzv. <a href="http://www.imagemagick.org/" class="urlextern" title="http://www.imagemagick.org/"  rel="nofollow">imagemagick</a> ten se dá nainstalovat v ubuntu: <strong>sudo apt-get imagemagick</strong>. Dále v ruby je potřeba doinstalovat gem: <a href="https://rubygems.org/gems/miro" class="urlextern" title="https://rubygems.org/gems/miro"  rel="nofollow">https://rubygems.org/gems/miro</a> pomocí příkazu: <strong>sudo gem install miro</strong>. 
+</p>
+<pre class="code ruby"><span class="kw3">require</span> <span class="st0">'miro'</span>
+<span class="co1"># Nastavení</span>
+Miro.<span class="me1">options</span><span class="br0">&#91;</span><span class="re3">:image_magick_path</span><span class="br0">&#93;</span> = <span class="st0">&quot;/usr/bin/convert&quot;</span>  <span class="co1">#cesta k programu imagemagick</span>
+Miro.<span class="me1">options</span><span class="br0">&#91;</span><span class="re3">:resolution</span><span class="br0">&#93;</span> = <span class="st0">&quot;100x100&quot;</span>
+Miro.<span class="me1">options</span><span class="br0">&#91;</span><span class="re3">:color_count</span><span class="br0">&#93;</span> = <span class="nu0">4</span>                         <span class="co1">#počet vzorků</span>
+&nbsp;
+<span class="co1"># Vygenerování barev</span>
+colors = <span class="re2">Miro::DominantColors</span>.<span class="me1">new</span><span class="br0">&#40;</span><span class="st0">'http://domain.com/path/to/image.jpg'</span><span class="br0">&#41;</span>
+&nbsp;
+<span class="co1"># Získání barev ve formátech:</span>
+<span class="co1"># Hex</span>
+colors.<span class="me1">to_hex</span> <span class="co1"># =&gt; [&quot;#51332a&quot;, &quot;#2c1d18&quot;, &quot;#6c4937&quot;, &quot;#65514a&quot;, &quot;#95644f&quot;, &quot;#e0e7dc&quot;, &quot;#a34d3a&quot;, &quot;#9fa16b&quot;]</span>
+<span class="co1"># RGB</span>
+colors.<span class="me1">to_rgb</span> <span class="co1"># =&gt; [[81, 51, 42], [44, 29, 24], [108, 73, 55], [101, 81, 74], [149, 100, 79], [224, 231, 220], [163, 77, 58], [159, 161, 107]]</span>
+<span class="co1"># RGB with Alpha channels</span>
+colors.<span class="me1">to_rgba</span> <span class="co1"># =&gt; [[82, 37, 40, 255], [48, 17, 19, 255], [109, 70, 71, 255], [221, 158, 48, 255], [168, 103, 48, 255], [226, 178, 79, 255], [191, 146, 65, 255], [199, 165, 150, 255]]</span>
+&nbsp;
+<span class="co1"># Procentuální podíl barev</span>
+colors.<span class="me1">by_percentage</span> <span class="co1"># =&gt; [0.50, 0.25, 0.15, 0.10]</span></pre>
+
+</div>

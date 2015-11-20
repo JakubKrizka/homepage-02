@@ -1,0 +1,2 @@
+$ curl <span class="re5">-sS</span> https:<span class="sy0">//</span>getcomposer.org<span class="sy0">/</span>installer <span class="sy0">|</span> php
+$ <span class="kw2">mv</span> composer.phar <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>bin<span class="sy0">/</span>composer

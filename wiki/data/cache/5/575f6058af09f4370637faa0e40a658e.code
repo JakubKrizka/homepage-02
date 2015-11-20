@@ -1,0 +1,1 @@
+<span class="kw2">tar</span> xvzf utorrent-server-<span class="nu0">3.0</span>-<span class="nu0">25053</span>.tar.gz <span class="re5">-C</span> <span class="sy0">/</span>opt<span class="sy0">/</span>

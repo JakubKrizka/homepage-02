@@ -1,0 +1,44 @@
+<pre class="code php"><span class="re0">$hash_pin</span> <span class="sy0">=</span> <a href="http://www.php.net/hash"><span class="kw3">hash</span></a><span class="br0">&#40;</span><span class="st0">&quot;sha512&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Some text to hash&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">echo</span> <span class="re0">$hash_pin</span><span class="sy0">;</span></pre>
+
+<p>
+místo sha512 lze použít:
+</p>
+<pre class="code php">md2           <span class="nu0">32</span> a9046c73e00331af68917d3804f70655                   
+md4           <span class="nu0">32</span> 866437cb7a794bce2b727acc0362ee27 
+<a href="http://www.php.net/md5"><span class="kw3">md5</span></a>           <span class="nu0">32</span> 5d41402abc4b2a76b9719d911017c592 
+<a href="http://www.php.net/sha1"><span class="kw3">sha1</span></a>          <span class="nu0">40</span> aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d 
+sha256        <span class="nu0">64</span> 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e730 
+sha384        <span class="nu0">96</span> 59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553 
+sha512       <span class="nu0">128</span> 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2d 
+ripemd128     <span class="nu0">32</span> 789d569f08ed7055e94b4289a4195012 
+ripemd160     <span class="nu0">40</span> 108f07b8382412612c048d07d13f814118445acd 
+ripemd256     <span class="nu0">64</span> cc1d2594aece0a064b7aed75a57283d9490fd5705ed3d66bf9a 
+ripemd320     <span class="nu0">80</span> eb0cf45114c56a8421fbcb33430fa22e0cd607560a88bbe14ce 
+whirlpool    <span class="nu0">128</span> 0a25f55d7308eca6b9567a7ed3bd1b46327f0f1ffdc804dd8bb 
+tiger128<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">32</span> a78862336f7ffd2c8a3874f89b1b74f2 
+tiger160<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">40</span> a78862336f7ffd2c8a3874f89b1b74f2f27bdbca 
+tiger192<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">48</span> a78862336f7ffd2c8a3874f89b1b74f2f27bdbca39660254 
+tiger128<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">32</span> 1c2a939f230ee5e828f5d0eae5947135 
+tiger160<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">40</span> 1c2a939f230ee5e828f5d0eae5947135741cd0ae 
+tiger192<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">48</span> 1c2a939f230ee5e828f5d0eae5947135741cd0aefeeb2adc 
+snefru        <span class="nu0">64</span> 7c5f22b1a92d9470efea37ec6ed00b2357a4ce3c41aa6e28e3b 
+gost          <span class="nu0">64</span> a7eb5d08ddf2363f1ea0317a803fcef81d33863c8b2f9f6d7d1 
+adler32        <span class="nu0">8</span> 062c0215 
+<a href="http://www.php.net/crc32"><span class="kw3">crc32</span></a>          <span class="nu0">8</span> 3d653119 
+crc32b         <span class="nu0">8</span> 3610a686 
+haval128<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">32</span> 85c3e4fac0ba4d85519978fdc3d1d9be 
+haval160<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">40</span> 0e53b29ad41cea507a343cdd8b62106864f6b3fe 
+haval192<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">48</span> bfaf81218bbb8ee51b600f5088c4b8601558ff56e2de1c4f 
+haval224<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">56</span> 92d0e3354be5d525616f217660e0f860b5d472a9cb99d6766be 
+haval256<span class="sy0">,</span><span class="nu0">3</span>    <span class="nu0">64</span> 26718e4fb05595cb8703a672a8ae91eea071cac5e7426173d4c 
+haval128<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">32</span> fe10754e0b31d69d4ece9c7a46e044e5 
+haval160<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">40</span> b9afd44b015f8afce44e4e02d8b908ed857afbd1 
+haval192<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">48</span> ae73833a09e84691d0214f360ee5027396f12599e3618118 
+haval224<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">56</span> e1ad67dc7a5901496b15dab92c2715de4b120af2baf661ecd92 
+haval256<span class="sy0">,</span><span class="nu0">4</span>    <span class="nu0">64</span> 2d39577df3a6a63168826b2a10f07a65a676f5776a0772e0a87 
+haval128<span class="sy0">,</span><span class="nu0">5</span>    <span class="nu0">32</span> d20e920d5be9d9d34855accb501d1987 
+haval160<span class="sy0">,</span><span class="nu0">5</span>    <span class="nu0">40</span> dac5e2024bfea142e53d1422b90c9ee2c8187cc6 
+haval192<span class="sy0">,</span><span class="nu0">5</span>    <span class="nu0">48</span> bbb99b1e989ec3174019b20792fd92dd67175c2ff6ce5965 
+haval224<span class="sy0">,</span><span class="nu0">5</span>    <span class="nu0">56</span> aa6551d75e33a9c5cd4141e9a068b1fc7b6d847f85c3ab16295 
+haval256<span class="sy0">,</span><span class="nu0">5</span>    <span class="nu0">64</span> 348298791817d5088a6de6c1b6364756d404a50bd64e645035f</pre>

@@ -1,0 +1,17 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:041:<span class="nu0">0</span><span class="sy0">&gt;</span> def pozdravuj
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:042:<span class="nu0">1</span><span class="sy0">&gt;</span>   <span class="re1">$pozdrav</span> = <span class="st_h">'Nazdarek!'</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:043:<span class="nu0">1</span><span class="sy0">&gt;</span>   puts <span class="re1">$pozdrav</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:044:<span class="nu0">1</span><span class="sy0">&gt;</span> end
+=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:045:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="re1">$pozdrav</span> = <span class="st_h">'Ahoj.'</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Ahoj.&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:046:<span class="nu0">0</span><span class="sy0">&gt;</span> puts <span class="re1">$pozdrav</span>
+Ahoj.
+=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:047:<span class="nu0">0</span><span class="sy0">&gt;</span> pozdravuj
+Nazdarek<span class="sy0">!</span>
+=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:048:<span class="nu0">0</span><span class="sy0">&gt;</span> puts <span class="re1">$pozdrav</span>
+Nazdarek<span class="sy0">!</span>
+=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:049:<span class="nu0">0</span><span class="sy0">&gt;</span>

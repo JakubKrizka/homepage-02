@@ -1,0 +1,30 @@
+====== ntp ======
+
+Network Time Protocol (NTP) daemon
+
+<code>
+ntpd [ -46aAbdDgLmnNqx ] [ -c conffile ] [ -f driftfile ] [ -i jaildir ] [ -I iface ] [ -k keyfile] [ -l logfile ] [ -p pidfile ] [ -P priority ] [ -r broadcastdelay ] [ -s statsdir] [ -t key ] [ -u user[:group] ] [ -U interface_update_interval ] [ -v variable] [ -V variable ]
+</code>
+
+[[http://linux.die.net/man/8/ntpd|(man ntpd)]]
+
+----
+
+<code bash>
+# instalace
+$ sudo apt-get install ntp
+
+# zastavení procesu
+$ sudo service ntp stop
+
+# synchronizace 
+$ sudo ntpd -gq
+ntpd: time set +28.282913s
+
+# spuštění procesu
+$ sudo service ntp start
+
+# kontrola
+$ date
+Pá led 9 03:29:51 CET 2015
+</code>

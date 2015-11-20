@@ -1,0 +1,5 @@
+<code bash>
+# reset nastavení
+rm -R /Users/***username***/Library/Preferences/WebIde90/
+
+</code>

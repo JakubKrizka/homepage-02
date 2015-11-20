@@ -1,0 +1,4 @@
+<span class="kw2">apt-get install</span> smartmontools
+smartctl <span class="re5">--scan</span>
+smartctl <span class="re5">-a</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdx
+smartctl <span class="re5">-a</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdx <span class="sy0">|</span> <span class="kw2">grep</span> Temperature_Celsius <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{print $4}'</span>

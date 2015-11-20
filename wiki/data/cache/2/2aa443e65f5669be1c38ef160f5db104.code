@@ -1,0 +1,10 @@
+<span class="sc2">&lt;<a href="http://december.com/html/4/element/html.html"><span class="kw2">html</span></a>&gt;</span>
+  <span class="sc2">&lt;<a href="http://december.com/html/4/element/head.html"><span class="kw2">head</span></a>&gt;</span>
+      <span class="sc2">&lt;<a href="http://december.com/html/4/element/noscript.html"><span class="kw2">noscript</span></a>&gt;</span>
+        <span class="sc2">&lt;<a href="http://december.com/html/4/element/meta.html"><span class="kw2">meta</span></a> <span class="kw3">http-equiv</span><span class="sy0">=</span><span class="st0">&quot;refresh&quot;</span> <span class="kw3">content</span><span class="sy0">=</span><span class="st0">&quot;0; url=noscript.php&quot;</span><span class="sy0">/</span>&gt;</span>
+      <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/noscript.html"><span class="kw2">noscript</span></a>&gt;</span>
+  <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/head.html"><span class="kw2">head</span></a>&gt;</span>
+  <span class="sc2">&lt;<a href="http://december.com/html/4/element/body.html"><span class="kw2">body</span></a>&gt;</span>
+    javascript zapnutý
+  <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/body.html"><span class="kw2">body</span></a>&gt;</span>
+<span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/html.html"><span class="kw2">html</span></a>&gt;</span>

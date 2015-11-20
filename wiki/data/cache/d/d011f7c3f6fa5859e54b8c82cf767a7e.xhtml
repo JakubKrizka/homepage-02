@@ -1,0 +1,88 @@
+
+<h1 class="sectionedit1" id="minidlna_-_lightweight_dlna_upnp-av_server">miniDLNA - lightweight DLNA/UPnP-AV server</h1>
+<div class="level1">
+<pre class="code"># minidlnad [-f config_file] [-d] [-v] [-u user] [-a ip_address]
+            [-i interface] [-p port] [-s serial] [-m model_number]
+            [-t notify_interval] [-P pid_filename] [-w url] [-S] [-L] [-R]
+
+# minidlnad [-h | -V]
+</pre>
+
+<p>
+<a href="http://manpages.ubuntu.com/manpages/precise/man1/minidlna.1.html" class="urlextern" title="http://manpages.ubuntu.com/manpages/precise/man1/minidlna.1.html"  rel="nofollow">(man minidlna)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "miniDLNA - lightweight DLNA/UPnP-AV server" [1-395] -->
+<h2 class="sectionedit2" id="instalace">Instalace</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">sudo</span> <span class="kw2">apt-get install</span> minidlna</pre>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Instalace" [396-475] -->
+<h2 class="sectionedit3" id="konfigurace">Konfigurace</h2>
+<div class="level2">
+
+<p>
+Hlavní konfigurační soubor se nachází: <strong>/etc/minidlna.conf</strong>
+na konec souboru vložte tyto řádky:
+</p>
+<pre class="code">user=minidlna
+media_dir=A,/var/minidlna/Hudba
+media_dir=P,/var/minidlna/Obrázky
+media_dir=V,/var/minidlna/Videa
+friendly_name=miniDLNA Server</pre>
+
+<p>
+Vysvětlení parametrů:
+</p>
+<ul>
+<li class="level1"><div class="li"> user - jméno uživatele kterému náleží práva sdílených souborů</div>
+</li>
+<li class="level1"><div class="li"> media_dir=A, - cesta ke složce s hudbou</div>
+</li>
+<li class="level1"><div class="li"> media_dir=P, - to samé s obzázky</div>
+</li>
+<li class="level1"><div class="li"> media_dir=V, - to samé s videem</div>
+</li>
+<li class="level1"><div class="li"> friendly_mane - název serveru DLNA</div>
+</li>
+</ul>
+
+<p>
+doporučuje se odkazovat do složky <strong>/var/minidlna/…</strong> do složky <strong>/home/…</strong> je to problémové a na dlouho ale když se budete snažit, něco vygooglíte ;) poté co přetáhnete sdílené soubory je potřeba jim nastavit vlastnictví uživatele definovaného v prvním řádku, příkazem:
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> <span class="kw2">chown</span> <span class="re5">-R</span> minidlna <span class="sy0">/</span>var<span class="sy0">/</span>minidlna</pre>
+
+<p>
+a poté aktualizovat sdílenou databázi příkazem:
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> service minidlna force-restart</pre>
+
+<p>
+pak už jen záleží na tom, jestli dané zařízení zvládne překousat formát ve kterým to máte :D to je taky pěkná sranda najít ideální formát. good luck :)
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Konfigurace" [476-1676] -->
+<h2 class="sectionedit4" id="mozne_chyby">Možné chyby</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "Možné chyby" [1677-1703] -->
+<h3 class="sectionedit5" id="parsing_error_file_etc_minidlnaconf_line_62user_minidlna">parsing error file /etc/minidlna.conf line 62 : user=minidlna</h3>
+<div class="level3">
+
+<p>
+vyřeší odebrání řádku s parametrem user=minidlna
+</p>
+
+<p>
+ — <em><a href="mailto:&#x6b;&#x75;&#x62;&#x61;&#x6b;&#x72;&#x69;&#x7a;&#x6b;&#x61;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;" class="mail" title="&#x6b;&#x75;&#x62;&#x61;&#x6b;&#x72;&#x69;&#x7a;&#x6b;&#x61;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">Jakub Křižka</a> 2014/09/03 23:41</em>
+</p>
+
+</div>
+<!-- EDIT5 SECTION "parsing error file /etc/minidlna.conf line 62 : user=minidlna" [1704-] -->

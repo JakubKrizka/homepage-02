@@ -1,0 +1,6 @@
+<span class="kw2">touch</span> README.md
+<span class="kw2">git init</span>
+<span class="kw2">git add</span> README.md
+<span class="kw2">git commit</span> <span class="re5">-m</span> <span class="st0">&quot;first commit&quot;</span>
+<span class="kw2">git remote</span> add <span class="st0">&quot;jméno&quot;</span> https:<span class="sy0">//</span>github.com<span class="sy0">/</span>kubakrizka<span class="sy0">/</span>xxx.git
+<span class="kw2">git push</span> <span class="re5">-u</span> <span class="st0">&quot;jméno&quot;</span> master

@@ -1,0 +1,103 @@
+<script type="text/javascript">
+(function() {
+    if (typeof window.janrain !== 'object') window.janrain = {};
+    if (typeof window.janrain.settings !== 'object') window.janrain.settings = {};
+    
+    janrain.settings.tokenUrl = 'http://jakubkrizka.cz';
+
+    function isReady() { janrain.ready = true; };
+    if (document.addEventListener) {
+      document.addEventListener("DOMContentLoaded", isReady, false);
+    } else {
+      window.attachEvent('onload', isReady);
+    }
+
+    var e = document.createElement('script');
+    e.type = 'text/javascript';
+    e.id = 'janrainAuthWidget';
+
+    if (document.location.protocol === 'https:') {
+      e.src = 'https://rpxnow.com/js/lib/jakubkrizka/engage.js';
+    } else {
+      e.src = 'http://widget-cdn.rpxnow.com/js/lib/jakubkrizka/engage.js';
+    }
+
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+})();
+</script>
+<div id="wrapper">
+    <section id="about">
+        <div class="container-fluid">
+            <div class="row">
+              <div id="prvni" class="col-xxs col-xs-5 col-md-2">
+                 <img id="avatar" class="img-circle" src="img/avatar.jpg">
+               </div>
+                <div id="druhy" class="col-xxs col-xs-7 col-md-4">
+                  <h1>O mě</h1>
+                  <p>
+                     Stěží v několika větách popsat můj životní příběh, portfolio nazvěte si to jakkoliv ale ve zkratce, jsem introvertní, neustále nespokojený s vývojem, produktem či projektem. Snažím se jít s dobou, najít ideální a snadné řešení pro obě strany. Baví mě se samo-vzdělávat, získat přesně takové informace, které hledám nebo potřebuji. 
+                  </p>
+                  <p>
+                     Školu mám střední telekomunikační sítě, sice s učivem 15 let prošlým ale s maturitou. Po škole (rok 2013) jsem začal pracovat v oblasti marketingu a ve svém volném čase se zabývat tím, co mě baví a zajímá: Programování webových stránek jak v PHP, tak v Ruby (on Rails), práce v linuxu (Debian, Ubuntu, Cent OS), responzivní design, nedávno jsem začal experimentovat s cloud řešením (Amazon AWS, Google Cloud), monitoring dat, Google Analytics, cílená nabídka apod.  
+                  </p>
+               </div>
+               <hr>
+               <!-- Add the extra clearfix for only the required viewport -->
+               <div class="clearfix visible-xs-block"></div>
+               <div id="treti" class="col-xxs col-xs-6 col-md-3">
+                  <h3>Učím se:</h3>
+               <ul>
+                  <li>
+                    <a href="https://teamtreehouse.com/">Team Tree House</a> - dosud nejlepší IT vyúková web aplikace, kterou jsem našel.
+                  </li>
+                  <li>
+                    <a href="http://c9.io/">c9.io</a> - <i>"Your development environment, in the cloud"</i> - lépe bych to nepopsal
+                  </li>
+                  <li>
+                     <a href="http://rubyonrails.cz/">Ruby (on Rails)</a> - webové aplikace nahned i s myšlenkou postupného upgradu.
+                  </li>
+                  <li>
+                    <a href="http://getbootstrap.com/">Bootstrap</a> - zjednodušení návrhu responzivního designu a mnoho další.
+                  </li>
+                  <li>
+                    <a href="https://jquery.com/">jQuery</a> - velmi mocná knihovna s bohatou komunitou i dokumentací + řešení UI
+                  </li>
+                  <li>
+                     <a href="http://www.google.com/analytics/">Google Analytics</a> - buďme upřímní, kdo je lepší ve sběru informací?
+                  </li>
+               </ul>
+                                   <ul>
+                        <li>
+                         Otevřený zdrojový kód (GNU & MIT).
+                        </li>
+                        <li>
+                         Respektování zajetých standardů.
+                        </li>
+                        <li>
+                         Rozumnou dokumentaci a komunitu.
+                        </li>
+                        <li>
+                         Řešení na míru daným požadavkům.
+                        </li>
+                        <li>
+                         Moderni technologie nové budoucnosti.
+                        </li>
+                    </ul>
+
+               </div>
+               <div id="ctvrty" class="col-xxs col-xs-6 col-md-3">
+            
+
+
+<div id="janrainEngageEmbed"></div>
+
+               </div>
+            </div>
+ <div id="paty" class="col-xxs col-xs-12 col-md-12">
+      <iframe src="http://snapwidget.com/sc/?u=amFrdWJrcml6a2F8aW58MTUwfDN8M3x8eWVzfDIwfGZhZGVJbnxvblN0YXJ0fHllc3xubw==&ve=240515" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:150px"></iframe>
+
+               </div>
+
+        </div>
+    </section>

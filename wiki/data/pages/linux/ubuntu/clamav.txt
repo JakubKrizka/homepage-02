@@ -1,0 +1,24 @@
+====== clamv ======
+
+scan files and directories for viruses
+
+<code>
+clamscan [options] [file/directory/-]
+</code>
+
+[[http://linux.die.net/man/1/clamscan|(man clamscan)]]
+
+----
+
+free open-source antivirus pro všechny operační systémy… jednoduchý, efektivní, bezpečný.
+
+<code bash>
+# instalace
+$ sudo apt-get install clamav
+ 
+# aktualizace virové databáze
+$ sudo freshclam
+ 
+# spuštění kontroly kořenu
+$ sudo clamscan -r /
+</code>

@@ -1,0 +1,4 @@
+<code bash>
+$ fdisk -l
+$ mount -t ntfs /dev/sdx /media/some/folder
+</code>

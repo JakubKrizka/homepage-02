@@ -1,0 +1,34 @@
+====== rsync ======
+
+a fast, versatile, remote (and local) file-copying tool
+
+<code>
+Local:  rsync [OPTION...] SRC... [DEST]
+Access via remote shell:
+  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]
+  Push: rsync [OPTION...] SRC... [USER@]HOST:DEST
+Access via rsync daemon:
+  Pull: rsync [OPTION...] [USER@]HOST::SRC... [DEST]
+        rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC... [DEST]
+  Push: rsync [OPTION...] SRC... [USER@]HOST::DEST
+        rsync [OPTION...] SRC... rsync://[USER@]HOST[:PORT]/DEST
+</code>
+
+[[http://linux.die.net/man/1/rsync|(man rsync)]]
+
+----
+
+===== rsync ssh tunelem =====
+
+[[http://linux.die.net/man/1/ssh|man ssh]] \\
+[[http://troy.jdmz.net/rsync/index.html|Původní článek]] \\
+[[https://calomel.org/rsync_tips.html|Doporučený odkaz 1]] \\
+[[http://www.tecmint.com/rsync-local-remote-file-synchronization-commands/|Doporučený odkaz 2]] \\
+
+Dlouho mi trvalo než jsem našel jednoduchý, efektivní a bezpečný příkaz pro kopírování, zálohu nebo archivaci složen na jiném serveru, ke klientovi a naopak. Jednodušší to být už nemůže:
+
+<code bash>
+$ sudo rsync -avzP -e ssh uzivatel@adresa.serveru:/od/tud/ /presne/sem
+</code>
+
+<note>pro jiný port než 22 je tu možnost: ** ... -e "ssh -p 123 -C -oCompressionLevel=9" ... ** + komperese a level ;) </note>

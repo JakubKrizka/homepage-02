@@ -1,0 +1,303 @@
+
+<h1 class="sectionedit1" id="ffmpeg_-_metadata">ffmpeg - metadata</h1>
+<div class="level1">
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "ffmpeg - metadata" [1-39] -->
+<h2 class="sectionedit2" id="praxe">praxe</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># odebrání všech metadat a chapterdat</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-c</span> copy -map_metadata <span class="re5">-1</span> -map_chapters <span class="re5">-1</span> output.file
+&nbsp;
+<span class="co0"># zadání nových metadata</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;název&quot;</span> -metadata:s:a:<span class="nu0">0</span> <span class="re2">language</span>=jazyk <span class="re5">-codec</span> copy output.file
+&nbsp;
+<span class="co0"># mobile 360p</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">0</span> <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">2</span> -c:v libvpx -b:v 360k <span class="re5">-vf</span> <span class="re2">scale</span>=<span class="st0">&quot;-1:360&quot;</span> -c:a libvorbis -b:a 128k <span class="re5">-ac</span> <span class="nu0">1</span> <span class="re5">-af</span> <span class="re2">volume</span>=<span class="st0">&quot;2.5&quot;</span> <span class="re5">-cpu-used</span> <span class="nu0">16</span> <span class="re5">-threads</span> <span class="nu0">2</span> <span class="re5">-deadline</span> good <span class="re5">-f</span> webm output.file</pre>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "praxe" [40-543] -->
+<h2 class="sectionedit3" id="basic_usage">Basic Usage</h2>
+<div class="level2">
+
+<p>
+FFmpeg has a free-form command line option that allows the user to specify key/value pairs for encoding metadata. The option is -metadata and is used as such:
+</p>
+<pre class="code bash"><span class="kw2">ffmpeg</span> <span class="re5">-i</span> inputfile <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;Movie Title&quot;</span> <span class="re5">-metadata</span> <span class="re2">year</span>=<span class="st0">&quot;2010&quot;</span> outputfile</pre>
+
+<p>
+Whether the metadata key/value pairs are actually encoded into the output file is dependent upon the file format being muxed. Many formats only support a handful of metadata keys. This page documents which keys FFmpeg will encode into which formats.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Basic Usage" [544-1082] -->
+<h2 class="sectionedit4" id="quicktime_mov_mp4_m4a_et_al">QuickTime/MOV/MP4/M4A/et al.</h2>
+<div class="level2">
+<hr />
+
+<p>
+The following table shows the metadata keys that FFmpeg honors when muxing a QuickTime file. The low-level identifier column lists the atom name that the format uses to encode the data on disc, which is not interesting to most readers. For the interested but uninitiated, the notation, e.g., &#039;\251nam&#039; indicates a 4-byte code consisting of the byte A9 in hexadecimal (or 251 in octal) followed by the <abbr title="American Standard Code for Information Interchange">ASCII</abbr> characters &#039;n&#039;, &#039;a&#039;, and &#039;m&#039;.
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Key            </th><th class="col1 leftalign"> iTunes field   </th><th class="col2"> Low-level identifier </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> „title“        </td><td class="col1 leftalign"> Name	          </td><td class="col2 leftalign"> &#039;\251nam&#039;            </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> „author“       </td><td class="col1 leftalign"> Artist         </td><td class="col2 leftalign"> &#039;\251ART&#039;            </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> „album_artist“ </td><td class="col1 leftalign"> Album Artist   </td><td class="col2 leftalign"> &#039;aART&#039;               </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> „album“	 </td><td class="col1 leftalign"> Album	  </td><td class="col2 leftalign"> &#039;\251alb&#039;            </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> „grouping“	 </td><td class="col1 leftalign"> Grouping	  </td><td class="col2 leftalign"> &#039;\251grp&#039;            </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> „composer“	 </td><td class="col1 leftalign"> Composer	  </td><td class="col2 leftalign"> &#039;\251wrt&#039;            </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> „year“	 </td><td class="col1 leftalign"> Year	          </td><td class="col2 leftalign"> &#039;\251day&#039;            </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> „track“	 </td><td class="col1 leftalign"> Track Number	  </td><td class="col2 leftalign"> &#039;trkn&#039;               </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> „comment“      </td><td class="col1 leftalign"> Comments	  </td><td class="col2 leftalign"> &#039;\251cmt&#039;            </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> „genre“	 </td><td class="col1 leftalign"> Genre	  </td><td class="col2 leftalign"> &#039;\251gen&#039;            </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> „copyright“ 	 </td><td class="col1 leftalign"> ??	          </td><td class="col2 leftalign"> &#039;\251cpy&#039;            </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> „description“	 </td><td class="col1 leftalign"> Description	  </td><td class="col2 leftalign"> &#039;desc&#039;               </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> „synopsis“	 </td><td class="col1"> Information dialog when selecting „Show Description“ in context menu </td><td class="col2"> &#039;ldes&#039; </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> „show“	 </td><td class="col1 leftalign"> Show	          </td><td class="col2 leftalign"> &#039;tvsh&#039;               </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> „episode_id“	 </td><td class="col1 leftalign"> Episode ID	  </td><td class="col2 leftalign"> &#039;tven&#039;               </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> „network“	 </td><td class="col1 leftalign"> ??	          </td><td class="col2 leftalign"> &#039;tvnn&#039;               </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> „lyrics“	 </td><td class="col1 leftalign"> Lyrics	  </td><td class="col2 leftalign"> &#039;\251lyr&#039;            </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1569-2580] -->
+<p>
+Further, the MOV muxer encodes libavformat version string into the &#039;\251too&#039; field. FFmpeg does not allow this key to be overridden from the command line.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "QuickTime/MOV/MP4/M4A/et al." [1083-2737] -->
+<h2 class="sectionedit6" id="asf_wmv_wma">ASF/WMV/WMA</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s ASF muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“copyright”
+“comment”
+„rating“
+Beyond these keys, the ASF muxer accepts free-form key/value metadata keys to be encoded into the header. Further, libavformat encodes its version using the key „WM/EncodingSettings“.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "ASF/WMV/WMA" [2738-3075] -->
+<h2 class="sectionedit7" id="avi">AVI</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s AVI muxer honors the following metadata keys, writing them into FourCC chunks in the file header:
+</p>
+
+<p>
+„IARL“
+„IART“, „artist“
+„ICMS“
+„ICMT“, „comment“
+„ICOP“, „copyright“
+„ICRD“, „date“
+„ICRP“
+„IDIM“
+„IDPI“
+„IENG“
+„IGNR“, „genre“
+„IKEY“
+„ILGT“
+„ILNG“, „language“
+„IMED“
+„INAM“, „title“
+„IPLT“
+„IPRD“, „album“
+„IPRT“, „track“
+„ISBJ“
+„ISFT“, „encoder“ - note that this is automatically filled in by libavformat
+„ISHP“
+„ISRC“
+„ISRF“
+„ITCH“, „encoded_by“
+</p>
+
+</div>
+<!-- EDIT7 SECTION "AVI" [3076-3558] -->
+<h2 class="sectionedit8" id="flv">FLV</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s FLV muxer generates an onMetaData tag when creating a FLV file. This tag may contain free-form metadata key/value pairs. These key/value pairs are presented to the Adobe Flash Player through the onMetaData event when loading the FLV.
+</p>
+
+<p>
+In addition to user-specified key/value metadata pairs, FFmpeg&#039;s FLV muxer also encodes the following metadata fields:
+</p>
+
+<p>
+&#039;duration&#039;
+&#039;filesize&#039;
+&#039;encoder&#039;
+if video is present in FLV:
+&#039;width&#039;
+&#039;height&#039;
+&#039;videodatarate&#039;
+&#039;framerate&#039;
+&#039;videocodecid&#039;
+if audio is present in FLV:
+&#039;audiodatarate&#039;
+&#039;audiosamplerate&#039;
+&#039;audiosamplesize&#039;
+&#039;stereo&#039;
+&#039;audiocodecid&#039;
+</p>
+
+</div>
+<!-- EDIT8 SECTION "FLV" [3559-4170] -->
+<h2 class="sectionedit9" id="matroska">Matroska</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s Matroska muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“description”
+“language”
+Beyond these keys, the Matroska muxer also accepts free-form key/value metadata pairs.
+</p>
+
+</div>
+<!-- EDIT9 SECTION "Matroska" [4171-4393] -->
+<h2 class="sectionedit10" id="mp3">MP3</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s mp3 muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“album”
+“year”
+“comment”
+“track”
+“genre”
+</p>
+
+</div>
+<!-- EDIT10 SECTION "MP3" [4394-4559] -->
+<h2 class="sectionedit11" id="mpeg_transport_streams">MPEG Transport Streams</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s transport stream muxer honors the following metadata keys:
+</p>
+
+<p>
+„title“
+„language“
+</p>
+
+</div>
+<!-- EDIT11 SECTION "MPEG Transport Streams" [4560-4690] -->
+<h2 class="sectionedit12" id="nut">NUT</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s NUT muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“copyright”
+</p>
+
+</div>
+<!-- EDIT12 SECTION "NUT" [4691-4814] -->
+<h2 class="sectionedit13" id="realmedia">Realmedia</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s Realmedia muxer encodes a “CONT” chunk by concatenating certain metadata values specified on the command line. These are the recognized metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“copyright”
+“comment”
+</p>
+
+<p>
+Example:
+&lt;code bash&gt;
+ ffmpeg -i track05.wav \
+</p>
+<ol>
+<li class="level1"><div class="li">metadata title=„This is the title“ \</div>
+</li>
+<li class="level1"><div class="li">metadata author=„Made by Me“ \</div>
+</li>
+<li class="level1"><div class="li">metadata copyright=„Copyright 2009 Me“</div>
+</li>
+<li class="level1"><div class="li">metadata comment=„An exercise in Realmedia metadata“ \</div>
+</li>
+<li class="level1"><div class="li">y track05.rm</div>
+</li>
+</ol>
+
+<p>
+&lt;/bash&gt;
+</p>
+
+</div>
+<!-- EDIT13 SECTION "Realmedia" [4815-] -->

@@ -1,0 +1,38 @@
+====== Image Color Palet ======
+
+
+----
+
+Dlouho jsem to hledal a hledal a hledal. Až jsem našel :) Hlavní podmínkou bylo co: 
+
+  * nejrychleji 
+  * nejefektivněji
+  * nejsrozumitelněji
+  * pokud možno, tak aby to bylo v jazyku RUBY :)
+...vypreparovat s fotky/obrázku dominantní barvy a podle jich přizpůsobit barvu textu/stránky atd...
+
+Základ je postaven na tzv. [[http://www.imagemagick.org/|imagemagick]] ten se dá nainstalovat v ubuntu: **sudo apt-get imagemagick**. Dále v ruby je potřeba doinstalovat gem: [[https://rubygems.org/gems/miro]] pomocí příkazu: **sudo gem install miro**. 
+
+
+
+<code ruby>
+require 'miro'
+# Nastavení
+Miro.options[:image_magick_path] = "/usr/bin/convert"  #cesta k programu imagemagick
+Miro.options[:resolution] = "100x100"
+Miro.options[:color_count] = 4                         #počet vzorků
+
+# Vygenerování barev
+colors = Miro::DominantColors.new('http://domain.com/path/to/image.jpg')
+
+# Získání barev ve formátech:
+# Hex
+colors.to_hex # => ["#51332a", "#2c1d18", "#6c4937", "#65514a", "#95644f", "#e0e7dc", "#a34d3a", "#9fa16b"]
+# RGB
+colors.to_rgb # => [[81, 51, 42], [44, 29, 24], [108, 73, 55], [101, 81, 74], [149, 100, 79], [224, 231, 220], [163, 77, 58], [159, 161, 107]]
+# RGB with Alpha channels
+colors.to_rgba # => [[82, 37, 40, 255], [48, 17, 19, 255], [109, 70, 71, 255], [221, 158, 48, 255], [168, 103, 48, 255], [226, 178, 79, 255], [191, 146, 65, 255], [199, 165, 150, 255]]
+
+# Procentuální podíl barev
+colors.by_percentage # => [0.50, 0.25, 0.15, 0.10]
+</code>

@@ -1,0 +1,8 @@
+<span class="br0">&#91;</span>samba<span class="br0">&#93;</span>
+path = <span class="sy0">/</span>home<span class="sy0">/</span>user
+available = <span class="kw2">yes</span>
+valid <span class="kw2">users</span> = user
+<span class="kw2">read</span> only = no
+browseable = <span class="kw2">yes</span>
+public = no
+writable = <span class="kw2">yes</span>

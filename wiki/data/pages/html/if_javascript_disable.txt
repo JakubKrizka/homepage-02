@@ -1,0 +1,36 @@
+**index.html**
+<code html>
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- otestuje javasctipt, pokud není ok přesměruje na stránku bez javascriptu -->
+      <noscript>
+        <meta http-equiv="refresh" content="0; url=noscript.html"/>
+      </noscript>
+  </head>
+  <body>
+    javascript zapnutý
+  </body>
+</html>
+</code>
+
+**noscript.html**
+
+<code html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- nastavení kódování -->
+    <meta charset="utf-8">
+    <!-- aktualizovat stránku po 5 vteřinách pro kontrolu javascriptu -->
+    <meta http-equiv="refresh" content="5">
+    <!-- otestuje javasctipt, pokud ok přesměruje na domovskou stránku -->
+    <script type='text/javascript'>
+      window.location.replace("/");
+    </script>
+  </head>
+  <body>
+    javascript vypnutý
+  </body>
+</html>
+</code>

@@ -1,0 +1,445 @@
+
+<h1 class="sectionedit1" id="ffmpeg">ffmpeg</h1>
+<div class="level1">
+
+<p>
+FFmpeg video converter
+</p>
+<pre class="code">ffmpeg [[infile options][-i infile]]... {[outfile options] outfile}...</pre>
+
+<p>
+<a href="http://linux.die.net/man/1/ffmpeg" class="urlextern" title="http://linux.die.net/man/1/ffmpeg"  rel="nofollow">(man ffmpeg)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "ffmpeg" [1-191] -->
+<h2 class="sectionedit2" id="instalace">Instalace</h2>
+<div class="level2">
+
+<p>
+Je to složité popisovat, proč není program ffmpeg k dizpozici pomocí <em>apt-get install ffmpeg</em>. Pokud Vás to přece jen zajímá, stačí googlit nebo je to i na jejich <a href="https://www.ffmpeg.org" class="urlextern" title="https://www.ffmpeg.org"  rel="nofollow">officiílních strínkách</a>. Je to tedy potřeba instovat poněkud složitěji ale výsledek stojí za to ;).
+</p>
+
+<p>
+<em class="u">Návod je určený pro Linux Ubuntu 14.04 (32bit/64bit) pro ostatní <a href="https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty" class="urlextern" title="https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty"  rel="nofollow">zde</a></em>
+</p>
+
+<p>
+Nejprve upravíme soubor <strong>/etc/apt/sources.list</strong> na konec doplníme 2 řádky:
+</p>
+<pre class="code bash">deb http:<span class="sy0">//</span>ppa.launchpad.net<span class="sy0">/</span>mc3man<span class="sy0">/</span>trusty-media<span class="sy0">/</span>ubuntu trusty main 
+deb-src http:<span class="sy0">//</span>ppa.launchpad.net<span class="sy0">/</span>mc3man<span class="sy0">/</span>trusty-media<span class="sy0">/</span>ubuntu trusty main </pre>
+
+<p>
+uložit a spustit příkaz:
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> add-apt-repository ppa:mc3man<span class="sy0">/</span>trusty-media
+<span class="br0">&#40;</span>enter<span class="br0">&#41;</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get update</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="re5">-y</span> <span class="kw2">ffmpeg</span></pre>
+
+<p>
+a nakonec kontrola, zda je vše ok
+</p>
+<pre class="code bash"><span class="kw2">ffmpeg</span></pre>
+
+<p>
+pokud je vše jak má vypíše Vám seznam co je zapnuto co je vypnuto a závěrem toto:
+</p>
+<pre class="code bash">Hyper fast Audio and Video encoder
+usage: <span class="kw2">ffmpeg</span> <span class="br0">&#91;</span>options<span class="br0">&#93;</span> <span class="br0">&#91;</span><span class="br0">&#91;</span>infile options<span class="br0">&#93;</span> <span class="re5">-i</span> infile<span class="br0">&#93;</span>... <span class="br0">&#123;</span><span class="br0">&#91;</span>outfile options<span class="br0">&#93;</span> outfile<span class="br0">&#125;</span>...
+&nbsp;
+Use <span class="re5">-h</span> to get full <span class="kw3">help</span> or, even better, run <span class="st_h">'man ffmpeg'</span></pre>
+
+<p>
+doporučuji si přečíst manulál příkazem <em>man ffmpeg</em> je tam vše co potřebujete, případně můžete prolést <a href="https://www.ffmpeg.org/documentation.html" class="urlextern" title="https://www.ffmpeg.org/documentation.html"  rel="nofollow">dokumentaci</a> na oficiální stránkách. 
+</p>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Instalace" [192-1671] -->
+<h2 class="sectionedit3" id="pouziti">Použití</h2>
+<div class="level2">
+
+<p>
+První příkaz kterým by se mělo začít je příkaz na vložení (input) souboru a výpisu co obsahuje:
+</p>
+<pre class="code bash"><span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.mkv</pre>
+
+<p>
+Krásně vypíše video, audio stopu i titulky a k nim přiřazený kód (0:0 nebo 0:1 případně 0:2 apod.). pomocí toho kódu se pak definuje, co chcete zanechat, co chcete zkopírovat nebo převést. Vypíše i použitý codec, bitrate, atd. Vypadá to takto:
+</p>
+<pre class="code bash">Input <span class="co0">#0, mov,mp4,m4a,3gp,3g2,mj2, from 'OUTPUT.mp4':</span>
+  Metadata:
+    major_brand     : isom
+    minor_version   : <span class="nu0">512</span>
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf54.63.104
+  Duration: 00:00:<span class="nu0">30.03</span>, start: <span class="nu0">0.000000</span>, bitrate: <span class="nu0">3929</span> kb<span class="sy0">/</span>s
+    Chapter <span class="co0">#0.0: start 0.000000, end 30.030000</span>
+&nbsp;
+    Metadata:
+      title           : 00:00:<span class="nu0">00.000</span>
+&nbsp;
+    Stream <span class="co0">#0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 1635 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc </span>
+    Metadata:
+      handler_name    : VideoHandler
+&nbsp;
+    Stream <span class="co0">#0:1(cze): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 768 kb/s   </span>
+    Metadata:
+      handler_name    : SoundHandler
+&nbsp;
+    Stream <span class="co0">#0:2(eng): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 1536 kb/s</span>
+    Metadata:
+      handler_name    : SoundHandler</pre>
+
+<p>
+dále pak jen zadáváte preference, co a do čeho převést atd. syntaxe:
+</p>
+<pre class="code">ffmpeg [global_options] {[input_file_options] -i input_file} ... {[output_file_options] output_file}</pre>
+
+<p>
+příklady naleznete <a href="https://trac.ffmpeg.org/wiki/How%20to%20use%20-map%20option" class="urlextern" title="https://trac.ffmpeg.org/wiki/How%20to%20use%20-map%20option"  rel="nofollow">ZDE</a> a <a href="https://trac.ffmpeg.org/wiki" class="urlextern" title="https://trac.ffmpeg.org/wiki"  rel="nofollow">wiki ffmpeg</a>.
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Použití" [1672-3340] -->
+<h2 class="sectionedit4" id="mozne_chyby">Možné chyby</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "Možné chyby" [3341-3367] -->
+<h3 class="sectionedit5" id="sudoadd-apt-repositorycommand_not_found">sudo: add-apt-repository: command not found</h3>
+<div class="level3">
+
+<p>
+Při zadávání příkazu: <em>sudo add-apt-repository ppa:jon-severinsson/ffmpeg</em> vypíše tuto hlášku? Je potřeba doinstalovat balík python-software-properties, příkazem: 
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="re5">-y</span> python-software-properties</pre>
+<hr />
+
+</div>
+<!-- EDIT5 SECTION "sudo: add-apt-repository: command not found" [3368-3682] -->
+<h1 class="sectionedit6" id="titulky_-_export">titulky - export</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> <a href="http://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/subtitle_options" class="urlextern" title="http://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/subtitle_options"  rel="nofollow">http://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/subtitle_options</a></div>
+</li>
+<li class="level1"><div class="li"> ffmpeg -threads 2 -i xxx.mkv -vn -an -codec:s:0.2 webvtt xxxSubtitle.vtt</div>
+</li>
+<li class="level1"><div class="li"> ffmpeg -threads 2 -i xxx.mkv -vn -an -codec:s:0.2 srt xxxSubtitle.srt</div>
+</li>
+<li class="level1"><div class="li"> ffmpeg -sub_charenc ISO-8859-2 -i subtitle.srt subtitle.ass</div>
+</li>
+</ul>
+<hr />
+
+</div>
+<!-- EDIT6 SECTION "titulky - export" [3683-4016] -->
+<h1 class="sectionedit7" id="metadata">metadata</h1>
+<div class="level1">
+<pre class="code bash"><span class="co0"># video</span>
+ <span class="kw2">ffmpeg</span> <span class="re5">-i</span> video.mkv <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;Name&quot;</span> out.mkv
+&nbsp;
+<span class="co0"># audio</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> video.mkv -metadata:s:a:<span class="nu0">0</span> <span class="re2">language</span>=eng out.mkv
+&nbsp;
+<span class="co0"># subtitle</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> video.mkv -metadata:s:s:<span class="nu0">0</span> <span class="re2">language</span>=ces out.mkv</pre>
+<hr />
+
+</div>
+<!-- EDIT7 SECTION "metadata" [4017-4262] -->
+<h2 class="sectionedit8" id="praxe">praxe</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># odebrání všech metadat a chapterdat</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-c</span> copy -map_metadata <span class="re5">-1</span> -map_chapters <span class="re5">-1</span> output.file
+&nbsp;
+<span class="co0"># zadání nových metadata</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;název&quot;</span> -metadata:s:a:<span class="nu0">0</span> <span class="re2">language</span>=jazyk <span class="re5">-codec</span> copy output.file
+&nbsp;
+<span class="co0"># mobile 360p</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> input.file <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">0</span> <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">2</span> -c:v libvpx -b:v 360k <span class="re5">-vf</span> <span class="re2">scale</span>=<span class="st0">&quot;-1:360&quot;</span> -c:a libvorbis -b:a 128k <span class="re5">-ac</span> <span class="nu0">1</span> <span class="re5">-af</span> <span class="re2">volume</span>=<span class="st0">&quot;2.5&quot;</span> <span class="re5">-cpu-used</span> <span class="nu0">16</span> <span class="re5">-threads</span> <span class="nu0">2</span> <span class="re5">-deadline</span> good <span class="re5">-f</span> webm output.file
+&nbsp;
+<span class="co0"># good</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> film.mkv <span class="re5">-i</span> sub.srt <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;film&quot;</span> -metadata:s:a:<span class="nu0">0</span> <span class="re2">language</span>=eng -c:v libx264 -b:v 6000k <span class="re5">-minrate</span> 6000k <span class="re5">-maxrate</span> 6000k <span class="re5">-bufsize</span> 3835k -profile:v baseline <span class="re5">-level</span> <span class="nu0">3.0</span> <span class="re5">-movflags</span> +faststart <span class="re5">-vf</span> <span class="re2">scale</span>=1024x768 -c:a libfdk_aac -b:a 384k -preset:v slow <span class="re5">-af</span> <span class="re2">volume</span>=<span class="st0">&quot;1.3&quot;</span> <span class="re5">-cpu-used</span> <span class="nu0">16</span> <span class="re5">-threads</span> <span class="nu0">2</span> -c:s mov_text -metadata:s:s:<span class="nu0">0</span> <span class="re2">language</span>=ces <span class="re5">-f</span> mp4 out-final.mp4</pre>
+<hr />
+
+</div>
+<!-- EDIT8 SECTION "praxe" [4263-5142] -->
+<h2 class="sectionedit9" id="basic_usage">Basic Usage</h2>
+<div class="level2">
+
+<p>
+FFmpeg has a free-form command line option that allows the user to specify key/value pairs for encoding metadata. The option is -metadata and is used as such:
+</p>
+<pre class="code bash"><span class="kw2">ffmpeg</span> <span class="re5">-i</span> inputfile <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;Movie Title&quot;</span> <span class="re5">-metadata</span> <span class="re2">year</span>=<span class="st0">&quot;2010&quot;</span> outputfile</pre>
+
+<p>
+Whether the metadata key/value pairs are actually encoded into the output file is dependent upon the file format being muxed. Many formats only support a handful of metadata keys. This page documents which keys FFmpeg will encode into which formats.
+</p>
+
+</div>
+<!-- EDIT9 SECTION "Basic Usage" [5143-5681] -->
+<h2 class="sectionedit10" id="quicktime_mov_mp4_m4a_et_al">QuickTime/MOV/MP4/M4A/et al.</h2>
+<div class="level2">
+<hr />
+
+<p>
+The following table shows the metadata keys that FFmpeg honors when muxing a QuickTime file. The low-level identifier column lists the atom name that the format uses to encode the data on disc, which is not interesting to most readers. For the interested but uninitiated, the notation, e.g., &#039;\251nam&#039; indicates a 4-byte code consisting of the byte A9 in hexadecimal (or 251 in octal) followed by the <abbr title="American Standard Code for Information Interchange">ASCII</abbr> characters &#039;n&#039;, &#039;a&#039;, and &#039;m&#039;.
+</p>
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Key            </th><th class="col1 leftalign"> iTunes field   </th><th class="col2"> Low-level identifier </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> „title“        </td><td class="col1 leftalign"> Name	          </td><td class="col2 leftalign"> &#039;\251nam&#039;            </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> „author“       </td><td class="col1 leftalign"> Artist         </td><td class="col2 leftalign"> &#039;\251ART&#039;            </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> „album_artist“ </td><td class="col1 leftalign"> Album Artist   </td><td class="col2 leftalign"> &#039;aART&#039;               </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> „album“	 </td><td class="col1 leftalign"> Album	  </td><td class="col2 leftalign"> &#039;\251alb&#039;            </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> „grouping“	 </td><td class="col1 leftalign"> Grouping	  </td><td class="col2 leftalign"> &#039;\251grp&#039;            </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> „composer“	 </td><td class="col1 leftalign"> Composer	  </td><td class="col2 leftalign"> &#039;\251wrt&#039;            </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> „year“	 </td><td class="col1 leftalign"> Year	          </td><td class="col2 leftalign"> &#039;\251day&#039;            </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> „track“	 </td><td class="col1 leftalign"> Track Number	  </td><td class="col2 leftalign"> &#039;trkn&#039;               </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> „comment“      </td><td class="col1 leftalign"> Comments	  </td><td class="col2 leftalign"> &#039;\251cmt&#039;            </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> „genre“	 </td><td class="col1 leftalign"> Genre	  </td><td class="col2 leftalign"> &#039;\251gen&#039;            </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> „copyright“ 	 </td><td class="col1 leftalign"> ??	          </td><td class="col2 leftalign"> &#039;\251cpy&#039;            </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> „description“	 </td><td class="col1 leftalign"> Description	  </td><td class="col2 leftalign"> &#039;desc&#039;               </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> „synopsis“	 </td><td class="col1"> Information dialog when selecting „Show Description“ in context menu </td><td class="col2"> &#039;ldes&#039; </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> „show“	 </td><td class="col1 leftalign"> Show	          </td><td class="col2 leftalign"> &#039;tvsh&#039;               </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> „episode_id“	 </td><td class="col1 leftalign"> Episode ID	  </td><td class="col2 leftalign"> &#039;tven&#039;               </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> „network“	 </td><td class="col1 leftalign"> ??	          </td><td class="col2 leftalign"> &#039;tvnn&#039;               </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> „lyrics“	 </td><td class="col1 leftalign"> Lyrics	  </td><td class="col2 leftalign"> &#039;\251lyr&#039;            </td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [6168-7179] -->
+<p>
+Further, the MOV muxer encodes libavformat version string into the &#039;\251too&#039; field. FFmpeg does not allow this key to be overridden from the command line.
+</p>
+
+</div>
+<!-- EDIT10 SECTION "QuickTime/MOV/MP4/M4A/et al." [5682-7336] -->
+<h2 class="sectionedit12" id="asf_wmv_wma">ASF/WMV/WMA</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s ASF muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“copyright”
+“comment”
+„rating“
+Beyond these keys, the ASF muxer accepts free-form key/value metadata keys to be encoded into the header. Further, libavformat encodes its version using the key „WM/EncodingSettings“.
+</p>
+
+</div>
+<!-- EDIT12 SECTION "ASF/WMV/WMA" [7337-7674] -->
+<h2 class="sectionedit13" id="avi">AVI</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s AVI muxer honors the following metadata keys, writing them into FourCC chunks in the file header:
+</p>
+
+<p>
+„IARL“
+„IART“, „artist“
+„ICMS“
+„ICMT“, „comment“
+„ICOP“, „copyright“
+„ICRD“, „date“
+„ICRP“
+„IDIM“
+„IDPI“
+„IENG“
+„IGNR“, „genre“
+„IKEY“
+„ILGT“
+„ILNG“, „language“
+„IMED“
+„INAM“, „title“
+„IPLT“
+„IPRD“, „album“
+„IPRT“, „track“
+„ISBJ“
+„ISFT“, „encoder“ - note that this is automatically filled in by libavformat
+„ISHP“
+„ISRC“
+„ISRF“
+„ITCH“, „encoded_by“
+</p>
+
+</div>
+<!-- EDIT13 SECTION "AVI" [7675-8157] -->
+<h2 class="sectionedit14" id="flv">FLV</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s FLV muxer generates an onMetaData tag when creating a FLV file. This tag may contain free-form metadata key/value pairs. These key/value pairs are presented to the Adobe Flash Player through the onMetaData event when loading the FLV.
+</p>
+
+<p>
+In addition to user-specified key/value metadata pairs, FFmpeg&#039;s FLV muxer also encodes the following metadata fields:
+</p>
+
+<p>
+&#039;duration&#039;
+&#039;filesize&#039;
+&#039;encoder&#039;
+if video is present in FLV:
+&#039;width&#039;
+&#039;height&#039;
+&#039;videodatarate&#039;
+&#039;framerate&#039;
+&#039;videocodecid&#039;
+if audio is present in FLV:
+&#039;audiodatarate&#039;
+&#039;audiosamplerate&#039;
+&#039;audiosamplesize&#039;
+&#039;stereo&#039;
+&#039;audiocodecid&#039;
+</p>
+
+</div>
+<!-- EDIT14 SECTION "FLV" [8158-8769] -->
+<h2 class="sectionedit15" id="matroska">Matroska</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s Matroska muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“description”
+“language”
+Beyond these keys, the Matroska muxer also accepts free-form key/value metadata pairs.
+</p>
+
+</div>
+<!-- EDIT15 SECTION "Matroska" [8770-8992] -->
+<h2 class="sectionedit16" id="mp3">MP3</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s mp3 muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“album”
+“year”
+“comment”
+“track”
+“genre”
+</p>
+
+</div>
+<!-- EDIT16 SECTION "MP3" [8993-9158] -->
+<h2 class="sectionedit17" id="mpeg_transport_streams">MPEG Transport Streams</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg&#039;s transport stream muxer honors the following metadata keys:
+</p>
+
+<p>
+„title“
+„language“
+</p>
+
+</div>
+<!-- EDIT17 SECTION "MPEG Transport Streams" [9159-9289] -->
+<h2 class="sectionedit18" id="nut">NUT</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s NUT muxer honors the following metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“copyright”
+</p>
+
+</div>
+<!-- EDIT18 SECTION "NUT" [9290-9413] -->
+<h2 class="sectionedit19" id="realmedia">Realmedia</h2>
+<div class="level2">
+<hr />
+
+<p>
+FFmpeg’s Realmedia muxer encodes a “CONT” chunk by concatenating certain metadata values specified on the command line. These are the recognized metadata keys:
+</p>
+
+<p>
+“title”
+“author”
+“copyright”
+“comment”
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code bash"> <span class="kw2">ffmpeg</span> <span class="re5">-i</span> track05.wav \
+   <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;This is the title&quot;</span> \
+   <span class="re5">-metadata</span> <span class="re2">author</span>=<span class="st0">&quot;Made by Me&quot;</span> \
+   <span class="re5">-metadata</span> <span class="re2">copyright</span>=<span class="st0">&quot;Copyright 2009 Me&quot;</span>
+   <span class="re5">-metadata</span> <span class="re2">comment</span>=<span class="st0">&quot;An exercise in Realmedia metadata&quot;</span> \
+   <span class="re5">-y</span> track05.rm
+<span class="sy0">&lt;/</span><span class="kw2">bash</span><span class="sy0">&gt;</span>
+&nbsp;
+<span class="sy0">&lt;</span>code <span class="kw2">bash</span><span class="sy0">&gt;</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> Fifty.mkv -c:v libx264 -b:v 4000k <span class="re5">-minrate</span> 4000k <span class="re5">-maxrate</span> 4000k <span class="re5">-bufsize</span> 1835k -profile:v baseline <span class="re5">-level</span> <span class="nu0">3.0</span> <span class="re5">-movflags</span> +faststart <span class="re5">-vf</span> <span class="re2">scale</span>=1024x768 -c:a libfdk_aac -b:a 384k <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">0</span> <span class="re5">-map</span> <span class="nu0">0</span>:<span class="nu0">1</span> <span class="re5">-af</span> <span class="re2">volume</span>=<span class="nu0">1.3</span> <span class="re5">-f</span> mp4 fifty.mp4</pre>
+
+</div>
+<!-- EDIT19 SECTION "Realmedia" [9414-] -->

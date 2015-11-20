@@ -1,0 +1,50 @@
+
+<h1 class="sectionedit1" id="rsync">rsync</h1>
+<div class="level1">
+
+<p>
+a fast, versatile, remote (and local) file-copying tool
+</p>
+<pre class="code">Local:  rsync [OPTION...] SRC... [DEST]
+Access via remote shell:
+  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]
+  Push: rsync [OPTION...] SRC... [USER@]HOST:DEST
+Access via rsync daemon:
+  Pull: rsync [OPTION...] [USER@]HOST::SRC... [DEST]
+        rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC... [DEST]
+  Push: rsync [OPTION...] SRC... [USER@]HOST::DEST
+        rsync [OPTION...] SRC... rsync://[USER@]HOST[:PORT]/DEST</pre>
+
+<p>
+<a href="http://linux.die.net/man/1/rsync" class="urlextern" title="http://linux.die.net/man/1/rsync"  rel="nofollow">(man rsync)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "rsync" [1-578] -->
+<h2 class="sectionedit2" id="rsync_ssh_tunelem">rsync ssh tunelem</h2>
+<div class="level2">
+
+<p>
+<a href="http://linux.die.net/man/1/ssh" class="urlextern" title="http://linux.die.net/man/1/ssh"  rel="nofollow">man ssh</a> <br/>
+
+<a href="http://troy.jdmz.net/rsync/index.html" class="urlextern" title="http://troy.jdmz.net/rsync/index.html"  rel="nofollow">Původní článek</a> <br/>
+
+<a href="https://calomel.org/rsync_tips.html" class="urlextern" title="https://calomel.org/rsync_tips.html"  rel="nofollow">Doporučený odkaz 1</a> <br/>
+
+<a href="http://www.tecmint.com/rsync-local-remote-file-synchronization-commands/" class="urlextern" title="http://www.tecmint.com/rsync-local-remote-file-synchronization-commands/"  rel="nofollow">Doporučený odkaz 2</a> <br/>
+
+</p>
+
+<p>
+Dlouho mi trvalo než jsem našel jednoduchý, efektivní a bezpečný příkaz pro kopírování, zálohu nebo archivaci složen na jiném serveru, ke klientovi a naopak. Jednodušší to být už nemůže:
+</p>
+<pre class="code bash"><span class="co4">$ </span><span class="kw2">sudo</span> rsync <span class="re5">-avzP</span> <span class="re5">-e</span> <span class="kw2">ssh</span> uzivatel<span class="sy0">@</span>adresa.serveru:<span class="sy0">/</span>od<span class="sy0">/</span>tud<span class="sy0">/</span> <span class="sy0">/</span>presne<span class="sy0">/</span>sem</pre>
+
+<p>
+<p><div class="noteclassic">pro jiný port než 22 je tu možnost: <strong> … -e „ssh -p 123 -C -oCompressionLevel=9“ … </strong> + komperese a level ;) 
+</div></p>
+</p>
+
+</div>
+<!-- EDIT2 SECTION "rsync ssh tunelem" [579-] -->

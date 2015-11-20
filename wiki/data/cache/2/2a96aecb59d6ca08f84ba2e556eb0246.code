@@ -1,0 +1,14 @@
+<span class="co0"># instalace balíku/programu</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="sy0">***</span>
+&nbsp;
+<span class="co0"># výpis nainstalovaných balíků/programů</span>
+$ <span class="kw2">dpkg</span> <span class="re5">--get-selections</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-v</span> deinstall
+&nbsp;
+<span class="co0"># výpis detailnějších informací</span>
+$ <span class="kw2">apt-cache show</span> <span class="sy0">***</span>
+&nbsp;
+<span class="co0"># odinstalace a ponechání konfiguračních souborů</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get remove</span> <span class="sy0">***</span>
+&nbsp;
+<span class="co0"># odinstalace kompletní</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get purge</span> <span class="sy0">***</span>

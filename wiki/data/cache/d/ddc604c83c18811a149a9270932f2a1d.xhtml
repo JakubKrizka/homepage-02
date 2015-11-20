@@ -1,0 +1,128 @@
+
+<h1 class="sectionedit1" id="utorrent_na_linux_ubuntu_server">uTorrent na Linux Ubuntu Server</h1>
+<div class="level1">
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "uTorrent na Linux Ubuntu Server" [1-53] -->
+<h2 class="sectionedit2" id="system">Systém</h2>
+<div class="level2">
+
+<p>
+<strong>Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-53-generic x86_64)</strong>
+</p>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Systém" [54-141] -->
+<h2 class="sectionedit3" id="balicek">Balíček</h2>
+<div class="level2">
+
+<p>
+<a href="http://www.utorrent.com/downloads/linux" class="urlextern" title="http://www.utorrent.com/downloads/linux"  rel="nofollow">http://www.utorrent.com/downloads/linux</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Balíček" [142-215] -->
+<h2 class="sectionedit4" id="instalace">Instalace</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">tar</span> <span class="re5">-xvzf</span> utserver.tar.gz <span class="re5">-C</span> <span class="sy0">/</span>opt<span class="sy0">/</span>
+<span class="co0"># /opt/utorrent-server-*</span>
+&nbsp;
+<span class="co0"># chmod -R 777 /opt/utorrent-server-v3_0/</span>
+<span class="co0"># vytvořit odkaz (cesta se může lišit číslem verze!)</span>
+<span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utserver<span class="sy0">/</span>utorrent-server-alpha-v3_3<span class="sy0">/</span>utserver <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>utserver</pre>
+<hr />
+
+</div>
+<!-- EDIT4 SECTION "Instalace" [216-502] -->
+<h2 class="sectionedit5" id="spusteni">Spuštění</h2>
+<div class="level2">
+
+<p>
+<img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:vystrizek.png?w=720&amp;tok=18c32b" class="mediacenter" alt="" width="720" />
+</p>
+<pre class="code bash"><span class="co0"># spušění</span>
+utserver <span class="re5">-settingspath</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utorrent-server-alpha-v3_3<span class="sy0">/</span>
+<span class="co0"># zjištění ipadresy</span>
+<span class="kw2">ip addr</span> 
+<span class="co0"># webUI</span>
+http:<span class="sy0">//</span>ip-adresa:<span class="nu0">8080</span><span class="sy0">/</span>gui<span class="sy0">/</span></pre>
+<pre class="code">* jméno: admin
+* heslo: nechat prázdné a přihlásit</pre>
+<hr />
+
+</div>
+<!-- EDIT5 SECTION "Spuštění" [503-798] -->
+<h2 class="sectionedit6" id="automaticke_spusteni_se_systemem">Automatické spuštění se systémem</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">nano</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>utserver</pre>
+
+<p>
+sem vložit následující text: <strong>(třeba nastavit hodnoty: CHDIR &amp; USER)</strong>
+</p>
+<pre class="code bash"><span class="re2">CHDIR</span>=<span class="sy0">*****</span>cesta k souboru v <span class="sy0">/</span>opt<span class="sy0">/</span>....<span class="sy0">*****</span>
+<span class="re2">NAME</span>=utserver
+<span class="re2">OPTIONS</span>=<span class="st0">&quot;-LOGFILE&quot;</span>
+<span class="re2">DAEMON</span>=<span class="re1">$CHDIR</span><span class="sy0">/</span><span class="re1">$NAME</span>
+<span class="re2">USER</span>=<span class="sy0">*****</span>uživatel, který to bude spouštět<span class="sy0">*****</span>
+<span class="re2">PIDFILE</span>=<span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span><span class="re1">$NAME</span>.pid
+<span class="re2">STOP_TIMEOUT</span>=<span class="nu0">5</span>
+&nbsp;
+<span class="br0">&#91;</span> <span class="re5">-x</span> <span class="re1">$DAEMON</span> <span class="br0">&#93;</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="nu0">1</span>
+&nbsp;
+. <span class="sy0">/</span>lib<span class="sy0">/</span>lsb<span class="sy0">/</span>init-functions
+&nbsp;
+start_daemon <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        pgrep <span class="re5">-U</span> <span class="re1">$USER</span> <span class="re1">$NAME</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$NAME</span> is already running&quot;</span> <span class="sy0">&amp;&amp;</span> log_end_msg <span class="nu0">1</span>
+        <span class="kw2">rm</span> <span class="re5">-f</span> <span class="re1">$PIDFILE</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+        start-stop-daemon <span class="re5">--start</span> <span class="re5">--quiet</span> <span class="re5">--make-pidfile</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--chuid</span> <span class="re1">$USER</span> <span class="re5">--chdir</span> <span class="re1">$CHDIR</span> <span class="re5">--background</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--</span> <span class="re1">$OPTIONS</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">case</span> <span class="st0">&quot;$1&quot;</span> <span class="kw1">in</span>
+    start<span class="br0">&#41;</span>             
+        log_daemon_msg <span class="st0">&quot;Starting <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start_daemon
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    stop<span class="br0">&#41;</span>
+        log_daemon_msg <span class="st0">&quot;Stopping <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--retry</span> <span class="re1">$STOP_TIMEOUT</span> <span class="sy0">||</span> log_end_msg <span class="nu0">1</span>
+        pgrep <span class="re5">-U</span> <span class="re1">$USER</span> <span class="re1">$NAME</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">||</span> <span class="kw2">rm</span> <span class="re5">-f</span> <span class="re1">$PIDFILE</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    restart<span class="br0">&#41;</span>
+        log_daemon_msg <span class="st0">&quot;Restarting <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--retry</span> <span class="re1">$STOP_TIMEOUT</span> <span class="sy0">||</span> log_end_msg <span class="nu0">1</span>
+        start_daemon
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    <span class="sy0">*</span><span class="br0">&#41;</span>
+        <span class="kw3">echo</span> <span class="st0">&quot;Usage: /etc/init.d/<span class="es2">$NAME</span> {start|stop|restart}&quot;</span>
+        <span class="kw3">exit</span> <span class="nu0">2</span>
+        <span class="sy0">;;</span>
+<span class="kw1">esac</span>
+&nbsp;
+<span class="kw3">exit</span> <span class="nu0">0</span></pre>
+<pre class="code bash"><span class="co0"># nastavit práva</span>
+<span class="kw2">chmod</span> a+x <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>utserver
+<span class="co0"># nastavení po spuštění</span>
+update-rc.d utserver defaults</pre>
+<hr />
+
+</div>
+<!-- EDIT6 SECTION "Automatické spuštění se systémem" [799-2445] -->
+<h2 class="sectionedit7" id="mozne_chyby">Možné chyby</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Nejdříve upozorním že to musíte dělat jako root, pokud byste to dělali jako jiní uživatelé, tak před ty příkazy dávejte příkaz „sudo“ </div>
+</li>
+<li class="level1"><div class="li"> Někomu může v průběhu zahlásit chybějící balíček, ten doinstalujete příkazem „apt-get install libssl0.9.8:i386“ ale mě osobně se to nestalo tak nevím.</div>
+</li>
+<li class="level1"><div class="li"> Vše ok ale při stahování/odesílání se nepřipojíte? Zkontrolujte směrování portů, je možné, že vám to blokuje firewall nebo modem, v nastavení můžete změnit port. A nebo si vyberte na zkoušku jakýkoliv populární torrent a uvidíte v čem je problém. </div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Možné chyby" [2446-] -->

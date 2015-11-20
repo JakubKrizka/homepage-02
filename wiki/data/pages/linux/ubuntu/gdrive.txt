@@ -1,0 +1,9 @@
+<code bash>
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo add-apt-repository ppa:thefanclub/grive-tools
+sudo apt-get update
+sudo apt-get install grive-tools
+</code>
+
+[[http://dothisbest.com/how-to/install-google-drive-on-ubuntu/]] \\
+[[http://www.webupd8.org/2015/05/grive2-grive-fork-with-google-drive.html]]

@@ -1,0 +1,121 @@
+====== vsftpd ======
+
+Very Secure FTP Daemon
+
+<code>
+vsftpd [configuration file and / or options]
+</code>
+
+[[http://linux.die.net/man/8/vsftpd|(man vsftpd)]]
+
+----
+
+====== Secure TLS ======
+
+Zabezpečené připojení FTP ([[https://help.ubuntu.com/lts/serverguide/ftp-server.html|více info o FTP přípojení]])
+\\
+<note>Protokol TLS je založen na výměně záznamů. Každý záznam může být volitelně komprimován, může k němu být připojen autentizační kód (message authentication code, MAC) a může být zašifrován. Každému záznamu je přiřazen typ obsahu, který určuje protokol vyšší úrovně. ([[http://cs.wikipedia.org/wiki/Transport_Layer_Security|Wikipedia]])</note>
+
+<code bash>
+# přepnout na roota
+$ sudo su
+
+# vytvoření složky pro vsftpd
+$ mkdir /etc/vsftpd
+
+# vytvoření certifikátu
+$ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/vsftpd/vsftpd.pem -out /etc/vsftpd/vsftpd.pem
+
+# vyplnění základních informací o majiteli certifikátu
+
+# bezpečnost pouze pro čtení
+$ chmod -R 444 /etc/vsftpd
+
+# nastavení /etc/vsftpd.conf
+
+write_enable=YES
+
+ssl_enable=YES
+allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+rsa_cert_file=/etc/vsftpd/vsftpd.pem
+rsa_private_key_file=/etc/vsftpd/vsftpd.pem
+
+port_enable=YES
+pasv_enable=YES
+pasv_max_port=12100
+pasv_min_port=12000
+
+# toto zajistí zabezpečené připojení přes TLS 
+# nezapomenout na povolení firewallu pro port **21, 12000-12100** a restartovat ftp server
+$ service vsftpd restart
+</code>
+
+===== Připojení přes FileZillu: =====
+
+
+{{ :linux:ubuntu:filezilla-01.png?direct&666 |}}
+{{ :linux:ubuntu:filezilla-02.png?direct&666 |}}
+{{ :linux:ubuntu:filezilla-03.png?direct&666 |}}
+{{ :linux:ubuntu:filezilla-04.png?direct&666 |}}
+
+----
+
+====== pasiv ======
+
+<code bash>
+# /etc/vsftpd.conf
+
+port_enable=YES
+pasv_enable=YES
+pasv_max_port=12100
+pasv_min_port=12000
+
+# nezapomenout nastavit firewall !!!
+</code>
+
+----
+====== chroot ======
+
+aneb uzamčení uživatele v home složce
+
+**/etc/vsftpd.conf**
+
+<code bash>
+chroot_local_user=YES
+allow_writeable_chroot=YES
+</code>
+
+----
+
+====== Errors ======
+===== error 500 =====
+
+In vsftpd version 3 add this line in vsftpd.conf (/etc/vsftpd.conf or /etc/vsftpd/vsftpd.conf):
+
+<code bash>
+allow_writeable_chroot=YES
+
+# And restart service
+$ service vsftpd restart
+</code>
+
+[[http://stackoverflow.com/questions/22420177/500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-login-faile|Nepomohlo?]]
+
+===== error 530 =====
+
+/etc/vsftpd.conf
+
+<code bash>
+pam_service_name=ftp
+
+# And restart service
+$ service vsftpd restart
+</code>
+
+[[http://askubuntu.com/questions/413677/vsftpd-530-login-incorrect|Nepomohlo?]]

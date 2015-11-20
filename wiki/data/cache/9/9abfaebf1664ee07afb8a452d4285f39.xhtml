@@ -1,0 +1,14 @@
+
+<h2 class="sectionedit1" id="no_talloc_stackframe_at__source3_param_loadparmc4864_leaking_memory">no talloc stackframe at ../source3/param/loadparm.c:4864, leaking memory</h2>
+<div class="level2">
+
+<p>
+Tato chyba se objevuje při příkazech „sudo“ v případě instalovaného Samba serveru. ŘEŠENÍ:
+</p>
+<pre class="code bash"><span class="kw2">sudo</span> pam-auth-update</pre>
+
+<p>
+a dále odškrtnout volbu „SMB password synchronization“
+</p>
+
+</div>

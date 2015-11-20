@@ -1,0 +1,38 @@
+
+<h1 class="sectionedit1" id="vsftpd">vsftpd</h1>
+<div class="level1">
+
+<p>
+Very Secure <abbr title="File Transfer Protocol">FTP</abbr> Daemon
+</p>
+<pre class="code">vsftpd [configuration file and / or options]</pre>
+
+<p>
+<a href="http://linux.die.net/man/8/vsftpd" class="urlextern" title="http://linux.die.net/man/8/vsftpd"  rel="nofollow">(man vsftpd)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "vsftpd" [1-165] -->
+<h1 class="sectionedit2" id="errors">Errors</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT2 SECTION "Errors" [166-187] -->
+<h2 class="sectionedit3" id="error_500">error 500</h2>
+<div class="level2">
+
+<p>
+In vsftpd version 3 add this line in vsftpd.conf (/etc/vsftpd.conf or /etc/vsftpd/vsftpd.conf):
+</p>
+<pre class="code bash"><span class="re2">allow_writeable_chroot</span>=YES
+&nbsp;
+<span class="co0"># And restart service</span>
+$ service vsftpd restart</pre>
+
+<p>
+<a href="http://stackoverflow.com/questions/22420177/500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-login-faile" class="urlextern" title="http://stackoverflow.com/questions/22420177/500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-login-faile"  rel="nofollow">Nepomohlo?</a>
+</p>
+
+</div>
+<!-- EDIT3 SECTION "error 500" [188-] -->

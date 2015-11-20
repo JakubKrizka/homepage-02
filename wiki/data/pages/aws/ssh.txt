@@ -1,0 +1,10 @@
+====== ssh ======
+
+===== práva zápisu/čtení =====
+
+<code bash>
+# nastavit pouze čtení
+sudo chmod 600 key.pem
+# připojení ssh
+ssh -i key.pem ubuntu@ip.address.or.dns
+</code>

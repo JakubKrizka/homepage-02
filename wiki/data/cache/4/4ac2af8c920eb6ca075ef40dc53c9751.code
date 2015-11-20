@@ -1,0 +1,4 @@
+<span class="re2">pam_service_name</span>=<span class="kw2">ftp</span>
+&nbsp;
+<span class="co0"># And restart service</span>
+$ service vsftpd restart

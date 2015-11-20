@@ -1,0 +1,27 @@
+  <span class="kw1">background-repeat</span><span class="sy0">:</span><span class="kw2">no-repeat</span><span class="sy0">;</span>
+&nbsp;
+	<span class="coMULTI">/* IE10 Consumer Preview */</span> 
+<span class="kw1">background-image</span><span class="sy0">:</span> -ms-linear-gradient<span class="br0">&#40;</span><span class="kw1">bottom</span><span class="sy0">,</span> <span class="kw1">black</span> <span class="re3">0%</span><span class="sy0">,</span> <span class="kw2">white</span> <span class="re3">100%</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Mozilla Firefox */</span> 
+<span class="kw1">background-image</span><span class="sy0">:</span> -moz-linear-gradient<span class="br0">&#40;</span><span class="kw1">bottom</span><span class="sy0">,</span> <span class="kw1">black</span> <span class="re3">0%</span><span class="sy0">,</span> <span class="kw2">white</span> <span class="re3">100%</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Opera */</span> 
+<span class="kw1">background-image</span><span class="sy0">:</span> -o-linear-gradient<span class="br0">&#40;</span><span class="kw1">bottom</span><span class="sy0">,</span> <span class="kw1">black</span> <span class="re3">0%</span><span class="sy0">,</span> <span class="kw2">white</span> <span class="re3">100%</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Webkit (Safari/Chrome 10) */</span> 
+<span class="kw1">background-image</span><span class="sy0">:</span> -webkit-gradient<span class="br0">&#40;</span>linear<span class="sy0">,</span> <span class="kw1">left</span> <span class="kw1">bottom</span><span class="sy0">,</span> <span class="kw1">left</span> <span class="kw1">top</span><span class="sy0">,</span> color-stop<span class="br0">&#40;</span><span class="nu0">0</span><span class="sy0">,</span> <span class="kw1">black</span><span class="br0">&#41;</span><span class="sy0">,</span> color-stop<span class="br0">&#40;</span><span class="nu0">1</span><span class="sy0">,</span> <span class="kw2">white</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* Webkit (Chrome 11+) */</span> 
+<span class="kw1">background-image</span><span class="sy0">:</span> -webkit-linear-gradient<span class="br0">&#40;</span><span class="kw1">bottom</span><span class="sy0">,</span> <span class="kw1">black</span> <span class="re3">0%</span><span class="sy0">,</span> <span class="kw2">white</span> <span class="re3">100%</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="coMULTI">/* W3C Markup, IE10 Release Preview */</span> 
+<span class="kw1">background-image</span><span class="sy0">:</span> linear-gradient<span class="br0">&#40;</span>to <span class="kw1">top</span><span class="sy0">,</span> <span class="kw1">black</span> <span class="re3">0%</span><span class="sy0">,</span> <span class="kw2">white</span> <span class="re3">100%</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">background-attachment</span><span class="sy0">:</span> <span class="kw2">fixed</span><span class="sy0">;</span>
+	-webkit-background-size<span class="sy0">:</span> cover<span class="sy0">;</span>
+    -moz-background-size<span class="sy0">:</span> cover<span class="sy0">;</span>
+    -o-background-size<span class="sy0">:</span> cover<span class="sy0">;</span>
+    background-size<span class="sy0">:</span> cover<span class="sy0">;</span>
+    <span class="kw1">background-color</span><span class="sy0">:</span> <span class="kw1">black</span><span class="sy0">;</span>
+    <span class="br0">&#125;</span>

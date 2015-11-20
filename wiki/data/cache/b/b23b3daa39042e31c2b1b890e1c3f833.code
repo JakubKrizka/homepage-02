@@ -1,0 +1,11 @@
+<span class="sy0">&lt;</span>Directory <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>html<span class="sy0">&gt;</span>
+&nbsp;
+<span class="co0">#	Options Indexes FollowSymLinks</span>
+<span class="co0">#	AllowOverride None</span>
+<span class="co0">#	Require all granted</span>
+&nbsp;
+AuthType Basic
+AuthName <span class="st0">&quot;Heslo teď...&quot;</span>
+AuthUserFile <span class="sy0">/</span>cesta<span class="sy0">/</span>k<span class="sy0">/</span>souboru<span class="sy0">/</span>.htpasswd
+Require valid-user
+<span class="sy0">&lt;/</span>Directory<span class="sy0">&gt;</span>

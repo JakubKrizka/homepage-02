@@ -1,0 +1,6 @@
+<span class="co0"># spušění</span>
+utserver <span class="re5">-settingspath</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utorrent-server-alpha-v3_3<span class="sy0">/</span>
+<span class="co0"># zjištění ipadresy</span>
+<span class="kw2">ip addr</span> 
+<span class="co0"># webUI</span>
+http:<span class="sy0">//</span>ip-adresa:<span class="nu0">8080</span><span class="sy0">/</span>gui<span class="sy0">/</span>

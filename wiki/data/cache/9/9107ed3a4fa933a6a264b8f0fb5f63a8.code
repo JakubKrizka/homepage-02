@@ -1,0 +1,14 @@
+<span class="co2"># nastavit cílovou adresu
+</span><span class="re0">$url</span> <span class="sy0">=</span> <span class="st_h">'hostname'</span><span class="sy0">;</span>
+<span class="co2"># definovat POST proměnné
+</span><span class="re0">$data</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">&#40;</span><span class="st_h">'pin'</span> <span class="sy0">=&gt;</span> <span class="st_h">'value1'</span><span class="sy0">,</span> <span class="st_h">'text2'</span> <span class="sy0">=&gt;</span> <span class="st_h">'value2'</span><span class="sy0">,</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="re0">$options</span> <span class="sy0">=</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">&#40;</span>
+        <span class="st_h">'http'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/array"><span class="kw3">array</span></a><span class="br0">&#40;</span>
+        <span class="st_h">'header'</span>  <span class="sy0">=&gt;</span> <span class="st0">&quot;Content-type: application/x-www-form-urlencoded<span class="es1">\r</span><span class="es1">\n</span>&quot;</span><span class="sy0">,</span>
+        <span class="st_h">'method'</span>  <span class="sy0">=&gt;</span> <span class="st_h">'POST'</span><span class="sy0">,</span>
+        <span class="st_h">'content'</span> <span class="sy0">=&gt;</span> <a href="http://www.php.net/http_build_query"><span class="kw3">http_build_query</span></a><span class="br0">&#40;</span><span class="re0">$data</span><span class="br0">&#41;</span><span class="sy0">,</span>
+    <span class="br0">&#41;</span>
+<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="re0">$context</span>  <span class="sy0">=</span> <a href="http://www.php.net/stream_context_create"><span class="kw3">stream_context_create</span></a><span class="br0">&#40;</span><span class="re0">$options</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="re0">$result</span> <span class="sy0">=</span> <a href="http://www.php.net/file_get_contents"><span class="kw3">file_get_contents</span></a><span class="br0">&#40;</span><span class="re0">$url</span><span class="sy0">,</span> <span class="kw4">false</span><span class="sy0">,</span> <span class="re0">$context</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">echo</span> <span class="re0">$result</span><span class="sy0">;</span>

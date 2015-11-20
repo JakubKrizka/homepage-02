@@ -1,0 +1,7 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:021:<span class="nu0">0</span><span class="sy0">&gt;</span> jmeno = <span class="st_h">'Bilbo'</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Bilbo&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:022:<span class="nu0">0</span><span class="sy0">&gt;</span> prijmeni = <span class="st_h">'Pytlik'</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Pytlik&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:023:<span class="nu0">0</span><span class="sy0">&gt;</span> celeJmeno = jmeno + <span class="st_h">' '</span> + prijmeni
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Bilbo Pytlik&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:024:<span class="nu0">0</span><span class="sy0">&gt;</span>

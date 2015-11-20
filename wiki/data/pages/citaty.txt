@@ -1,0 +1,5 @@
+//"Pokud chcete být dobrý správce úspěšného projektu, musíte si kromě jiného uvědomit, že psaní kódu pro sebe je dost blbý nápad. Pokud váš kód užívají tisíce lidí, musíte jej psát pro maximální srozumitelnost a ne pro svou radost z dodržení specifikace."// **— Idan Gazit**
+
+//"Příroda přizpůsobuje orgán funkci, a nikoli funkci orgánu"// **— Aristotelés**
+
+//"Psychedelika mohou být mimořádným prostředkem pro umělce, tím byly určitě pro mne. Jsou jako teleskop, nebo zvětšovací sklo do skrytých dimenzí našeho vědomí, nebo do částí našeho nevědomí – transperzonálních dimenzí vědomí, jakýsi druh podvědomých, ošklivých, surrealistických a bizarních rozměrů.  Člověk se tak může na několik hodin stát šíleným, a pak se opět vrátit zpět, do reality"// **— Alex Gray**

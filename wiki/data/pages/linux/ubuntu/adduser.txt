@@ -1,0 +1,7 @@
+<code bash>
+# je to tak adduser
+# změna home složky:
+usermod -d /home1/test user
+# změna skupiny
+usermod -G group user
+</code>

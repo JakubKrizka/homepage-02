@@ -1,0 +1,1 @@
+  * možnost základních info + vypreparovat IMG + export do GIFu https://github.com/gwik/ffmpeg-ruby

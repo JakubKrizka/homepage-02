@@ -1,0 +1,16 @@
+====== cron ======
+
+
+----
+http://code.tutsplus.com/tutorials/scheduling-tasks-with-cron-jobs--net-8800
+
+<code bash>
+# edit
+crontab -e
+# výpis
+crontab -l
+# výmaz
+crontab -r
+# tvar příkazu který se spouští každé 3 minuty, to co soubor vypíše se zapíše do index.log a chyby do index.err
+*/3 * * * * php /var/www/html/index.php >> /var/www/html/index.log 2>> /var/www/html/index.err
+</code>

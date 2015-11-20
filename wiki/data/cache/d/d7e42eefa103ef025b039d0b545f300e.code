@@ -1,0 +1,2 @@
+<span class="co0"># opět bezpečnost především</span>
+$ <span class="kw2">chmod</span> <span class="nu0">700</span> ~<span class="sy0">/</span>.ssh<span class="sy0">/</span>id_rsa

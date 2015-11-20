@@ -1,0 +1,9 @@
+===== no talloc stackframe at ../source3/param/loadparm.c:4864, leaking memory =====
+
+Tato chyba se objevuje při příkazech "sudo" v případě instalovaného Samba serveru. ŘEŠENÍ:
+
+<code bash>
+sudo pam-auth-update
+</code>
+
+a dále odškrtnout volbu "SMB password synchronization"

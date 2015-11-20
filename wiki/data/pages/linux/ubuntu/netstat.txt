@@ -1,0 +1,4 @@
+<code bash>
+# seznam portů k naslouchání
+$ sudo netstat -tulpn
+</code>

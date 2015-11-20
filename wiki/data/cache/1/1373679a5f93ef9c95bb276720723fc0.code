@@ -1,0 +1,2 @@
+htpasswd <span class="re5">-d</span> <span class="sy0">//</span>passwdfile username<span class="sy0">//</span>
+htpasswd <span class="re5">-b</span> <span class="sy0">//</span>passwdfile username password<span class="sy0">//</span>

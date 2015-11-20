@@ -1,0 +1,3 @@
+<code bash>
+sudo apt-get install samba-common-bin
+</code>

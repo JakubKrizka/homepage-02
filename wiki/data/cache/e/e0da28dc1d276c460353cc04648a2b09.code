@@ -1,0 +1,2 @@
+<span class="re0">$hash_pin</span> <span class="sy0">=</span> <a href="http://www.php.net/hash"><span class="kw3">hash</span></a><span class="br0">&#40;</span><span class="st0">&quot;sha512&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Some text to hash&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">echo</span> <span class="re0">$hash_pin</span><span class="sy0">;</span>

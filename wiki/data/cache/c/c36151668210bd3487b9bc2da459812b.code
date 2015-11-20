@@ -1,0 +1,23 @@
+<span class="co0"># vytvorime prazdnou frontu</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:045:<span class="nu0">0</span><span class="sy0">&gt;</span> buffer = <span class="br0">&#91;</span><span class="br0">&#93;</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="br0">&#93;</span>
+&nbsp;
+<span class="co0"># pridame prvek na konec fronty</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:046:<span class="nu0">0</span><span class="sy0">&gt;</span> buffer.push<span class="br0">&#40;</span><span class="st0">&quot;Jaromir&quot;</span><span class="br0">&#41;</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span><span class="br0">&#93;</span>
+&nbsp;
+<span class="co0"># pridame prvek na konec fronty</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:047:<span class="nu0">0</span><span class="sy0">&gt;</span> buffer.push<span class="br0">&#40;</span><span class="st0">&quot;Lukas&quot;</span><span class="br0">&#41;</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;Lukas&quot;</span><span class="br0">&#93;</span>
+&nbsp;
+<span class="co0"># pridame prvek na konec fronty</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:048:<span class="nu0">0</span><span class="sy0">&gt;</span> buffer.push<span class="br0">&#40;</span><span class="st0">&quot;Radek&quot;</span><span class="br0">&#41;</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Radek&quot;</span><span class="br0">&#93;</span>
+&nbsp;
+<span class="co0"># odebereme prvek na zacatku fronty a vratime jeho hodnotu</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:049:<span class="nu0">0</span><span class="sy0">&gt;</span> buffer.shift
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Jaromir&quot;</span>
+&nbsp;
+<span class="co0"># na prvni misto se dostal nasledujici prvek</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:050:<span class="nu0">0</span><span class="sy0">&gt;</span> buffer
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Radek&quot;</span><span class="br0">&#93;</span>

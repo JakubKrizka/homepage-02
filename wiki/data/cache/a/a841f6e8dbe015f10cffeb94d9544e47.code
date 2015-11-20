@@ -1,0 +1,1 @@
+<span class="co4">$ </span><span class="kw2">sudo</span> rsync <span class="re5">-avzP</span> <span class="re5">-e</span> <span class="kw2">ssh</span> uzivatel<span class="sy0">@</span>adresa.serveru:<span class="sy0">/</span>od<span class="sy0">/</span>tud<span class="sy0">/</span> <span class="sy0">/</span>presne<span class="sy0">/</span>sem

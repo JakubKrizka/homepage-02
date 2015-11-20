@@ -1,0 +1,2 @@
+<span class="re2">chroot_local_user</span>=YES
+<span class="re2">allow_writeable_chroot</span>=YES

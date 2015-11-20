@@ -1,0 +1,91 @@
+smartctl <span class="nu0">6.2</span> <span class="nu0">2013</span>-07-<span class="nu0">26</span> r3841 <span class="br0">&#91;</span>i686-linux-3.13.0-<span class="nu0">34</span>-generic<span class="br0">&#93;</span> <span class="br0">&#40;</span><span class="kw3">local</span> build<span class="br0">&#41;</span>
+Copyright <span class="br0">&#40;</span>C<span class="br0">&#41;</span> <span class="nu0">2002</span>-<span class="nu0">13</span>, Bruce Allen, Christian Franke, www.smartmontools.org
+&nbsp;
+=== START OF INFORMATION SECTION ===
+Model Family:     Western Digital Caviar SE Serial ATA
+Device Model:     WDC WD800JD-75MSA1
+Serial Number:    WD-WMAM9F334604
+Firmware Version: 10.01E01
+User Capacity:    <span class="nu0">80</span> 000 000 000 bytes <span class="br0">&#91;</span><span class="nu0">80</span>,<span class="nu0">0</span> GB<span class="br0">&#93;</span>
+Sector Size:      <span class="nu0">512</span> bytes logical<span class="sy0">/</span>physical
+Device is:        In smartctl database <span class="br0">&#91;</span><span class="kw1">for</span> details use: <span class="re5">-P</span> show<span class="br0">&#93;</span>
+ATA Version is:   ATA<span class="sy0">/</span>ATAPI-<span class="nu0">7</span> <span class="br0">&#40;</span>minor revision not indicated<span class="br0">&#41;</span>
+Local Time is:    Wed Jul  <span class="nu0">8</span> <span class="nu0">16</span>:09:<span class="nu0">34</span> <span class="nu0">2015</span> CEST
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+&nbsp;
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment <span class="kw3">test</span> result: PASSED
+See vendor-specific Attribute list <span class="kw1">for</span> marginal Attributes.
+&nbsp;
+General SMART Values:
+Offline data collection status:  <span class="br0">&#40;</span>0x82<span class="br0">&#41;</span>	Offline data collection activity
+					was completed without error.
+					Auto Offline Data Collection: Enabled.
+Self-test execution status:      <span class="br0">&#40;</span>   <span class="nu0">0</span><span class="br0">&#41;</span>	The previous self-test routine completed
+					without error or no self-test has ever 
+					been run.
+Total <span class="kw1">time</span> to <span class="kw3">complete</span> Offline 
+data collection: 		<span class="br0">&#40;</span> <span class="nu0">2460</span><span class="br0">&#41;</span> seconds.
+Offline data collection
+capabilities: 			 <span class="br0">&#40;</span>0x7b<span class="br0">&#41;</span> SMART execute Offline immediate.
+					Auto Offline data collection on<span class="sy0">/</span>off support.
+					Suspend Offline collection upon new
+					command.
+					Offline surface scan supported.
+					Self-test supported.
+					Conveyance Self-test supported.
+					Selective Self-test supported.
+SMART capabilities:            <span class="br0">&#40;</span>0x0003<span class="br0">&#41;</span>	Saves SMART data before entering
+					power-saving mode.
+					Supports SMART auto save timer.
+Error logging capability:        <span class="br0">&#40;</span>0x01<span class="br0">&#41;</span>	Error logging supported.
+					General Purpose Logging supported.
+Short self-test routine 
+recommended polling time: 	 <span class="br0">&#40;</span>   <span class="nu0">2</span><span class="br0">&#41;</span> minutes.
+Extended self-test routine
+recommended polling time: 	 <span class="br0">&#40;</span>  <span class="nu0">33</span><span class="br0">&#41;</span> minutes.
+Conveyance self-test routine
+recommended polling time: 	 <span class="br0">&#40;</span>   <span class="nu0">6</span><span class="br0">&#41;</span> minutes.
+SCT capabilities: 	       <span class="br0">&#40;</span>0x103f<span class="br0">&#41;</span>	SCT Status supported.
+					SCT Error Recovery Control supported.
+					SCT Feature Control supported.
+					SCT Data Table supported.
+&nbsp;
+SMART Attributes Data Structure revision number: <span class="nu0">16</span>
+Vendor Specific SMART Attributes with Thresholds:
+<span class="co4">ID# </span>ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  <span class="nu0">1</span> Raw_Read_Error_Rate     0x000f   <span class="nu0">100</span>   <span class="nu0">253</span>   051    Pre-fail  Always       -       <span class="nu0">0</span>
+  <span class="nu0">3</span> Spin_Up_Time            0x0003   <span class="nu0">165</span>   <span class="nu0">163</span>   021    Pre-fail  Always       -       <span class="nu0">2708</span>
+  <span class="nu0">4</span> Start_Stop_Count        0x0032   095   095   000    Old_age   Always       -       <span class="nu0">5474</span>
+  <span class="nu0">5</span> Reallocated_Sector_Ct   0x0033   <span class="nu0">200</span>   <span class="nu0">200</span>   <span class="nu0">140</span>    Pre-fail  Always       -       <span class="nu0">0</span>
+  <span class="nu0">7</span> Seek_Error_Rate         0x000f   <span class="nu0">200</span>   <span class="nu0">200</span>   051    Pre-fail  Always       -       <span class="nu0">0</span>
+  <span class="nu0">9</span> Power_On_Hours          0x0032   082   082   000    Old_age   Always       -       <span class="nu0">13496</span>
+ <span class="nu0">10</span> Spin_Retry_Count        0x0013   <span class="nu0">100</span>   <span class="nu0">100</span>   051    Pre-fail  Always       -       <span class="nu0">0</span>
+ <span class="nu0">11</span> Calibration_Retry_Count 0x0012   <span class="nu0">100</span>   <span class="nu0">100</span>   051    Old_age   Always       -       <span class="nu0">0</span>
+ <span class="nu0">12</span> Power_Cycle_Count       0x0032   095   095   000    Old_age   Always       -       <span class="nu0">5357</span>
+<span class="nu0">190</span> Airflow_Temperature_Cel 0x0022   067   038   045    Old_age   Always   In_the_past <span class="nu0">33</span>
+<span class="nu0">194</span> Temperature_Celsius     0x0022   <span class="nu0">110</span>   081   000    Old_age   Always       -       <span class="nu0">33</span>
+<span class="nu0">196</span> Reallocated_Event_Count 0x0032   <span class="nu0">200</span>   <span class="nu0">200</span>   000    Old_age   Always       -       <span class="nu0">0</span>
+<span class="nu0">197</span> Current_Pending_Sector  0x0012   <span class="nu0">200</span>   <span class="nu0">200</span>   000    Old_age   Always       -       <span class="nu0">0</span>
+<span class="nu0">198</span> Offline_Uncorrectable   0x0010   <span class="nu0">200</span>   <span class="nu0">200</span>   000    Old_age   Offline      -       <span class="nu0">0</span>
+<span class="nu0">199</span> UDMA_CRC_Error_Count    0x003e   <span class="nu0">200</span>   <span class="nu0">200</span>   000    Old_age   Always       -       <span class="nu0">0</span>
+<span class="nu0">200</span> Multi_Zone_Error_Rate   0x0009   <span class="nu0">200</span>   <span class="nu0">200</span>   051    Pre-fail  Offline      -       <span class="nu0">0</span>
+&nbsp;
+SMART Error Log Version: <span class="nu0">1</span>
+No Errors Logged
+&nbsp;
+SMART Self-test log structure revision number <span class="nu0">1</span>
+No self-tests have been logged.  <span class="br0">&#91;</span>To run self-tests, use: smartctl -t<span class="br0">&#93;</span>
+&nbsp;
+&nbsp;
+SMART Selective self-test log data structure revision number <span class="nu0">1</span>
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    <span class="nu0">1</span>        <span class="nu0">0</span>        <span class="nu0">0</span>  Not_testing
+    <span class="nu0">2</span>        <span class="nu0">0</span>        <span class="nu0">0</span>  Not_testing
+    <span class="nu0">3</span>        <span class="nu0">0</span>        <span class="nu0">0</span>  Not_testing
+    <span class="nu0">4</span>        <span class="nu0">0</span>        <span class="nu0">0</span>  Not_testing
+    <span class="nu0">5</span>        <span class="nu0">0</span>        <span class="nu0">0</span>  Not_testing
+Selective self-test flags <span class="br0">&#40;</span>0x0<span class="br0">&#41;</span>:
+  After scanning selected spans, <span class="kw1">do</span> NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after <span class="nu0">0</span> minute delay.

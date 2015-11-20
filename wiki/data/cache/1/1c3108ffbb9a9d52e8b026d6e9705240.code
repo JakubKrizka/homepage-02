@@ -1,0 +1,4 @@
+<span class="kw1">SELECT</span> <span class="sy0">*</span>
+<span class="kw1">FROM</span> tabulka
+<span class="kw1">WHERE</span> id<span class="sy0">=</span><span class="st0">'1'</span>
+<span class="kw1">AND</span> skladem<span class="sy0">=</span><span class="st0">&quot;ano&quot;</span>;

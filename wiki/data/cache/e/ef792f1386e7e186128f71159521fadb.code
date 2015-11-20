@@ -1,0 +1,2 @@
+<span class="co0"># přidání uživatele</span>
+$ smbpasswd <span class="re5">-a</span> user

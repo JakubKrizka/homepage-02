@@ -1,0 +1,50 @@
+
+<h1 class="sectionedit1" id="screen">screen</h1>
+<div class="level1">
+
+<p>
+screen manager with VT100/ANSI terminal emulation
+</p>
+<pre class="code">screen [ -options ] [ cmd [ args ] ]
+       screen -r [[pid.]tty[.host]]
+       screen -r sessionowner/[[pid.]tty[.host]]</pre>
+
+<p>
+<a href="https://www.gnu.org/software/screen/manual/screen.html" class="urlextern" title="https://www.gnu.org/software/screen/manual/screen.html"  rel="nofollow">(man screen)</a>
+</p>
+<hr />
+
+<p>
+někdy je opravdu potřeba udělat časově velmi, velmi náročný úkon (komprimace, kopírování velkých souborů apod.) a bez přerušení ho provést. Taky je potřeba to občas zkontrolovat a pokud spadne, spojení opět navázat zpět, bez přerušení daného úkonu. Máme tu program screen:
+</p>
+<pre class="code bash"><span class="co0"># instalace</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="kw2">screen</span>
+&nbsp;
+<span class="co0"># spuštění screen</span>
+$ <span class="kw2">screen</span>
+&nbsp;
+<span class="co0"># nyní se pustil tzv. demon, který běží na pozadí, při přerušení kominikace stačí zadat:</span>
+$ <span class="kw2">screen</span> <span class="re5">-r</span>
+&nbsp;
+<span class="co0"># někdy je potřeba více screen oken, v otevřeném screen stiskneme</span>
+$ ctrl+a+c
+&nbsp;
+<span class="co0"># přepínání mezi screeny lze:</span>
+$ ctrl+a ctrl+a
+&nbsp;
+<span class="co0"># nebo pokud je více oken</span>
+$ ctrl+a+<span class="nu0">0</span>...<span class="nu0">9</span>
+&nbsp;
+<span class="co0"># zavření okna:</span>
+$ <span class="kw3">exit</span></pre>
+
+<p>
+Další možnosti:
+</p>
+<pre class="code bash"><span class="co0"># výpis screenů</span>
+$ <span class="kw2">screen</span> <span class="re5">-list</span>
+&nbsp;
+<span class="co0"># odpojení určitého screenu, př:</span>
+$ <span class="kw2">screen</span> <span class="re5">-D</span> <span class="nu0">1636</span>.pts-<span class="nu0">21</span>.hostname</pre>
+
+</div>

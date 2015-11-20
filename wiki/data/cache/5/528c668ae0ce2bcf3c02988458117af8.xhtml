@@ -1,0 +1,26 @@
+<pre class="code bash"><span class="kw2">sudo</span> <span class="kw2">su</span>
+<span class="kw2">apt-get install</span> lm-sensors
+sensors-detect
+yes...yes....yes...yes...enter... <span class="kw2">yes</span>
+sensors</pre>
+
+<p>
+pro automatický update výsledků:
+</p>
+<pre class="code bash"><span class="kw2">watch</span> <span class="re5">-n</span> <span class="nu0">1</span> <span class="re5">--differences</span> sensors</pre>
+
+<p>
+nebo lze udělat bash script:
+</p>
+<pre class="code bash"><span class="kw1">while</span> <span class="kw2">true</span>; <span class="kw1">do</span>
+    <span class="kw2">sleep</span> <span class="nu0">1</span>
+    sensors
+<span class="kw1">done</span></pre>
+
+<p>
+monitoring hdd
+</p>
+<pre class="code bash"><span class="kw2">apt-get install</span> smartmontools
+smartctl <span class="re5">--scan</span>
+smartctl <span class="re5">-a</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdx
+smartctl <span class="re5">-a</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdx <span class="sy0">|</span> <span class="kw2">grep</span> Temperature_Celsius <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{print $4}'</span></pre>

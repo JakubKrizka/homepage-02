@@ -1,0 +1,29 @@
+<span class="co1">// rozlišení prohlížeče IE</span>
+<a href="http://www.php.net/preg_match"><span class="kw3">preg_match</span></a><span class="br0">&#40;</span><span class="st_h">'/MSIE (.*?);/'</span><span class="sy0">,</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">if</span><span class="br0">&#40;</span><a href="http://www.php.net/count"><span class="kw3">count</span></a><span class="br0">&#40;</span><span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">&lt;</span><span class="nu0">2</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+  <a href="http://www.php.net/preg_match"><span class="kw3">preg_match</span></a><span class="br0">&#40;</span><span class="st_h">'/Trident\/\d{1,2}.\d{1,2}; rv:([0-9]*)/'</span><span class="sy0">,</span> <span class="re0">$_SERVER</span><span class="br0">&#91;</span><span class="st_h">'HTTP_USER_AGENT'</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">if</span> <span class="br0">&#40;</span><a href="http://www.php.net/count"><span class="kw3">count</span></a><span class="br0">&#40;</span><span class="re0">$matches</span><span class="br0">&#41;</span><span class="sy0">&gt;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+  <span class="co1">//pokud IE tak:</span>
+  <span class="re0">$version</span> <span class="sy0">=</span> <span class="re0">$matches</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">;</span>
+&nbsp;
+  <span class="kw1">switch</span><span class="br0">&#40;</span><span class="kw4">true</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+    <span class="kw1">case</span> <span class="br0">&#40;</span><span class="re0">$version</span><span class="sy0">&lt;=</span><span class="nu0">8</span><span class="br0">&#41;</span><span class="sy0">:</span>
+      <span class="co1">//IE 8 nebo nižší!</span>
+      <span class="kw1">break</span><span class="sy0">;</span>
+&nbsp;
+    <span class="kw1">case</span> <span class="br0">&#40;</span><span class="re0">$version</span><span class="sy0">==</span><span class="nu0">9</span> <span class="sy0">||</span> <span class="re0">$version</span><span class="sy0">==</span><span class="nu0">10</span><span class="br0">&#41;</span><span class="sy0">:</span>
+      <span class="co1">//IE9 &amp; IE10!</span>
+      <span class="kw1">break</span><span class="sy0">;</span>
+&nbsp;
+    <span class="kw1">case</span> <span class="br0">&#40;</span><span class="re0">$version</span><span class="sy0">==</span><span class="nu0">11</span><span class="br0">&#41;</span><span class="sy0">:</span>
+      <span class="co1">//Verze 11!</span>
+      <span class="kw1">break</span><span class="sy0">;</span>
+&nbsp;
+    <span class="kw1">default</span><span class="sy0">:</span>
+      <span class="co1">//You get the idea</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+<span class="co1">// přesměrování na jinou stránku</span>
+<a href="http://www.php.net/header"><span class="kw3">header</span></a><span class="br0">&#40;</span><span class="st_h">'Location: another.php'</span><span class="br0">&#41;</span><span class="sy0">;</span>

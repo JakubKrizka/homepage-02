@@ -1,0 +1,68 @@
+======  miniDLNA ======
+
+lightweight DLNA/UPnP-AV server
+
+<code>
+# minidlnad [-f config_file] [-d] [-v] [-u user] [-a ip_address]
+            [-i interface] [-p port] [-s serial] [-m model_number]
+            [-t notify_interval] [-P pid_filename] [-w url] [-S] [-L] [-R]
+
+# minidlnad [-h | -V]
+
+</code>
+[[http://manpages.ubuntu.com/manpages/precise/man1/minidlna.1.html|(man minidlna)]]
+
+----
+
+===== Instalace =====
+
+<code bash>
+sudo apt-get install minidlna
+</code>
+
+----
+
+===== Konfigurace =====
+
+Hlavní konfigurační soubor se nachází: **/etc/minidlna.conf**
+na konec souboru vložte tyto řádky:
+
+<code>
+user=minidlna
+media_dir=A,/var/minidlna/Hudba
+media_dir=P,/var/minidlna/Obrázky
+media_dir=V,/var/minidlna/Videa
+friendly_name=miniDLNA Server
+</code>
+
+Vysvětlení parametrů:
+
+  * user - jméno uživatele kterému náleží práva sdílených souborů
+  * media_dir=A, - cesta ke složce s hudbou
+  * media_dir=P, - to samé s obzázky
+  * media_dir=V, - to samé s videem
+  * friendly_mane - název serveru DLNA
+
+doporučuje se odkazovat do složky **/var/minidlna/...** do složky **/home/...** je to problémové a na dlouho ale když se budete snažit, něco vygooglíte ;) poté co přetáhnete sdílené soubory je potřeba jim nastavit vlastnictví uživatele definovaného v prvním řádku, příkazem:
+
+<code bash>
+sudo chown -R minidlna /var/minidlna
+</code>
+
+a poté aktualizovat sdílenou databázi příkazem:
+
+<code bash>
+sudo service minidlna force-restart
+</code>
+
+pak už jen záleží na tom, jestli dané zařízení zvládne překousat formát ve kterým to máte :D to je taky pěkná sranda najít ideální formát. good luck :)
+
+----
+
+===== Možné chyby =====
+
+==== parsing error file /etc/minidlna.conf line 62 : user=minidlna ====
+
+vyřeší odebrání řádku s parametrem user=minidlna
+
+ --- //[[kubakrizka@gmail.com|Jakub Křižka]] 2014/09/03 23:41//

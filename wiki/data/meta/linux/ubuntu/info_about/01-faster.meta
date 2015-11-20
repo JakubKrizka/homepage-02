@@ -1,0 +1,27 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1436364943;s:8:"modified";i:1437554664;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";a:7:{s:4:"date";i:1437554664;s:2:"ip";s:14:"77.240.177.145";s:4:"type";s:1:"E";s:2:"id";s:33:"linux:ubuntu:info_about:01-faster";s:4:"user";s:11:"jakubkrizka";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:11:"jakubkrizka";s:14:"Jakub Křižka";}s:5:"title";s:50:"Dell PowerEdge 860 Intel Xeon 3060 2.4GHZ DualCore";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:49:"dell_poweredge_860_intel_xeon_3060_24ghz_dualcore";s:5:"title";s:50:"Dell PowerEdge 860 Intel Xeon 3060 2.4GHZ DualCore";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:3:"cpu";s:5:"title";s:3:"CPU";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:3:"ram";s:5:"title";s:3:"RAM";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:3:"hdd";s:5:"title";s:3:"HDD";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:503:"Dell PowerEdge 860 Intel Xeon 3060 2.4GHZ DualCore
+
+----------
+
+CPU
+
+
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 15
+model name	: Intel(R) Xeon(R) CPU            3060  @ 2.40GHz
+stepping	: 6
+microcode	: 0x44
+cpu MHz		: 2399.903
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflus…";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1436364943;s:8:"modified";i:1437554664;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";a:7:{s:4:"date";i:1437554664;s:2:"ip";s:14:"77.240.177.145";s:4:"type";s:1:"E";s:2:"id";s:33:"linux:ubuntu:info_about:01-faster";s:4:"user";s:11:"jakubkrizka";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:11:"jakubkrizka";s:14:"Jakub Křižka";}}}

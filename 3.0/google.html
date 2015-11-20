@@ -1,0 +1,44 @@
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="127854508965-4l84r6ddmomcj1jo0q0ndjq413mnimtd.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        document.getElementById("id").innerHTML = profile.getId();
+        document.getElementById("name").innerHTML = profile.getName();
+        document.getElementById("img").innerHTML = "<img src='" + profile.getImageUrl() + "'/>";
+        document.getElementById("email").innerHTML = profile.getEmail();
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        document.getElementById("id_token").innerHTML = id_token;
+      };
+     function signOut() {
+       var auth2 = gapi.auth2.getAuthInstance();
+       auth2.signOut().then(function () {
+         alert("Odlhášení proběhlo úspěšně");
+       });
+     };
+    </script>
+  </head>
+  <body>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div><br>
+    <a href="" onclick="signOut();">Odhlásit se</a>
+    <hr>
+		<h1>ID: </h1>    
+		<p id="id"></p>
+		<h1>Jméno: </h1>    
+		<p id="name"></p>
+		<h1>Avatar: </h1>
+		<p id="img"></p>
+		<h1>Email: </h1>    
+		<p id="email"></p>
+		<h1>ID Token: </h1>    
+		<p id="id_token"></p>
+  </body>
+</html>
+
+

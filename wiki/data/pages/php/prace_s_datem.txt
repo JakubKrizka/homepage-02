@@ -1,0 +1,5 @@
+<code php>
+$datetime = "20130409163705"; 
+$d = DateTime::createFromFormat("YmdHis", $datetime);
+echo $d->format("d/m/Y H:i:s"); // or any you want
+</code>

@@ -1,0 +1,9 @@
+RSAAuthentication <span class="kw2">yes</span>
+PubkeyAuthentication <span class="kw2">yes</span>
+AuthorizedKeysFile      <span class="sy0">%</span>h<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys
+&nbsp;
+<span class="co0"># pro ještě větší bezpečnost můžete zakázat ověření pomocí hesla, tzn. přihlášení pouze s klíčem/souborem (+ nastavení firewallu jen pro dané IP adresy)</span>
+PasswordAuthentication no
+&nbsp;
+<span class="co0"># nastavení uložit a resetovat ssh demona</span>
+$ <span class="kw2">sudo</span> service <span class="kw2">ssh</span> restart

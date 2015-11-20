@@ -1,0 +1,6 @@
+database<span class="sy0">:</span>
+	dsn<span class="sy0">:</span> <span class="st_h">'mysql:host=0.0.0.0;dbname=c9;charset=UTF8'</span>
+	user<span class="sy0">:</span> username <span class="co2"># username of c9
+</span>	password<span class="sy0">:</span> <span class="co2"># empty
+</span>	options<span class="sy0">:</span>
+		lazy<span class="sy0">:</span> yes

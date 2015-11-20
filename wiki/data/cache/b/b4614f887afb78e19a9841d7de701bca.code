@@ -1,0 +1,18 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:023:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;%b&quot;</span>, <span class="nu0">42</span>
+<span class="nu0">101010</span>=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:024:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;#97 =&gt; '%c'&quot;</span>, <span class="nu0">97</span>
+<span class="co0">#97 =&gt; 'a'=&gt; nil</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:025:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;%0.3e&quot;</span>, <span class="nu0">1</span>_079_252_848
+1.079e+09=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:026:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="re2">r</span>=<span class="nu0">255</span>;<span class="re2">g</span>=<span class="nu0">128</span>;<span class="re2">b</span>=<span class="nu0">64</span>
+=<span class="sy0">&gt;</span> <span class="nu0">64</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:027:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;rgb(%d,%d,%d) --&gt; #%x%x%x&quot;</span>, r, g, b, r, g, b
+rgb<span class="br0">&#40;</span><span class="nu0">255</span>,<span class="nu0">128</span>,<span class="nu0">64</span><span class="br0">&#41;</span> --<span class="sy0">&gt;</span> <span class="co0">#ff8040=&gt; nil</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:028:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;Hello, %s. How are you?&quot;</span>, ENV<span class="br0">&#91;</span><span class="st0">&quot;USER&quot;</span><span class="br0">&#93;</span>
+Hello, blackened. How are you?=<span class="sy0">&gt;</span> nil
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:029:<span class="nu0">0</span><span class="sy0">&gt;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:016:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;%7.2f<span class="es1">\n</span>%7.2f<span class="es1">\n</span>%7.2f<span class="es1">\n</span>&quot;</span>, <span class="nu0">3.14</span>, <span class="nu0">9.8</span>, <span class="nu0">20.645</span>
+   <span class="nu0">3.14</span>
+   <span class="nu0">9.80</span>
+  <span class="nu0">20.64</span>
+=<span class="sy0">&gt;</span> nil

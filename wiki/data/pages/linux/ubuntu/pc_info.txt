@@ -1,0 +1,39 @@
+====== info about ======
+
+===== CPU =====
+
+<code bash>
+cat /proc/cpuinfo
+</code>
+
+===== GPU =====
+
+<code bash>
+sudo lshw -C display
+</code>
+
+===== OS =====
+
+<code bash>
+uname -a
+</code>
+
+===== HDD (smart) =====
+
+<code bash>
+# instalace
+sudo apt-get install smartmontools
+# mapování /dev/sdX
+sudo fdisk -l
+# vypsat info
+sudo smartctl --health /dev/sdX
+# vše
+sudo smartctl --all /dev/sdX
+</code>
+
+----
+
+===== Testované HDD =====
+
+[[linux:ubuntu:info about:01-Faster]]
+[[200GB]]

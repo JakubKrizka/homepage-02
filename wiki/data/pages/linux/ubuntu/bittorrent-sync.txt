@@ -1,0 +1,29 @@
+====== btsync======
+
+[[https://www.getsync.com/|(bittorrent sync)
+]]
+
+https://launchpad.net/~tuxpoldo/+archive/ubuntu/btsync
+
+__Návod je určený pro Linux Ubuntu 14.04 (32bit/64bit) pro ostatní [[https://launchpad.net/~jon-severinsson/+archive/ubuntu/ffmpeg?field.series_filter=trusty|zde]]__
+
+Nejprve upravíme soubor **/etc/apt/sources.list** na konec doplníme 2 řádky:
+
+<code bash>
+deb http://ppa.launchpad.net/tuxpoldo/btsync/ubuntu trusty main
+deb-src http://ppa.launchpad.net/tuxpoldo/btsync/ubuntu trusty main 
+</code>
+
+uložit a spustit příkaz:
+
+<code bash>
+sudo add-apt-repository -y ppa:tuxpoldo/btsync
+sudo apt-get update
+sudo apt-get install -y btsync
+</code>
+
+  * při instalaci můžete nastavit prvotní konfigurační soubor, který je jinak umístěný **/etc/btsync**
+  * webGUI naslouchá ze základu na localhost:8888 zde se nastaví zbytek...
+
+http://www.yeasoft.com/site/projects:btsync-deb:btsync-server
+http://forum.bittorrent.com/topic/18974-debian-and-ubuntu-server-unofficial-packages-for-bittorrent-sync/

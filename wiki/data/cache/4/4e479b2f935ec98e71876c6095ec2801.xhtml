@@ -1,0 +1,29 @@
+
+<p>
+Propojení stránek editačního IDE <a href="https://shiftedit.net" class="urlextern" title="https://shiftedit.net"  rel="nofollow">https://shiftedit.net</a> a úložiště/hosting <a href="http://aws.amazon.com/s3/" class="urlextern" title="http://aws.amazon.com/s3/"  rel="nofollow">http://aws.amazon.com/s3/</a>.
+</p>
+
+<p>
+<p><div class="notetip">Oficiální návod: <a href="https://shiftedit.net/blog/amazon-s3-support" class="urlextern" title="https://shiftedit.net/blog/amazon-s3-support"  rel="nofollow">https://shiftedit.net/blog/amazon-s3-support</a>
+</div></p>
+</p>
+<ul>
+<li class="level1"><div class="li"> vytvořit IAM uživatele</div>
+</li>
+<li class="level1"><div class="li"> nastavit User Policies</div>
+</li>
+</ul>
+<pre class="code json">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;s3:*&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        }
+    ]
+}</pre>
+<ul>
+<li class="level1"><div class="li"> zjistit Access Keys a to doplnit do shifteditu</div>
+</li>
+</ul>

@@ -1,0 +1,485 @@
+====== Základ ======
+
+ááá já se poseru :D kurva, tolik času mě to stálo pochopit... ale stojí to za to
+<code bash>
+# When you get "false" it means that library was **already** loaded.
+
+~$ irb
+irb(main):001:0> require 'time'
+=> true
+irb(main):002:0> require 'time'
+=> false
+</code>
+
+----
+
+
+====== Random ======
+
+  * **to_s** converts values to strings.
+  * **to_i** converts values to integers (numbers.)
+  * **to_a** converts values to arrays.
+
+----
+
+Zdroje: 
+
+  * http://www.abclinuxu.cz/clanky/programovani/ruby-pro-zacatecniky-2-komentare-aritmetika-promenne
+
+----
+
+===== Začínáme =====
+
+<code bash>
+#instalace
+sudo apt-get install ruby irb
+#ověření
+ruby -e 'puts "Ahoj ruby!"' 
+#výsledek:
+Ahoj ruby!
+</code>
+
+----
+
+===== Komentáře =====
+
+  * Nečíslovaný seznamkomentáře jsou stejné jako v jazyce bash, tzn znaménko "#"
+
+----
+
+===== Aritmetické Operace =====
+
+^    Operátor	^ Význam ^          
+|   +	| Součet |
+|   -	| Rozdíl |
+|   *	| Součin |
+|   /	| Podíl (celočíselný i reálný) |
+|   %	| Modulo |
+|   **	| Mocnina |
+ 
+
+^   Funkce   	^ Vysvětlení ^
+|   Math.sqrt(n)   | Vrátí nezápornou druhou odmocninu z čísla n. Je-li n záporné číslo, vyvolá výjimku ArgError. |
+|   Math.log(n)   | Vrátí přirozený logaritmus n. |
+|   Math.log10(n)   | Vrátí logaritmus n při základu 10. |
+|   Math.sin(n)   | Vrátí sinus n, zadaného v radiánech. |
+|   Math.cos(n)   | Vrátí kosinus n, zadaného v radiánech. |
+|   Math.tan(n)  | Vrátí tangens n, zadaného v radiánech. |
+
+----
+
+===== Escape sekvence =====
+
+^ sekvence	^ význam ^
+|   \ \   | zpětné lomítko \ |
+|   \'   | apostrof ' |
+|   \"   | uvozovky " |
+|   \b   | návrat o jeden znak |
+|   \n   | přesun na další řádek |
+|   \r   | přesun na začátek současného řádku |
+|   \t   | tabulátor |
+
+----
+===== Lokální proměnné =====
+
+<code bash>
+irb(main):033:0> def pozdravuj
+irb(main):034:1>   pozdrav = 'Nazdarek!'
+irb(main):035:1>   puts pozdrav
+irb(main):036:1> end
+=> nil
+irb(main):037:0> pozdrav = 'Ahoj.'
+=> "Ahoj."
+irb(main):038:0> puts pozdrav
+Ahoj.
+=> nil
+irb(main):039:0> pozdravuj
+Nazdarek!
+=> nil
+irb(main):040:0> puts pozdrav
+Ahoj.
+</code>
+
+----
+
+===== Globální proměnné =====
+
+<code bash>
+irb(main):041:0> def pozdravuj
+irb(main):042:1>   $pozdrav = 'Nazdarek!'
+irb(main):043:1>   puts $pozdrav
+irb(main):044:1> end
+=> nil
+irb(main):045:0> $pozdrav = 'Ahoj.'
+=> "Ahoj."
+irb(main):046:0> puts $pozdrav
+Ahoj.
+=> nil
+irb(main):047:0> pozdravuj
+Nazdarek!
+=> nil
+irb(main):048:0> puts $pozdrav
+Nazdarek!
+=> nil
+irb(main):049:0>
+</code>
+
+Oproti lokálním proměnným existuje v programu vždy jen jedna globální proměnná určitého jména. Globální proměnné začínají znakem $.
+
+Mírně modifikovaná ukázka z předchozí kapitolky ukazuje chování globálních proměnných. Proměnné $pozdrav je nejprve přiřazena hodnota 'Ahoj.' a následně pro kontrolu vypsána. Pak je zavolána funkce pozdravuj, v níž je hodnota proměnné změněna na 'Nazdarek!'. Na řádku 39 je již vypsána změněná hodnota.
+
+Použití globálních proměnných se možná může zdát snadné a logické (vždyť přece chci mít svou uloženou hodnotu přístupnou odevšad, ne?), nicméně je také velmi nebezpečné, a proto se doporučuje s nimi šetřit, ba nejlépe nepoužívat je vůbec. Je až příliš snadné globální proměnnou nechtěně přepsat a zapříčinit tak chybné chování programu. Odhalit výskyt chyby v rozsáhlém zdrojovém kódu složité aplikace může zabrat hodiny nebo dny, které bychom místo toho mohli věnovat tvůrčí činnosti. Jak uvidíme dále, předávání hodnot pomocí parametrů je nejen elegantnější, ale usnadňuje i lokalizaci případných chyb.
+
+----
+
+===== Přiřazení =====
+
+<code bash>
+irb(main):061:0> a = 9
+=> 9
+irb(main):062:0> a += 1  # ekvivalentni k: a = a + 1
+=> 10
+irb(main):063:0> a -= 3  # ekvivalentni k: a = a - 3
+=> 7
+irb(main):064:0> a *= 4  # ekvivalentni k: a = a * 4
+=> 28
+irb(main):065:0> a /= 2  # ekvivalentni k: a = a / 2
+=> 14
+irb(main):066:0> a %= 9  # ekvivalentni k: a = a % 9
+=> 5
+</code>
+
+----
+
+===== Datové typy =====
+
+==== Fixnum a Bignum ====
+
+Fixnum je určen pro menší čísla a zabírá i méně místa v paměti. Chceme-li uchovávat čísla větší, přijde na řadu Bignum, který může nabývat teoreticky nekonečných hodnot (omezením je pochopitelně velikost dostupné paměti počítače). Jak se s nimi pracuje? Jednoduše. Interpretr sám pozná, který typ má použít:
+
+<code bash>
+irb(main):001:0> a = 10
+=> 10
+irb(main):002:0> a.class
+=> Fixnum
+irb(main):003:0> a = 10_000_000_000
+=> 10000000000
+irb(main):004:0> a.class
+=> Bignum
+irb(main):005:0>
+</code>
+
+Jelikož čitelnost větších čísel je obtížná, umožňuje Ruby oddělovat řády pomocí znaku _ (podtržítko). Podtržítka jsou interpretrem ignorována (vidíme, že návratová hodnota je 10000000000), programátoři je však jistě ocení.
+
+==== Float ====
+
+<code bash>
+irb(main):005:0> a = 3.14159
+=> 3.14159
+irb(main):006:0> a.class
+=> Float
+irb(main):007:0>
+</code>
+
+Marně bychom v Ruby hledali typ double, Float bez obtíží pojme i obrovská čísla.
+
+==== String ====
+
+String, neboli řetězec, je už poněkud komplikovanější a běžně se vytváří uzavřením skupiny znaků mezi apostrofy ('), nebo do uvozovek ("):
+
+<code bash>
+# vypise delku retezce
+irb(main):025:0> 'Ahoj, svete!'.length 
+=> 12
+
+# prevede vsechna pismena na velka
+irb(main):026:0> 'Ahoj, svete!'.upcase
+=> "AHOJ, SVETE!"
+
+# prevede vsechna pismena na mala
+irb(main):027:0> 'Ahoj, svete!'.downcase
+=> "ahoj, svete!"
+
+# zameni velka pismena za mala a naopak
+irb(main):028:0> 'Ahoj, svete!'.swapcase
+=> "aHOJ, SVETE!"
+
+# vypise retezec pozpatku
+irb(main):029:0> 'Ahoj, svete!'.reverse  
+=> "!etevs ,johA"
+irb(main):030:0>
+</code>
+
+Použijeme-li jednu z výše uvedených metod na nějaký řetězec, jeho původní hodnota se nezmění.
+
+Ruby však nabízí elegantnější řešení, a tím je použití metody s vykřičníkem na konci:
+
+<code bash>
+irb(main):017:0> pozdrav.downcase!
+=> "ahoj, svete!"
+irb(main):018:0> pozdrav
+=> "ahoj, svete!"
+irb(main):019:0>
+</code>
+
+spojování řetězců:
+
+<code bash>
+irb(main):021:0> jmeno = 'Bilbo'
+=> "Bilbo"
+irb(main):022:0> prijmeni = 'Pytlik'
+=> "Pytlik"
+irb(main):023:0> celeJmeno = jmeno + ' ' + prijmeni
+=> "Bilbo Pytlik"
+irb(main):024:0>
+</code>
+
+==== Array ====
+
+Typ Array bývá česky překládán jako pole a v některých jazycích je označován taky jako list (seznam). Pole je zvláštní datový typ, který může oproti výše uvedeným nabývat více hodnot. 
+
+Důležitou vlastností polí v Ruby je, že mohou obsahovat i prvky různých typů:
+
+<code bash>
+irb(main):020:0> pelmel = [3, "Ahoj", -12.4]
+=> [3, "Ahoj", -12.4]
+</code>
+
+Takto můžeme vytvářet seznamy nejrůznějších prvků. Ale jak s nimi pak pracovat a k jednotlivým prvkům přistupovat? Pole je vlastně seznam prvků, indexovaných od nuly - obsah naší proměnné cisla tedy vypadá nějak takto:
+
+<code bash>
+         +---+---+---+
+hodnota: | 1 | 2 | 3 |
+         +---+---+---+
+index:     0   1   2
+index:    -3  -2  -1
+</code>
+<code bash>
+irb(main):025:0> cisla[-1]
+=> 3
+irb(main):026:0> cisla[-3]
+=> 1
+irb(main):027:0> cisla[10]
+=> nil
+</code>
+
+Kromě zobrazování jednotlivých prvků má Ruby i další možnosti:
+
+<code bash>
+irb(main):028:0> cisla = [1, 2, 3, 4, 5, 6]
+=> [1, 2, 3, 4, 5, 6]
+irb(main):029:0> cisla[0,3]  # vypise 3 prvky, pocinaje indexem 0
+=> [1, 2, 3]
+irb(main):030:0> cisla[0..3]  # vypise prvky s indexem 0 az 3 vcetne
+=> [1, 2, 3, 4]
+irb(main):031:0> cisla[0...3]  # vypise prvky s indexem 0 az 2
+=> [1, 2, 3]
+irb(main):032:0> cisla[-3,2]  # vypise 2 prvky, pocinaje indexem -3
+=> [4, 5]
+</code>
+
+Prvky lze podle indexů i přidávat, nebo nahrazovat:
+
+<code bash>
+irb(main):033:0> jmena = ['Jaromir', 'Lukas', 'Radek']
+=> ["Jaromir", "Lukas", "Radek"]
+irb(main):034:0> jmena[3] = 'Jiri'
+=> "Jiri"
+irb(main):035:0> jmena
+=> ["Jaromir", "Lukas", "Radek", "Jiri"]
+</code>
+
+V případě, že přidáme prvek na index větší než je dosavadní rozsah, jsou "chybějící" prvky nahrazeny prázdnou hodnotou nil:
+
+<code bash>
+irb(main):036:0> jmena[7] = 'Martin'
+=> "Martin"
+irb(main):037:0> jmena
+=> ["Jaromir", "Lukas", "Radek", "Jiri", nil, nil, nil, "Martin"]
+</code>
+
+Stejně jako String, má i Array spoustu užitečných metod:
+
+<code bash>
+# vrati pocet prvku pole
+irb(main):038:0> jmena.length
+=> 8
+
+# vrati pole s obracenym poradim prvku
+irb(main):039:0> jmena.reverse
+=> ["Martin", nil, nil, nil, "Jiri", "Radek", "Lukas", "Jaromir"]
+
+# zkrati pole o prazdne hodnoty
+irb(main):040:0> jmena.compact
+=> ["Jaromir", "Lukas", "Radek", "Jiri", "Martin"]
+</code>
+
+Další zajímavou možností je převod pole na řetězec a naopak:
+
+<code bash>
+irb(main):041:0> retezec = jmena.join(';')
+=> "Jaromir;Lukas;Radek;Jiri;;;;Martin"
+irb(main):042:0> retezec.split(';')
+=> ["Jaromir", "Lukas", "Radek", "Jiri", "", "", "", "Martin"]
+</code>
+
+V závorce obou metod uvádíme řetězec, který má být použit/rozpoznán jako oddělovač prvků. Převod z řetězce na pole však není 100% - bez ohledu na prapůvodní typ jsou všechny prvky převedeny na řetězec.
+K vymazání prvku z pole slouží metoda delete:
+
+<code bash>
+irb(main):043:0> jmena.delete("Jaromir")
+=> "Jaromir"
+irb(main):044:0> jmena
+=> ["Lukas", "Radek", "Jiri", nil, nil, nil, "Martin"]
+</code>
+
+Pomocí správných metod lze pole využít jako frontu s filozofií fifo (first in, first out - první dovnitř, první ven):
+
+<code bash>
+# vytvorime prazdnou frontu
+irb(main):045:0> buffer = []
+=> []
+
+# pridame prvek na konec fronty
+irb(main):046:0> buffer.push("Jaromir")
+=> ["Jaromir"]
+
+# pridame prvek na konec fronty
+irb(main):047:0> buffer.push("Lukas")
+=> ["Jaromir", "Lukas"]
+
+# pridame prvek na konec fronty
+irb(main):048:0> buffer.push("Radek")
+=> ["Jaromir", "Lukas", "Radek"]
+
+# odebereme prvek na zacatku fronty a vratime jeho hodnotu
+irb(main):049:0> buffer.shift
+=> "Jaromir"
+
+# na prvni misto se dostal nasledujici prvek
+irb(main):050:0> buffer
+=> ["Lukas", "Radek"]
+</code>
+
+Další užitečné metody lze nalézt v referenci jazyka Ruby, v části o třídě Array.
+
+==== Hash ====
+
+Hash nebo taky asociativní pole slouží také k ukládání více hodnot. Namísto číselných indexů však používá k označení prvků takzvaných klíčů. Hash je uzavřen ve složených závorkách:
+
+<code bash>
+irb(main):051:0> udaje = {"jmeno" => "Jaromir", "prijmeni" => "Hradilek"}
+=> {"jmeno"=>"Jaromir", "prijmeni"=>"Hradilek"}
+</code>
+
+Hodnoty se zadávají vždy ve dvojici klíč => hodnota a navzájem jsou oddělené čárkou. K jednotlivým hodnotám se pak přistupuje pomocí klíče:
+
+<code bash>
+irb(main):053:0> udaje["jmeno"]
+=> "Jaromir"
+irb(main):054:0> udaje["prijmeni"]
+=> "Hradilek"
+</code>
+
+Nový údaj lze do hashe snadno přidat:
+
+<code bash>
+irb(main):055:0> udaje["pohlavi"] = "muz"
+=> "muz"
+irb(main):056:0> udaje
+=> {"jmeno"=>"Jaromir", "prijmeni"=>"Hradilek", "pohlavi"=>"muz"}
+</code>
+
+I typ Hash má definovanou spoustu metod:
+
+<code bash>
+irb(main):057:0> udaje.length  # vrati pocet prvku
+=> 3
+irb(main):058:0> udaje.keys  # vrati pole vsech klicu
+=> ["jmeno", "prijmeni", "pohlavi"]
+irb(main):059:0> udaje.values  # vrati pole vsech hodnot
+=> ["Jaromir", "Hradilek", "muz"]
+irb(main):060:0> udaje.index("Jaromir")  # vrati klic k dane hodnote
+=> "jmeno"
+irb(main):061:0> udaje.invert  # zameni klice s hodnotami
+=> {"Hradilek"=>"prijmeni", "Jaromir"=>"jmeno", "muz"=>"pohlavi"}
+irb(main):062:0> udaje.has_key?("prijmeni") # zjištění existujícího klíče
+=> true
+irb(main):063:0> udaje.has_value?("Pavel") # zjištění existující hodnoty
+=> false
+irb(main):064:0> udaje.delete("pohlavi") # odstranění hodnoty
+=> "muz"
+irb(main):065:0> udaje
+=> {"jmeno"=>"Jaromir", "prijmeni"=>"Hradilek"}
+irb(main):066:0> udaje.clear # kompletní smazání
+=> {}
+irb(main):067:0> udaje
+=> {}
+</code>
+
+----
+
+===== printf =====
+
+Escape sekvence jsou šikovná věc, nicméně můžeme se dostat do situace, kdy zjistíme, že nám prostě nestačí - třeba v případě, že budeme chtít zobrazovat údaje s přesností na určitý počet desetinných míst nebo je zarovnat na určitou stranu. Právě k těmto účelům je nám k dispozici příkaz printf, který možnosti formátování značně rozšiřuje. Použití je obdobné jako v jazyku C nebo Perl:
+
+<code bash>
+irb(main):022:0> printf "PI = %0.3f\n", 3.14159
+PI = 3.142
+=> nil
+</code>
+
+Co jsem to právě udělal? Prvním parametrem je řetězec obsahující zástupné symboly, na jejichž místo jsou pak dosazovány hodnoty v dalších parametrech. %0.3f je zmíněná zástupná značka a udává, v jakém formátu bude na její místo hodnota dosazena. Pojďme si ji nyní rozebrat znak po znaku:
+
+  * % – označuje začátek zástupné značky
+  * 0 – označuje šířku vypisovaného údaje v počtu znaků; toto je vhodné např. při zarovnání do sloupců (viz dále), přesahuje-li skutečná šířka tuto hodnotu, je údaj vypsán kompletní
+  * .0 – označuje počet zobrazených desetinných míst; jak je vidět z příkladu, dochází zde dokonce k zaokrouhlování
+  * f – označuje typ konverze, v tomto případě reálné číslo
+
+Nejpoužívanější druhy konverze shrnuje následující tabulka:
+
+^ znak ^ význam ^
+|  b  |převod do binární soustavy   |
+|  c  |zadaná hodnota je převedena na příslušný znak dle tabulky ASCII   |
+|  d  |celé číslo   |
+|  e  |desetinné číslo v exponenciálním tvaru   |
+|  E  |shodné s e, jen exponent je označován velkým znakem E   |
+|  f  |reálné číslo   |
+|  o  |převod do osmičkové soustavy   |
+|  s  |řetězec   |
+|  x  |převod do šestnáctkové soustavy   |
+|  X  |shodné s x, jen velkými písmeny   |
+
+<code bash>
+irb(main):023:0> printf "%b", 42
+101010=> nil
+irb(main):024:0> printf "#97 => '%c'", 97
+#97 => 'a'=> nil
+irb(main):025:0> printf "%0.3e", 1_079_252_848
+1.079e+09=> nil
+irb(main):026:0> r=255;g=128;b=64
+=> 64
+irb(main):027:0> printf "rgb(%d,%d,%d) --> #%x%x%x", r, g, b, r, g, b
+rgb(255,128,64) --> #ff8040=> nil
+irb(main):028:0> printf "Hello, %s. How are you?", ENV["USER"]
+Hello, blackened. How are you?=> nil
+irb(main):029:0>
+irb(main):016:0> printf "%7.2f\n%7.2f\n%7.2f\n", 3.14, 9.8, 20.645
+   3.14
+   9.80
+  20.64
+=> nil
+</code>
+
+Další často používanou vlastností je nechat vyplnit mezery zleva nulami:
+
+<code bash>
+irb(main):030:0> printf "%07.2f\n%07.2f\n%07.2f\n", 3.14, 9.8, 20.645
+0003.14
+0009.80
+0020.64
+=> nil
+</code>
+
+Možností formátování je pochopitelně mnohem víc, popisovat je všechny však přesahuje záběr tohoto seriálu. Neměl by však být problém si je dohledat v dokumentaci, velice dobře je tato problematika vysvětlena také v [[http://www.abclinuxu.cz/clanky/recenze/ucebnice-jazyka-c|prvním dílu Učebnice jazyka C]] autora Pavla Herouta.
+

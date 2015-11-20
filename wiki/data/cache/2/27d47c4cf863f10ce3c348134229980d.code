@@ -1,0 +1,8 @@
+<span class="co0"># video</span>
+ <span class="kw2">ffmpeg</span> <span class="re5">-i</span> video.mkv <span class="re5">-metadata</span> <span class="re2">title</span>=<span class="st0">&quot;Name&quot;</span> out.mkv
+&nbsp;
+<span class="co0"># audio</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> video.mkv -metadata:s:a:<span class="nu0">0</span> <span class="re2">language</span>=eng out.mkv
+&nbsp;
+<span class="co0"># subtitle</span>
+<span class="kw2">ffmpeg</span> <span class="re5">-i</span> video.mkv -metadata:s:s:<span class="nu0">0</span> <span class="re2">language</span>=ces out.mkv

@@ -1,0 +1,90 @@
+====== tar ======
+
+The GNU version of the tar archiving utility
+
+<code>
+tar [-] A --catenate --concatenate | c --create | d --diff --compare |
+         --delete | r --append | t --list | --test-label | u --update | x
+         --extract --get [options] [pathname ...]
+</code>
+
+[[http://manpages.ubuntu.com/manpages/trusty/en/man1/tar.1.html|(man tar)]]
+
+----
+
+===== .tar =====
+
+Nejrozšířenější Linux program na archivování. Zátěž procesoru minimální. Jednoduše přesune tisíce malých souborů do jednoho velkého. Velikost je cca stejná.
+
+<code bash>
+$ tar -cvf archiv.tar /cesta/k/slozce/kterou/chcete/zabalit
+
+# Opačný proces
+$ tar -xvf archiv.tar
+</code>
+
+===== .gz =====
+
+Zabalí složku do archivu a k tomu ještě provede kompresi. Střední zátěž procesoru. Například složku dokuwiki na které běží tato wiki se změnší z 15MB na 4MB. 
+
+<code bash>
+$ tar -zcvf archiv.tar.gz /cesta/k/slozce/kterou/chcete/zabalit
+
+# Opačný proces
+$ tar -zxvf archiv.tar.gz
+</code>
+
+===== .bz2 =====
+
+Je to obdoba tar.gz. Používá složitější proměné. Vysoká zátěž procesoru. Například složku dokuwiki zmenší z 15MB na 3MB. 
+
+<code bash>
+$ tar -jcvf archiv.tar.bz2 /cesta/k/slozce/kterou/chcete/zabalit
+
+# Opačný proces:
+$ tar -jxvf archiv.tar.bz2
+</code>
+
+Pokud chcete archiv extrahovat do vybrané složky, dopíšte prefix -C a vybere kam. Příklad:
+
+<code bash>
+tar -xvf archiv.tar -C /sem/to/chci/extrahovat
+</code>
+
+===== tar + pv =====
+
+<code bash>
+# pro zobrazení průbehu je potřeba mít nainstalovaný balíček pv (sudo apt-get install pv)
+$ sudo tar cf - /folder-with-big-files -P | pv -s $(du -sb /folder-with-big-files | awk '{print $1}') | gzip > big-files.tar.gz
+ 
+# výsledek:
+231MB 0:00:14 [15,8MB/s] [=============>               ] 51%
+</code>
+
+===== automatický script =====
+
+<code bash>
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+	*.tar.bz2)	tar xvjf $1 && cd $(basename "$1" .tar.bz2) ;;
+	*.tar.gz)	tar xvzf $1 && cd $(basename "$1" .tar.gz) ;;
+	*.tar.xz)	tar Jxvf $1 && cd $(basename "$1" .tar.xz) ;;
+	*.bz2)		bunzip2 $1 && cd $(basename "$1" /bz2) ;;
+	*.rar)		unrar x $1 && cd $(basename "$1" .rar) ;;
+	*.gz)		gunzip $1 && cd $(basename "$1" .gz) ;;
+	*.tar)		tar xvf $1 && cd $(basename "$1" .tar) ;;
+	*.tbz2)		tar xvjf $1 && cd $(basename "$1" .tbz2) ;;
+	*.tgz)		tar xvzf $1 && cd $(basename "$1" .tgz) ;;
+	*.zip)		unzip $1 && cd $(basename "$1" .zip) ;;
+	*.Z)		uncompress $1 && cd $(basename "$1" .Z) ;;
+	*.7z)		7z x $1 && cd $(basename "$1" .7z) ;;
+	*)		echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
+</code>
+
+ --- //2015/01/17 23:47 [[email@jakubkrizka.cz|Jakub Křižka]] //

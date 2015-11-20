@@ -1,0 +1,36 @@
+
+<p>
+<strong>index.html</strong>
+</p>
+<pre class="code html4strict"><span class="sc0">&lt;!DOCTYPE html&gt;</span>
+<span class="sc2">&lt;<a href="http://december.com/html/4/element/html.html"><span class="kw2">html</span></a>&gt;</span>
+  <span class="sc2">&lt;<a href="http://december.com/html/4/element/head.html"><span class="kw2">head</span></a>&gt;</span>
+      <span class="sc-1">&lt;!-- otestuje javasctipt, pokud není ok přesměruje na stránku bez javascriptu --&gt;</span>
+      <span class="sc2">&lt;<a href="http://december.com/html/4/element/noscript.html"><span class="kw2">noscript</span></a>&gt;</span>
+        <span class="sc2">&lt;<a href="http://december.com/html/4/element/meta.html"><span class="kw2">meta</span></a> <span class="kw3">http-equiv</span><span class="sy0">=</span><span class="st0">&quot;refresh&quot;</span> <span class="kw3">content</span><span class="sy0">=</span><span class="st0">&quot;0; url=noscript.html&quot;</span><span class="sy0">/</span>&gt;</span>
+      <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/noscript.html"><span class="kw2">noscript</span></a>&gt;</span>
+  <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/head.html"><span class="kw2">head</span></a>&gt;</span>
+  <span class="sc2">&lt;<a href="http://december.com/html/4/element/body.html"><span class="kw2">body</span></a>&gt;</span>
+    javascript zapnutý
+  <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/body.html"><span class="kw2">body</span></a>&gt;</span>
+<span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/html.html"><span class="kw2">html</span></a>&gt;</span></pre>
+
+<p>
+<strong>noscript.html</strong>
+</p>
+<pre class="code html4strict"><span class="sc0">&lt;!DOCTYPE html&gt;</span>
+<span class="sc2">&lt;<a href="http://december.com/html/4/element/html.html"><span class="kw2">html</span></a>&gt;</span>
+  <span class="sc2">&lt;<a href="http://december.com/html/4/element/head.html"><span class="kw2">head</span></a>&gt;</span>
+    <span class="sc-1">&lt;!-- nastavení kódování --&gt;</span>
+    <span class="sc2">&lt;<a href="http://december.com/html/4/element/meta.html"><span class="kw2">meta</span></a> <span class="kw3">charset</span><span class="sy0">=</span><span class="st0">&quot;utf-8&quot;</span>&gt;</span>
+    <span class="sc-1">&lt;!-- aktualizovat stránku po 5 vteřinách pro kontrolu javascriptu --&gt;</span>
+    <span class="sc2">&lt;<a href="http://december.com/html/4/element/meta.html"><span class="kw2">meta</span></a> <span class="kw3">http-equiv</span><span class="sy0">=</span><span class="st0">&quot;refresh&quot;</span> <span class="kw3">content</span><span class="sy0">=</span><span class="st0">&quot;5&quot;</span>&gt;</span>
+    <span class="sc-1">&lt;!-- otestuje javasctipt, pokud ok přesměruje na domovskou stránku --&gt;</span>
+    <span class="sc2">&lt;<a href="http://december.com/html/4/element/script.html"><span class="kw2">script</span></a> <span class="kw3">type</span><span class="sy0">=</span><span class="st0">'text/javascript'</span>&gt;</span>
+      window.location.replace(&quot;/&quot;);
+    <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/script.html"><span class="kw2">script</span></a>&gt;</span>
+  <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/head.html"><span class="kw2">head</span></a>&gt;</span>
+  <span class="sc2">&lt;<a href="http://december.com/html/4/element/body.html"><span class="kw2">body</span></a>&gt;</span>
+    javascript vypnutý
+  <span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/body.html"><span class="kw2">body</span></a>&gt;</span>
+<span class="sc2">&lt;<span class="sy0">/</span><a href="http://december.com/html/4/element/html.html"><span class="kw2">html</span></a>&gt;</span></pre>

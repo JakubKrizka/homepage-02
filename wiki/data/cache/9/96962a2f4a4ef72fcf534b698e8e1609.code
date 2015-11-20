@@ -1,0 +1,2 @@
+$ <span class="kw2">fdisk</span> <span class="re5">-l</span>
+$ <span class="kw2">mount</span> <span class="re5">-t</span> ntfs <span class="sy0">/</span>dev<span class="sy0">/</span>sdx <span class="sy0">/</span>media<span class="sy0">/</span>some<span class="sy0">/</span>folder

@@ -1,0 +1,27 @@
+<span class="sy0">&lt;</span>IfModule ssl_module<span class="sy0">&gt;</span>
+	Listen <span class="nu0">443</span>
+<span class="sy0">&lt;/</span>IfModule<span class="sy0">&gt;</span>
+&nbsp;
+====== sites-available<span class="sy0">/</span>000-default.conf ======
+&nbsp;
+&nbsp;
+<span class="sy0">&lt;</span>code <span class="kw2">bash</span><span class="sy0">&gt;</span>
+<span class="sy0">&lt;</span>VirtualHost <span class="sy0">*</span>:<span class="nu0">80</span><span class="sy0">&gt;</span>
+Redirect permanent <span class="sy0">/</span> https:<span class="sy0">//</span>jakub-krizka.eu<span class="sy0">/</span> 
+<span class="sy0">&lt;/</span>VirtualHost<span class="sy0">&gt;</span> 
+&nbsp;
+<span class="sy0">&lt;</span>VirtualHost <span class="sy0">*</span>:<span class="nu0">443</span><span class="sy0">&gt;</span>                                                                                                     
+ServerAdmin email<span class="sy0">@</span>localhost
+DocumentRoot <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>html
+&nbsp;
+SSLEngine on  
+SSLProtocol all <span class="re5">-SSLv2</span>  
+SSLCipherSuite ALL:<span class="sy0">!</span>ADH:<span class="sy0">!</span>EXPORT:<span class="sy0">!</span>SSLv2:RC4+RSA:+HIGH:+MEDIUM
+&nbsp;
+SSLCertificateFile <span class="sy0">/</span>etc<span class="sy0">/</span>apache2<span class="sy0">/</span>ssl<span class="sy0">/</span>certifikát.crt  
+SSLCertificateKeyFile <span class="sy0">/</span>etc<span class="sy0">/</span>apache2<span class="sy0">/</span>ssl<span class="sy0">/</span>certifikát.key                          
+&nbsp;
+        ErrorLog <span class="co1">${APACHE_LOG_DIR}</span><span class="sy0">/</span>error.log
+        CustomLog <span class="co1">${APACHE_LOG_DIR}</span><span class="sy0">/</span>access.log combined
+&nbsp;
+<span class="sy0">&lt;/</span>VirtualHost<span class="sy0">&gt;</span> 

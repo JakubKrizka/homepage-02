@@ -1,0 +1,14 @@
+====== připojení k databázi c9 ======
+
+----
+
+**/app/config/config.local.neon**
+
+<code php>
+database:
+	dsn: 'mysql:host=0.0.0.0;dbname=c9;charset=UTF8'
+	user: username # username of c9
+	password: # empty
+	options:
+		lazy: yes
+</code>

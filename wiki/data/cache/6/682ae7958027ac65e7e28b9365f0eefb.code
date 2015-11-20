@@ -1,0 +1,43 @@
+<span class="re2">CHDIR</span>=<span class="sy0">*****</span>cesta k souboru v <span class="sy0">/</span>opt<span class="sy0">/</span>....<span class="sy0">*****</span>
+<span class="re2">NAME</span>=utserver
+<span class="re2">OPTIONS</span>=<span class="st0">&quot;-LOGFILE&quot;</span>
+<span class="re2">DAEMON</span>=<span class="re1">$CHDIR</span><span class="sy0">/</span><span class="re1">$NAME</span>
+<span class="re2">USER</span>=<span class="sy0">*****</span>uživatel, který to bude spouštět<span class="sy0">*****</span>
+<span class="re2">PIDFILE</span>=<span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span><span class="re1">$NAME</span>.pid
+<span class="re2">STOP_TIMEOUT</span>=<span class="nu0">5</span>
+&nbsp;
+<span class="br0">&#91;</span> <span class="re5">-x</span> <span class="re1">$DAEMON</span> <span class="br0">&#93;</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="nu0">1</span>
+&nbsp;
+. <span class="sy0">/</span>lib<span class="sy0">/</span>lsb<span class="sy0">/</span>init-functions
+&nbsp;
+start_daemon <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        pgrep <span class="re5">-U</span> <span class="re1">$USER</span> <span class="re1">$NAME</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$NAME</span> is already running&quot;</span> <span class="sy0">&amp;&amp;</span> log_end_msg <span class="nu0">1</span>
+        <span class="kw2">rm</span> <span class="re5">-f</span> <span class="re1">$PIDFILE</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+        start-stop-daemon <span class="re5">--start</span> <span class="re5">--quiet</span> <span class="re5">--make-pidfile</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--chuid</span> <span class="re1">$USER</span> <span class="re5">--chdir</span> <span class="re1">$CHDIR</span> <span class="re5">--background</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--</span> <span class="re1">$OPTIONS</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">case</span> <span class="st0">&quot;$1&quot;</span> <span class="kw1">in</span>
+    start<span class="br0">&#41;</span>             
+        log_daemon_msg <span class="st0">&quot;Starting <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start_daemon
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    stop<span class="br0">&#41;</span>
+        log_daemon_msg <span class="st0">&quot;Stopping <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--retry</span> <span class="re1">$STOP_TIMEOUT</span> <span class="sy0">||</span> log_end_msg <span class="nu0">1</span>
+        pgrep <span class="re5">-U</span> <span class="re1">$USER</span> <span class="re1">$NAME</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">||</span> <span class="kw2">rm</span> <span class="re5">-f</span> <span class="re1">$PIDFILE</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    restart<span class="br0">&#41;</span>
+        log_daemon_msg <span class="st0">&quot;Restarting <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--retry</span> <span class="re1">$STOP_TIMEOUT</span> <span class="sy0">||</span> log_end_msg <span class="nu0">1</span>
+        start_daemon
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    <span class="sy0">*</span><span class="br0">&#41;</span>
+        <span class="kw3">echo</span> <span class="st0">&quot;Usage: /etc/init.d/<span class="es2">$NAME</span> {start|stop|restart}&quot;</span>
+        <span class="kw3">exit</span> <span class="nu0">2</span>
+        <span class="sy0">;;</span>
+<span class="kw1">esac</span>
+&nbsp;
+<span class="kw3">exit</span> <span class="nu0">0</span>

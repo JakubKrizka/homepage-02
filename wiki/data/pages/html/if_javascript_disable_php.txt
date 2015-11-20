@@ -1,0 +1,17 @@
+následující kód umožní vyfiltrovat prohlížeče se zablokovaným javascriptem a přesměruje na stránku bez javascriptu **noscript.html**
+ 
+<code html>
+<head>
+  <noscript>
+    <?php if (basename($_SERVER['REQUEST_URI']) != "noscript.html") { ?>
+      <meta http-equiv="Refresh" content="0;noscript.html">
+      <img src="noscript.html" alt="JavaScript is disabled"/>
+    <?php } ?>
+  </noscript>
+</head>
+<body>
+  <!--
+    Obsah s povoleným javascriptem...
+  -->
+</body>
+</code>

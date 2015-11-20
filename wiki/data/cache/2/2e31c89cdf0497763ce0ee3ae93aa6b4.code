@@ -1,0 +1,42 @@
+MemTotal:        <span class="nu0">2049520</span> kB
+MemFree:         <span class="nu0">1875932</span> kB
+Buffers:            <span class="nu0">9832</span> kB
+Cached:            <span class="nu0">98752</span> kB
+SwapCached:            <span class="nu0">0</span> kB
+Active:            <span class="nu0">39132</span> kB
+Inactive:          <span class="nu0">84676</span> kB
+Active<span class="br0">&#40;</span>anon<span class="br0">&#41;</span>:      <span class="nu0">15344</span> kB
+Inactive<span class="br0">&#40;</span>anon<span class="br0">&#41;</span>:      <span class="nu0">324</span> kB
+Active<span class="br0">&#40;</span><span class="kw2">file</span><span class="br0">&#41;</span>:      <span class="nu0">23788</span> kB
+Inactive<span class="br0">&#40;</span><span class="kw2">file</span><span class="br0">&#41;</span>:    <span class="nu0">84352</span> kB
+Unevictable:           <span class="nu0">0</span> kB
+Mlocked:               <span class="nu0">0</span> kB
+SwapTotal:             <span class="nu0">0</span> kB
+SwapFree:              <span class="nu0">0</span> kB
+Dirty:                <span class="nu0">12</span> kB
+Writeback:             <span class="nu0">0</span> kB
+AnonPages:         <span class="nu0">15220</span> kB
+Mapped:             <span class="nu0">7336</span> kB
+Shmem:               <span class="nu0">448</span> kB
+Slab:              <span class="nu0">20016</span> kB
+SReclaimable:      <span class="nu0">10776</span> kB
+SUnreclaim:         <span class="nu0">9240</span> kB
+KernelStack:         <span class="nu0">760</span> kB
+PageTables:         <span class="nu0">2536</span> kB
+NFS_Unstable:          <span class="nu0">0</span> kB
+Bounce:                <span class="nu0">0</span> kB
+WritebackTmp:          <span class="nu0">0</span> kB
+CommitLimit:     <span class="nu0">1024760</span> kB
+Committed_AS:      <span class="nu0">53940</span> kB
+VmallocTotal:   <span class="nu0">34359738367</span> kB
+VmallocUsed:       <span class="nu0">76564</span> kB
+VmallocChunk:   <span class="nu0">34359656940</span> kB
+HardwareCorrupted:     <span class="nu0">0</span> kB
+AnonHugePages:         <span class="nu0">0</span> kB
+HugePages_Total:       <span class="nu0">0</span>
+HugePages_Free:        <span class="nu0">0</span>
+HugePages_Rsvd:        <span class="nu0">0</span>
+HugePages_Surp:        <span class="nu0">0</span>
+Hugepagesize:       <span class="nu0">2048</span> kB
+DirectMap4k:       <span class="nu0">52992</span> kB
+DirectMap2M:     <span class="nu0">2043904</span> kB

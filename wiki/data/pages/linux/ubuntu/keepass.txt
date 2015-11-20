@@ -1,0 +1,7 @@
+Instalace je možná přes "Centrum softwaru pro Ubuntu"
+
+Instalace doplňku do prohlížeče Chrome: [[https://chrome.google.com/webstore/detail/chromeipass/ompiailgknfdndiefoaoiligalphfdae]]
+
+<code bash>
+sudo apt-get install mono-complete
+</code>

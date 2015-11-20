@@ -1,0 +1,48 @@
+====== screen ======
+
+screen manager with VT100/ANSI terminal emulation
+
+<code>
+screen [ -options ] [ cmd [ args ] ]
+       screen -r [[pid.]tty[.host]]
+       screen -r sessionowner/[[pid.]tty[.host]]
+</code>
+
+[[https://www.gnu.org/software/screen/manual/screen.html|(man screen)]]
+
+----
+
+někdy je opravdu potřeba udělat časově velmi, velmi náročný úkon (komprimace, kopírování velkých souborů apod.) a bez přerušení ho provést. Taky je potřeba to občas zkontrolovat a pokud spadne, spojení opět navázat zpět, bez přerušení daného úkonu. Máme tu program screen:
+
+<code bash>
+# instalace
+$ sudo apt-get install screen
+ 
+# spuštění screen
+$ screen
+ 
+# nyní se pustil tzv. demon, který běží na pozadí, při přerušení kominikace stačí zadat:
+$ screen -r
+ 
+# někdy je potřeba více screen oken, v otevřeném screen stiskneme
+$ ctrl+a+c
+ 
+# přepínání mezi screeny lze:
+$ ctrl+a ctrl+a
+ 
+# nebo pokud je více oken
+$ ctrl+a+0...9
+ 
+# zavření okna:
+$ exit
+</code>
+
+Další možnosti:
+
+<code bash>
+# výpis screenů
+$ screen -list
+ 
+# odpojení určitého screenu, př:
+$ screen -D 1636.pts-21.hostname
+</code>

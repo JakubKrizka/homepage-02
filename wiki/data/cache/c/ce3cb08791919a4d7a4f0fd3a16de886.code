@@ -1,0 +1,8 @@
+<span class="co0"># instalace</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> clamav
+&nbsp;
+<span class="co0"># aktualizace virové databáze</span>
+$ <span class="kw2">sudo</span> freshclam
+&nbsp;
+<span class="co0"># spuštění kontroly kořenu</span>
+$ <span class="kw2">sudo</span> clamscan <span class="re5">-r</span> <span class="sy0">/</span>

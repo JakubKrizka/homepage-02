@@ -1,0 +1,52 @@
+====== filtry ======
+
+http://campus.codeschool.com/courses/try-sql/level/1/section/3/video/1
+
+----
+
+===== hodnoty pouze větší 100 =====
+
+<code sql>
+SELECT *
+FROM tabulka
+WHERE cena > 100;
+</code>
+
+===== menší nebo rovno =====
+
+<code sql>
+SELECT *
+FROM tabulka
+WHERE cena <= 50;
+</code>
+
+===== všechno kromě 50 =====
+
+<code sql>
+SELECT *
+FROM tabulka
+WHERE cena <> 50;
+</code>
+<code sql>
+SELECT *
+FROM tabulka
+WHERE cena != 50;
+</code>
+
+===== více podmínek =====
+
+==== a ====
+<code sql>
+SELECT *
+FROM tabulka
+WHERE id='1'
+AND skladem='ano';
+</code>
+
+==== nebo ====
+<code sql>
+SELECT *
+FROM tabulka
+WHERE skladem='ano'
+or na_cestě='ano';
+</code>

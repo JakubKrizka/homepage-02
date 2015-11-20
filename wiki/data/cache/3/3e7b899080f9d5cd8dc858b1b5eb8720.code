@@ -1,0 +1,20 @@
+<span class="co0"># vypise delku retezce</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:025:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="st_h">'Ahoj, svete!'</span>.length 
+=<span class="sy0">&gt;</span> <span class="nu0">12</span>
+&nbsp;
+<span class="co0"># prevede vsechna pismena na velka</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:026:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="st_h">'Ahoj, svete!'</span>.upcase
+=<span class="sy0">&gt;</span> <span class="st0">&quot;AHOJ, SVETE!&quot;</span>
+&nbsp;
+<span class="co0"># prevede vsechna pismena na mala</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:027:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="st_h">'Ahoj, svete!'</span>.downcase
+=<span class="sy0">&gt;</span> <span class="st0">&quot;ahoj, svete!&quot;</span>
+&nbsp;
+<span class="co0"># zameni velka pismena za mala a naopak</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:028:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="st_h">'Ahoj, svete!'</span>.swapcase
+=<span class="sy0">&gt;</span> <span class="st0">&quot;aHOJ, SVETE!&quot;</span>
+&nbsp;
+<span class="co0"># vypise retezec pozpatku</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:029:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="st_h">'Ahoj, svete!'</span>.reverse  
+=<span class="sy0">&gt;</span> <span class="st0">&quot;!etevs ,johA&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:030:<span class="nu0">0</span><span class="sy0">&gt;</span>

@@ -1,0 +1,1 @@
+<span class="kw2">sudo</span> <span class="kw2">chown</span> <span class="re5">-R</span> minidlna <span class="sy0">/</span>var<span class="sy0">/</span>minidlna

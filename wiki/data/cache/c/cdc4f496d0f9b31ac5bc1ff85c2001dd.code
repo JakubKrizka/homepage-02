@@ -1,0 +1,4 @@
+<span class="re2">allow_writeable_chroot</span>=YES
+&nbsp;
+<span class="co0"># And restart service</span>
+$ service vsftpd restart

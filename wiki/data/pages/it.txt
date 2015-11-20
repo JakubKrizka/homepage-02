@@ -1,0 +1,1 @@
+<note>//"Pokud chcete být dobrý správce úspěšného projektu, musíte si kromě jiného uvědomit, že psaní kódu pro sebe je dost blbý nápad. Pokud váš kód užívají tisíce lidí, musíte jej psát pro maximální srozumitelnost a ne pro svou radost z dodržení specifikace."// **Idan Gazit**</note>

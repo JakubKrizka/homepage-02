@@ -1,0 +1,12 @@
+====== unetbootin ======
+
+
+----
+
+<code bash>
+# update
+sudo apt-get update
+# instalace
+sudo apt-get install unetbootin
+# v případě že balíček se nenajde zkusit: sudo add-apt-repository ppa:gezakovacs/ppa a začít od začátku
+</code>

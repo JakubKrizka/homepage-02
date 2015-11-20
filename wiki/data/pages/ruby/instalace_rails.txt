@@ -1,0 +1,24 @@
+====== Ruby On Rails ======
+
+----
+
+===== Instalace =====
+
+<code bash>
+# přihlášené jako root
+sudo su
+# přidání rezitáře pro nodeJS
+add-apt-repository -y ppa:chris-lea/node.js
+# update
+apt-get update
+# instalace potřebných knihoven
+apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties git ruby rails irb nodejs
+# instalace gemu rails
+gem install rails
+# kontrola nainstalované verze
+rails -v
+# vytvoření aplikace
+rails new myapp
+# start server
+rails server -e development -p 3000 -b 0.0.0.0
+</code>

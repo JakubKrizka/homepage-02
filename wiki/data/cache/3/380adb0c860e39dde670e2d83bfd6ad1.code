@@ -1,0 +1,5 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:030:<span class="nu0">0</span><span class="sy0">&gt;</span> <span class="kw3">printf</span> <span class="st0">&quot;%07.2f<span class="es1">\n</span>%07.2f<span class="es1">\n</span>%07.2f<span class="es1">\n</span>&quot;</span>, <span class="nu0">3.14</span>, <span class="nu0">9.8</span>, <span class="nu0">20.645</span>
+<span class="nu0">0003.14</span>
+<span class="nu0">0009.80</span>
+<span class="nu0">0020.64</span>
+=<span class="sy0">&gt;</span> nil

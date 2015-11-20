@@ -1,0 +1,32 @@
+    
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="?page=about">
+                        <i class="fa fa-user fa-3x" <?php if ($_GET["page"] == "about" or !$_GET["page"]) { echo 'style="color: rgb(34, 187, 234);"'; } ?>></i>
+                    </a>
+                </li><!--
+                <li>
+                    <a href="?page=link"
+                        <?php
+                            if ($_GET["page"] == "link") {
+                                echo 'class="selected"';    
+                            }
+                        ?>>
+                        <i class="fa fa-picture-o fa-3x"></i>
+                    </a>
+                </li>-->
+                <li>
+                    <a href="?page=info">
+                        <i class="fa fa-info-circle fa-3x" <?php if ($_GET["page"] == "info") { echo 'style="color: rgb(34, 187, 234);"'; } ?>></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="?page=private">
+                        <i class="fa fa-power-off fa-3x" <?php if ($_GET["page"] == "private") { echo 'style="color: rgb(34, 187, 234);"'; } ?>></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>

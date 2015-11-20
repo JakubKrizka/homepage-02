@@ -1,0 +1,4 @@
+$ <span class="kw2">tar</span> <span class="re5">-cvf</span> archiv.tar <span class="sy0">/</span>cesta<span class="sy0">/</span>k<span class="sy0">/</span>slozce<span class="sy0">/</span>kterou<span class="sy0">/</span>chcete<span class="sy0">/</span>zabalit
+&nbsp;
+<span class="co0"># Opačný proces</span>
+$ <span class="kw2">tar</span> <span class="re5">-xvf</span> archiv.tar

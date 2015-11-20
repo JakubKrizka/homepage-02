@@ -1,0 +1,32 @@
+<code bash>
+sudo su
+apt-get install lm-sensors
+sensors-detect
+yes...yes....yes...yes...enter... yes
+sensors
+</code>
+
+pro automatický update výsledků:
+
+<code bash>
+watch -n 1 --differences sensors
+</code>
+
+nebo lze udělat bash script:
+
+<code bash> 
+while true; do
+    sleep 1
+    sensors
+done
+</code>
+
+monitoring hdd
+
+<code bash>
+apt-get install smartmontools
+smartctl --scan
+smartctl -a /dev/sdx
+smartctl -a /dev/sdx | grep Temperature_Celsius | awk '{print $4}'
+
+</code>

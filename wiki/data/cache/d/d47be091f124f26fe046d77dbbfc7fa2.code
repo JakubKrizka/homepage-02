@@ -1,0 +1,8 @@
+<span class="co0"># instalace</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> smartmontools
+<span class="co0"># mapování /dev/sdX</span>
+<span class="kw2">sudo</span> <span class="kw2">fdisk</span> <span class="re5">-l</span>
+<span class="co0"># vypsat info</span>
+<span class="kw2">sudo</span> smartctl <span class="re5">--health</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdX
+<span class="co0"># vše</span>
+<span class="kw2">sudo</span> smartctl <span class="re5">--all</span> <span class="sy0">/</span>dev<span class="sy0">/</span>sdX

@@ -1,0 +1,11 @@
+<span class="co0"># vrati pocet prvku pole</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:038:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena.length
+=<span class="sy0">&gt;</span> <span class="nu0">8</span>
+&nbsp;
+<span class="co0"># vrati pole s obracenym poradim prvku</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:039:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena.reverse
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Martin&quot;</span>, nil, nil, nil, <span class="st0">&quot;Jiri&quot;</span>, <span class="st0">&quot;Radek&quot;</span>, <span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Jaromir&quot;</span><span class="br0">&#93;</span>
+&nbsp;
+<span class="co0"># zkrati pole o prazdne hodnoty</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:040:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena.compact
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Radek&quot;</span>, <span class="st0">&quot;Jiri&quot;</span>, <span class="st0">&quot;Martin&quot;</span><span class="br0">&#93;</span>

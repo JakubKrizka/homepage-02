@@ -1,0 +1,7 @@
+<code php>
+$start = '-----start-----';
+$end   = '-----end-----';
+$string = 'rtyfbytgyuibg-----start-----isnv4b987b6vdc5y6ughnjmn9b8v76ctyubinn98b76r-----end-----gcgkhjkn';
+$output = strstr( substr( $string, strpos( $string, $start) + strlen( $start)), $end, true);
+echo '<text>' . $output . '</text>';
+</code>

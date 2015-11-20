@@ -1,0 +1,6 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:033:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena = <span class="br0">&#91;</span><span class="st_h">'Jaromir'</span>, <span class="st_h">'Lukas'</span>, <span class="st_h">'Radek'</span><span class="br0">&#93;</span>
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Radek&quot;</span><span class="br0">&#93;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:034:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena<span class="br0">&#91;</span><span class="nu0">3</span><span class="br0">&#93;</span> = <span class="st_h">'Jiri'</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;Jiri&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:035:<span class="nu0">0</span><span class="sy0">&gt;</span> jmena
+=<span class="sy0">&gt;</span> <span class="br0">&#91;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;Lukas&quot;</span>, <span class="st0">&quot;Radek&quot;</span>, <span class="st0">&quot;Jiri&quot;</span><span class="br0">&#93;</span>

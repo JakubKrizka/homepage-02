@@ -1,0 +1,157 @@
+
+<h1 class="sectionedit1" id="ssh">ssh</h1>
+<div class="level1">
+
+<p>
+OpenSSH SSH client (remote login program)
+</p>
+<pre class="code"> ssh [-1246AaCfgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+         [-D [bind_address:]port] [-E log_file] [-e escape_char]
+         [-F configfile] [-I pkcs11] [-i identity_file]
+         [-L [bind_address:]port:host:hostport] [-l login_name] [-m mac_spec]
+         [-O ctl_cmd] [-o option] [-p port]
+         [-Q cipher | cipher-auth | mac | kex | key]
+         [-R [bind_address:]port:host:hostport] [-S ctl_path] [-W host:port]
+         [-w local_tun[:remote_tun]] [user@]hostname [command]</pre>
+
+<p>
+<a href="http://linux.die.net/man/1/ssh" class="urlextern" title="http://linux.die.net/man/1/ssh"  rel="nofollow">(man ssh)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "ssh" [1-634] -->
+<h2 class="sectionedit2" id="prevod_ssh_klice_na_ppk">Převod SSH klíče na .PPK</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># instalace balíčku</span>
+$ <span class="kw2">sudo</span> <span class="kw2">apt-get install</span> putty-tools
+<span class="co0"># převod</span>
+$ puttygen private-key.file <span class="re5">-o</span> keyname.ppk</pre>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Převod SSH klíče na .PPK" [635-814] -->
+<h2 class="sectionedit3" id="prihlasovani_pomoci_klice">Přihlašování pomocí klíče</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "Přihlašování pomocí klíče" [815-861] -->
+<h3 class="sectionedit4" id="local">local</h3>
+<div class="level3">
+
+<p>
+<strong>/Users/username/.ssh/config</strong>
+</p>
+<pre class="code bash">Host <span class="kw2">hostname</span>
+HostName example.com
+User domainuser</pre>
+
+<p>
+následně se přes ssh pripojí následovně:
+</p>
+<pre class="code bash"><span class="kw2">ssh</span> <span class="kw2">hostname</span></pre>
+<hr />
+
+</div>
+<!-- EDIT4 SECTION "local" [862-1068] -->
+<h3 class="sectionedit5" id="linux">Linux</h3>
+<div class="level3">
+
+<p>
+Zde je jen potřeba rozlišit klienta a server. Na straně klienta zadáme příkaz:
+</p>
+<pre class="code bash">$ <span class="kw2">ssh-keygen</span>
+<span class="co0"># enter... pak se to zeptá jestli chceme použít heslo, podobné jako v případě putty (viz. výše) ...enter</span></pre>
+
+<p>
+Vytvoří se nám 2 klíče privátní (identifikace - klient) <strong>~/.ssh/id_rsa</strong> a veřejný (ověření - server) <strong>~/.ssh/id_rsa.pub</strong>
+</p>
+<pre class="code bash"><span class="co0"># opět bezpečnost především</span>
+$ <span class="kw2">chmod</span> <span class="nu0">700</span> ~<span class="sy0">/</span>.ssh<span class="sy0">/</span>id_rsa</pre>
+
+<p>
+Otevřeme u klienta veřejný klíč <strong>~/.ssh/id_rsa.pub</strong> a zkopírujeme celý řádek na server do souboru (<strong>~/.ssh/authorized_keys</strong>) a ještě musí být zapnutá funkce ověření pomocí klíče, upravíme soubor <strong>/etc/ssh/sshd_config</strong>
+</p>
+<pre class="code bash">RSAAuthentication <span class="kw2">yes</span>
+PubkeyAuthentication <span class="kw2">yes</span>
+AuthorizedKeysFile      <span class="sy0">%</span>h<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys
+&nbsp;
+<span class="co0"># pro ještě větší bezpečnost můžete zakázat ověření pomocí hesla, tzn. přihlášení pouze s klíčem/souborem (+ nastavení firewallu jen pro dané IP adresy)</span>
+PasswordAuthentication no
+&nbsp;
+<span class="co0"># nastavení uložit a resetovat ssh demona</span>
+$ <span class="kw2">sudo</span> service <span class="kw2">ssh</span> restart</pre>
+<pre class="code bash"><span class="co0"># pak se jen přihlásit</span>
+$ <span class="kw2">ssh</span> username<span class="sy0">@</span>host</pre>
+
+<p>
+A to je vše :) 
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Linux" [1069-2257] -->
+<h3 class="sectionedit6" id="windows">Windows</h3>
+<div class="level3">
+
+<p>
+Je zapotřebí program <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" class="urlextern" title="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html"  rel="nofollow">putty</a> a s ním také putty generator. 
+</p>
+<ul>
+<li class="level1"><div class="li"> Spustíme puttygen.exe a klikneme na <strong>generate</strong></div>
+</li>
+</ul>
+
+<p>
+<img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:01.png?w=333&amp;tok=de6402" class="mediacenter" alt="" width="333" />
+</p>
+<ul>
+<li class="level1"><div class="li"> jezdíme random myší k vytvoření tzv. hash kódu, nebo jak to mám nazvat :D</div>
+</li>
+</ul>
+
+<p>
+<img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:02.png?w=333&amp;tok=076b8a" class="mediacenter" alt="" width="333" />
+</p>
+<ul>
+<li class="level1"><div class="li"> Pojmenujeme (<strong>key comment</strong>) k jakému cíli bude klíč náležet. Např. home-server nebo tak něco. Dále máme možnost vytvořit i heslo (<strong>key passphrase</strong>) k danému souboru, něco jako dvojí ověření (soubor + heslo). Pokud je to všechno tak klíč uložíme (<strong>save private key</strong>) a zkopírujeme (<strong>public key</strong>) který se nachází nahoře. </div>
+</li>
+</ul>
+
+<p>
+<img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:03.png?w=333&amp;tok=d019cd" class="mediacenter" alt="" width="333" />
+</p>
+<ul>
+<li class="level1"><div class="li"> Zkopírovaný public key vložíme na cílovém serveru do souboru <strong>~/.ssh/authorized_keys</strong></div>
+</li>
+</ul>
+<pre class="code bash">$ <span class="kw2">sudo</span> <span class="kw2">nano</span> ~<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys
+<span class="co0"># pro uložení CTRL+O (enter) CTRL+X a také nezapomonout na bezpečnost:</span>
+$ <span class="kw2">sudo</span> <span class="kw2">chmod</span> <span class="nu0">700</span> ~<span class="sy0">/</span>.ssh</pre>
+<ul>
+<li class="level1"><div class="li"> a ještě musí být zapnutá funkce ověření pomocí tohoto klíče, soubor <strong>/etc/ssh/sshd_config</strong></div>
+</li>
+</ul>
+<pre class="code bash">RSAAuthentication <span class="kw2">yes</span>
+PubkeyAuthentication <span class="kw2">yes</span>
+AuthorizedKeysFile      <span class="sy0">%</span>h<span class="sy0">/</span>.ssh<span class="sy0">/</span>authorized_keys
+&nbsp;
+<span class="co0"># pro ještě větší bezpečnost můžete zakázat ověření pomocí hesla, tzn. přihlášení pouze s klíčem/souborem (+ nastavení firewallu jen pro dané IP adresy)</span>
+PasswordAuthentication no
+&nbsp;
+<span class="co0"># nastavení uložit a resetovat ssh demona</span>
+$ <span class="kw2">sudo</span> service <span class="kw2">ssh</span> restart</pre>
+<ul>
+<li class="level1"><div class="li"> pro přihlášení je v Putty potřeba v parametru host vyplnit uživatelské jméno (username@host) a přidat vytvořený (<strong>private key</strong>)</div>
+</li>
+</ul>
+
+<p>
+<img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:04.png?w=333&amp;tok=6f3d06" class="mediacenter" alt="" width="333" /><img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/linux:ubuntu:05.png?w=333&amp;tok=d5f3b5" class="mediacenter" alt="" width="333" />
+</p>
+
+<p>
+<a href="http://kb.site5.com/shell-access-ssh/how-to-generate-ssh-keys-and-connect-to-your-account-with-putty/" class="urlextern" title="http://kb.site5.com/shell-access-ssh/how-to-generate-ssh-keys-and-connect-to-your-account-with-putty/"  rel="nofollow">Originální návod</a>
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Windows" [2258-] -->

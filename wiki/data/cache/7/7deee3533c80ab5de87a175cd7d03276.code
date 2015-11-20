@@ -1,0 +1,1 @@
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> <span class="re5">-y</span> python-software-properties

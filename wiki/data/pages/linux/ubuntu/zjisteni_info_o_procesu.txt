@@ -1,0 +1,3 @@
+<code bash>
+ps -p "číslo" -o comm=
+</code>

@@ -1,0 +1,7 @@
+====== jobs ======
+
+===== pozastavení/pokračování scriptu =====
+
+<note>Probíhající script můžete pozastavit **CTRL+Z** výpis pozastavených prací lze **jobs** a následně příkazem **fg** obnovíte další //jobs// v pořadí. Pokud je více pozastavených prací, tak **fg %[číslo]**.</note>
+
+

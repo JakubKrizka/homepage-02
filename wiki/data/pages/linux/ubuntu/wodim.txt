@@ -1,0 +1,22 @@
+====== wodim ======
+
+write data to optical disk media
+
+<code>
+wodim [options] track1...trackn
+</code>
+
+[[http://linux.die.net/man/1/wodim|(man wodim)]]
+
+----
+
+<code bash>
+# výpis vypalovaček
+$ wodim --devices
+
+# informace o vypalovačce
+$ wodim -prcap dev=/dev/cdrom
+
+# vypalování
+$ wodim -eject -tao speed=3 dev=/dev/cdrom -v -data myiso.iso
+</code>

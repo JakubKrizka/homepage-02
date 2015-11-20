@@ -1,0 +1,10 @@
+http://askubuntu.com/questions/223248/gzip-stdout-no-space-left-on-device-while-upgrading-the-kernel
+
+<code bash>
+# výpis aktuální používané verze kernelu
+uname -r
+# výpis všech verzí kernelu v systému
+sudo aptitude search ~ilinux-image
+# smazat staré verze
+sudo apt-get autoremove linux-image-**********
+</code>

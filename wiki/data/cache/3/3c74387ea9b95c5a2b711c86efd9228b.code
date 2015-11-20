@@ -1,0 +1,6 @@
+<span class="co0">#instalace</span>
+<span class="kw2">sudo</span> <span class="kw2">apt-get install</span> ruby irb
+<span class="co0">#ověření</span>
+ruby <span class="re5">-e</span> <span class="st_h">'puts &quot;Ahoj ruby!&quot;'</span> 
+<span class="co0">#výsledek:</span>
+Ahoj ruby<span class="sy0">!</span>

@@ -1,0 +1,23 @@
+Input <span class="co0">#0, mov,mp4,m4a,3gp,3g2,mj2, from 'OUTPUT.mp4':</span>
+  Metadata:
+    major_brand     : isom
+    minor_version   : <span class="nu0">512</span>
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf54.63.104
+  Duration: 00:00:<span class="nu0">30.03</span>, start: <span class="nu0">0.000000</span>, bitrate: <span class="nu0">3929</span> kb<span class="sy0">/</span>s
+    Chapter <span class="co0">#0.0: start 0.000000, end 30.030000</span>
+&nbsp;
+    Metadata:
+      title           : 00:00:<span class="nu0">00.000</span>
+&nbsp;
+    Stream <span class="co0">#0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x720 [SAR 1:1 DAR 16:9], 1635 kb/s, 23.98 fps, 23.98 tbr, 24k tbn, 47.95 tbc </span>
+    Metadata:
+      handler_name    : VideoHandler
+&nbsp;
+    Stream <span class="co0">#0:1(cze): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 768 kb/s   </span>
+    Metadata:
+      handler_name    : SoundHandler
+&nbsp;
+    Stream <span class="co0">#0:2(eng): Audio: dts (DTS) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 1536 kb/s</span>
+    Metadata:
+      handler_name    : SoundHandler

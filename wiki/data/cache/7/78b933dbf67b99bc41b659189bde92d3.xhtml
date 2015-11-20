@@ -1,0 +1,171 @@
+
+<h1 class="sectionedit1" id="utorrent_na_linux_ubuntu_server">uTorrent na Linux Ubuntu Server</h1>
+<div class="level1">
+
+<p>
+<a href="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/utorrent.png" class="media wikilink2" title="utorrent.png"><img src="http://jakubkrizka.cz/wiki/lib/exe/fetch.php/utorrent.png?w=250&amp;tok=8f1f7c" class="media" alt="" width="250" /></a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "uTorrent na Linux Ubuntu Server" [1-83] -->
+<h2 class="sectionedit2" id="uvod">Úvod</h2>
+<div class="level2">
+
+<p>
+Dlouho mi trvalo než jsem dostal (především pro windows dělaný) torrentový manager uTorrent na nějaký linux server, aby běžel na pozadí a automaticky při zapnutí systému. Podělím se s Vámi o mé zkušenosti, poznatky a postupy pro instalaci, nastavení atd. Předem upozorním, že instalace je testována a připraveno pro Linux Ubuntu Server 12.04 TLS. Podobné by to mělo být v debianu a jiných debian-like systémech. 
+</p>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "Úvod" [84-553] -->
+<h2 class="sectionedit3" id="priprava">Příprava</h2>
+<div class="level2">
+
+<p>
+Nejprve potřebujeme instalační soubor podle systému a architektury procesoru. Stáhneme to na <a href="http://www.utorrent.com/downloads/linux" class="urlextern" title="http://www.utorrent.com/downloads/linux"  rel="nofollow">oficiálních stránkách</a>. Stažený soubor dáme kamkoliv na server, přihlásíme se jako root a postupně budeme zadávat příkazy do terminálu.
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Příprava" [554-876] -->
+<h2 class="sectionedit4" id="instalace">Instalace</h2>
+<div class="level2">
+
+<p>
+Stažený soubor se může jmenovat jakkoliv a nainstalujeme ho (spíše jen rozabalíme) příkazem:
+</p>
+<pre class="code bash"><span class="kw2">tar</span> xvzf utorrent-server-<span class="nu0">3.0</span>-<span class="nu0">25053</span>.tar.gz <span class="re5">-C</span> <span class="sy0">/</span>opt<span class="sy0">/</span></pre>
+
+<p>
+<strong>„utorrent-server-3.0-25053.tar.gz“</strong> je stažený soubor, může se jmenovat jinak, tak zadejte jméno vašeho souboru. výpis souborů a složek je příkazem:
+</p>
+<pre class="code bash"><span class="kw2">ls</span> <span class="re5">-1</span></pre>
+
+<p>
+ Soubor se rozbalí do složky /opt/název. A je třeba nastavit práva příkazem:
+</p>
+<pre class="code bash"><span class="kw2">chmod</span> <span class="re5">-R</span> <span class="nu0">777</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utorrent-server-v3_0<span class="sy0">/</span></pre>
+
+<p>
+<strong>„utorrent-server-v3_0“</strong> zase se může jmenovat jinak tak zadejte jméno vaši složky, poté je potřeba vytvořit odkaz, příkazem:
+</p>
+<pre class="code bash"><span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utorrent-server-v3_0<span class="sy0">/</span>utserver <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>utserver</pre>
+
+<p>
+tím je instalace hotova.
+</p>
+<hr />
+
+</div>
+<!-- EDIT4 SECTION "Instalace" [877-1663] -->
+<h2 class="sectionedit5" id="spusteni">Spuštění</h2>
+<div class="level2">
+
+<p>
+Program uTorrent spustíme následujícím příkazem, opět zadejte cestu k Vašemu souboru:
+</p>
+<pre class="code bash">utserver <span class="re5">-settingspath</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utorrent-server-v3_0<span class="sy0">/</span></pre>
+
+<p>
+…terminál by se měl správně „seknout“ teď stačí zjistit IP adresu Vašeho serveru. Ke zjištění IP adresy serveru použijte v terminálu příkaz:
+</p>
+<pre class="code bash"><span class="kw2">ip addr</span> </pre>
+
+<p>
+vyjedou všechy síťové zařízení a jejich adresy, nejčastější bývá „eth0“ ale může být jiné to uvidíte ve výpisu. Po zjištění IP adresy zadejte v jakémkoliv PC IP adresu serveru ve tvaru:
+</p>
+<pre class="code">http://ip-adresa-serveru:8080/gui/</pre>
+
+<p>
+Hned na vyjede přihlášení, zadejte jméno: admin, heslo nechat prázdné a přihlásit. Jste tam. V nastavení lze změnit jazyk, složky pro stahování i přístupové údaje. 
+</p>
+<hr />
+
+</div>
+<!-- EDIT5 SECTION "Spuštění" [1664-2495] -->
+<h2 class="sectionedit6" id="automaticke_spusteni">Automatické spuštění</h2>
+<div class="level2">
+
+<p>
+Asi jste si všimli že po restartu serveru už to nefunguje a musíte to pouštět ručně a k tomu se terminál jakoby „zasekne“. Od toho mu můžeme říct, aby to pustil při spuštění systému a k tomu na pozadí. Nejprve si vytvoříme script, ten je napsaný níže, stačí CTRL+C a CTRL+V. Jen tam editujte 2 věci, které jsou lokální u Vás. Ta první je cesta k souboru v /opt/bla_bla_bla a ta druhá je uživatel který to má souštět. Já jsem použil root. Tyto 2 řádky najdete podle hvězdiček <strong></strong>* ty samozřejmě následně smazat.
+</p>
+<pre class="code bash"><span class="re2">CHDIR</span>=<span class="sy0">*****</span>cesta k souboru v <span class="sy0">/</span>opt<span class="sy0">/</span>....<span class="sy0">*****</span>
+<span class="re2">NAME</span>=utserver
+<span class="re2">OPTIONS</span>=<span class="st0">&quot;-LOGFILE&quot;</span>
+<span class="re2">DAEMON</span>=<span class="re1">$CHDIR</span><span class="sy0">/</span><span class="re1">$NAME</span>
+<span class="re2">USER</span>=<span class="sy0">*****</span>uživatel, který to bude spouštět<span class="sy0">*****</span>
+<span class="re2">PIDFILE</span>=<span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span><span class="re1">$NAME</span>.pid
+<span class="re2">STOP_TIMEOUT</span>=<span class="nu0">5</span>
+&nbsp;
+<span class="br0">&#91;</span> <span class="re5">-x</span> <span class="re1">$DAEMON</span> <span class="br0">&#93;</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="nu0">1</span>
+&nbsp;
+. <span class="sy0">/</span>lib<span class="sy0">/</span>lsb<span class="sy0">/</span>init-functions
+&nbsp;
+start_daemon <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        pgrep <span class="re5">-U</span> <span class="re1">$USER</span> <span class="re1">$NAME</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">&amp;&amp;</span> <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$NAME</span> is already running&quot;</span> <span class="sy0">&amp;&amp;</span> log_end_msg <span class="nu0">1</span>
+        <span class="kw2">rm</span> <span class="re5">-f</span> <span class="re1">$PIDFILE</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+        start-stop-daemon <span class="re5">--start</span> <span class="re5">--quiet</span> <span class="re5">--make-pidfile</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--chuid</span> <span class="re1">$USER</span> <span class="re5">--chdir</span> <span class="re1">$CHDIR</span> <span class="re5">--background</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--</span> <span class="re1">$OPTIONS</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">case</span> <span class="st0">&quot;$1&quot;</span> <span class="kw1">in</span>
+    start<span class="br0">&#41;</span>             
+        log_daemon_msg <span class="st0">&quot;Starting <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start_daemon
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    stop<span class="br0">&#41;</span>
+        log_daemon_msg <span class="st0">&quot;Stopping <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--retry</span> <span class="re1">$STOP_TIMEOUT</span> <span class="sy0">||</span> log_end_msg <span class="nu0">1</span>
+        pgrep <span class="re5">-U</span> <span class="re1">$USER</span> <span class="re1">$NAME</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">||</span> <span class="kw2">rm</span> <span class="re5">-f</span> <span class="re1">$PIDFILE</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    restart<span class="br0">&#41;</span>
+        log_daemon_msg <span class="st0">&quot;Restarting <span class="es2">$NAME</span> daemon&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="re1">$PIDFILE</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span> <span class="re5">--retry</span> <span class="re1">$STOP_TIMEOUT</span> <span class="sy0">||</span> log_end_msg <span class="nu0">1</span>
+        start_daemon
+        log_end_msg <span class="nu0">0</span>
+        <span class="sy0">;;</span>
+    <span class="sy0">*</span><span class="br0">&#41;</span>
+        <span class="kw3">echo</span> <span class="st0">&quot;Usage: /etc/init.d/<span class="es2">$NAME</span> {start|stop|restart}&quot;</span>
+        <span class="kw3">exit</span> <span class="nu0">2</span>
+        <span class="sy0">;;</span>
+<span class="kw1">esac</span>
+&nbsp;
+<span class="kw3">exit</span> <span class="nu0">0</span></pre>
+
+<p>
+Vytvoříme soubor kam to vložíme:
+</p>
+<pre class="code bash"><span class="kw2">nano</span> <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>utserver</pre>
+
+<p>
+text/soubor překopírujeme, upravíme ty 2 řádky, uložíme CRTL+O a odejdeme CTRL+X. Dále nastavíme práva:
+</p>
+<pre class="code bash"><span class="kw2">chmod</span> a+x <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>utserver</pre>
+
+<p>
+a nakonec zařídíme aby se spuštěl po spuštění příkazem:
+</p>
+<pre class="code bash">update-rc.d utserver defaults</pre>
+
+<p>
+Hotovo uTorrent se bude pouštět po spuštění serveru. Pokud byste chtěli přistupovat i z venku pak musíte nastavit směrování portů ve vašem modemu + by se hodila pevná IP adresa. 
+</p>
+<hr />
+
+</div>
+<!-- EDIT6 SECTION "Automatické spuštění" [2496-5008] -->
+<h2 class="sectionedit7" id="mozne_chyby">Možné chyby</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Nejdříve upozorním že to musíte dělat jako root, pokud byste to dělali jako jiní uživatelé, tak před ty příkazy dávejte příkaz „sudo“ </div>
+</li>
+<li class="level1"><div class="li"> Někomu může v průběhu zahlásit chybějící balíček, ten doinstalujete příkazem „apt-get install libssl0.9.8:i386“ ale mě osobně se to nestalo tak nevím.</div>
+</li>
+<li class="level1"><div class="li"> Vše ok ale při stahování/odesílání se nepřipojíte? Zkontrolujte směrování portů, je možné, že vám to blokuje firewall nebo modem, v nastavení můžete změnit port. A nebo si vyberte na zkoušku jakýoliv populární torrent a uvidíte v čem je problém. </div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Možné chyby" [5009-] -->

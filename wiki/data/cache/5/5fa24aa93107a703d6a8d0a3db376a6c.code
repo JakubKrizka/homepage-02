@@ -1,0 +1,4 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:055:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje<span class="br0">&#91;</span><span class="st0">&quot;pohlavi&quot;</span><span class="br0">&#93;</span> = <span class="st0">&quot;muz&quot;</span>
+=<span class="sy0">&gt;</span> <span class="st0">&quot;muz&quot;</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:056:<span class="nu0">0</span><span class="sy0">&gt;</span> udaje
+=<span class="sy0">&gt;</span> <span class="br0">&#123;</span><span class="st0">&quot;jmeno&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;Jaromir&quot;</span>, <span class="st0">&quot;prijmeni&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;Hradilek&quot;</span>, <span class="st0">&quot;pohlavi&quot;</span>=<span class="sy0">&gt;</span><span class="st0">&quot;muz&quot;</span><span class="br0">&#125;</span>

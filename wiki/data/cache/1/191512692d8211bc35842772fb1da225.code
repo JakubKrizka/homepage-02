@@ -1,0 +1,7 @@
+<span class="co0"># When you get &quot;false&quot; it means that library was **already** loaded.</span>
+&nbsp;
+~$ irb
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:001:<span class="nu0">0</span><span class="sy0">&gt;</span> require <span class="st_h">'time'</span>
+=<span class="sy0">&gt;</span> <span class="kw2">true</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:002:<span class="nu0">0</span><span class="sy0">&gt;</span> require <span class="st_h">'time'</span>
+=<span class="sy0">&gt;</span> <span class="kw2">false</span>

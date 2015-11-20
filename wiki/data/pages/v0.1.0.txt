@@ -1,0 +1,11 @@
+====== v0.1.0 ======
+
+Česká dokumentace k projektu "WEB EVERYWHERE", která má za úkol sjednotit veškeré "WEB BROWSERs". 
+
+===== PHP =====
+
+<code php>
+// přesměrování na jinou stránku
+header('Location: another.php');
+</code>
+

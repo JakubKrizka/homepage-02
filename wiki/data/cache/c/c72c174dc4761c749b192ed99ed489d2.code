@@ -1,0 +1,5 @@
+document.<span class="me1">getElementById</span><span class="br0">&#40;</span><span class="st0">'htmlFive'</span><span class="br0">&#41;</span>.<span class="me1">setAttribute</span><span class="br0">&#40;</span><span class="st0">'poster'</span><span class="sy0">,</span><span class="st0">'newvalue'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="sy0">-</span>a nebo s jquery
+&nbsp;
+$<span class="br0">&#40;</span><span class="st0">'#htmlFive'</span><span class="br0">&#41;</span>.<span class="me1">attr</span><span class="br0">&#40;</span><span class="st0">'poster'</span><span class="sy0">,</span> <span class="st0">'newvalue'</span><span class="br0">&#41;</span><span class="sy0">;</span>

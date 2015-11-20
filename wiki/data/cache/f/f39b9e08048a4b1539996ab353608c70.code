@@ -1,0 +1,13 @@
+<span class="co0"># seznam použitých portů</span>
+$ <span class="kw2">sudo</span> <span class="kw2">netstat</span> <span class="re5">-tulpn</span> <span class="sy0">|</span> <span class="kw2">egrep</span> <span class="st0">&quot;samba|smbd|nmbd|winbind&quot;</span> 
+&nbsp;
+tcp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">139</span>             0.0.0.0:<span class="sy0">*</span>               LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+tcp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">445</span>             0.0.0.0:<span class="sy0">*</span>               LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+tcp6       <span class="nu0">0</span>      <span class="nu0">0</span> :::<span class="nu0">139</span>                  :::<span class="sy0">*</span>                    LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+tcp6       <span class="nu0">0</span>      <span class="nu0">0</span> :::<span class="nu0">445</span>                  :::<span class="sy0">*</span>                    LISTEN      <span class="nu0">26712</span><span class="sy0">/</span>smbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.255:<span class="nu0">137</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.111:<span class="nu0">137</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">137</span>             0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.255:<span class="nu0">138</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 192.168.1.111:<span class="nu0">138</span>       0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd
+udp        <span class="nu0">0</span>      <span class="nu0">0</span> 0.0.0.0:<span class="nu0">138</span>             0.0.0.0:<span class="sy0">*</span>                           <span class="nu0">1548</span><span class="sy0">/</span>nmbd

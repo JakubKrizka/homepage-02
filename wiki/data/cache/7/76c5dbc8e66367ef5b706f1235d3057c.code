@@ -1,0 +1,4 @@
+<span class="co0"># instalace</span>
+curl <span class="re5">-sS</span> https:<span class="sy0">//</span>getcomposer.org<span class="sy0">/</span>installer <span class="sy0">|</span> php <span class="re5">--</span> <span class="re5">--install-dir</span>=<span class="sy0">/</span>bin<span class="sy0">/</span> <span class="re5">--filename</span>=composer
+<span class="co0"># následně vejít do složky ve které instalovat závislosti a spustit:</span>
+composer <span class="kw2">install</span>

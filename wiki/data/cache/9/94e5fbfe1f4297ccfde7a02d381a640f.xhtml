@@ -1,0 +1,102 @@
+
+<h1 class="sectionedit1" id="tar">tar</h1>
+<div class="level1">
+
+<p>
+The GNU version of the tar archiving utility
+</p>
+<pre class="code">tar [-] A --catenate --concatenate | c --create | d --diff --compare |
+         --delete | r --append | t --list | --test-label | u --update | x
+         --extract --get [options] [pathname ...]</pre>
+
+<p>
+<a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/tar.1.html" class="urlextern" title="http://manpages.ubuntu.com/manpages/trusty/en/man1/tar.1.html"  rel="nofollow">(man tar)</a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "tar" [1-359] -->
+<h2 class="sectionedit2" id="tar1">.tar</h2>
+<div class="level2">
+
+<p>
+Nejrozšířenější Linux program na archivování. Zátěž procesoru minimální. Jednoduše přesune tisíce malých souborů do jednoho velkého. Velikost je cca stejná.
+</p>
+<pre class="code bash">$ <span class="kw2">tar</span> <span class="re5">-cvf</span> archiv.tar <span class="sy0">/</span>cesta<span class="sy0">/</span>k<span class="sy0">/</span>slozce<span class="sy0">/</span>kterou<span class="sy0">/</span>chcete<span class="sy0">/</span>zabalit
+&nbsp;
+<span class="co0"># Opačný proces</span>
+$ <span class="kw2">tar</span> <span class="re5">-xvf</span> archiv.tar</pre>
+
+</div>
+<!-- EDIT2 SECTION ".tar" [360-677] -->
+<h2 class="sectionedit3" id="gz">.gz</h2>
+<div class="level2">
+
+<p>
+Zabalí složku do archivu a k tomu ještě provede kompresi. Střední zátěž procesoru. Například složku dokuwiki na které běží tato wiki se změnší z 15MB na 4MB. 
+</p>
+<pre class="code bash">$ <span class="kw2">tar</span> <span class="re5">-zcvf</span> archiv.tar.gz <span class="sy0">/</span>cesta<span class="sy0">/</span>k<span class="sy0">/</span>slozce<span class="sy0">/</span>kterou<span class="sy0">/</span>chcete<span class="sy0">/</span>zabalit
+&nbsp;
+<span class="co0"># Opačný proces</span>
+$ <span class="kw2">tar</span> <span class="re5">-zxvf</span> archiv.tar.gz</pre>
+
+</div>
+<!-- EDIT3 SECTION ".gz" [678-1003] -->
+<h2 class="sectionedit4" id="bz2">.bz2</h2>
+<div class="level2">
+
+<p>
+Je to obdoba tar.gz. Používá složitější proměné. Vysoká zátěž procesoru. Například složku dokuwiki zmenší z 15MB na 3MB. 
+</p>
+<pre class="code bash">$ <span class="kw2">tar</span> <span class="re5">-jcvf</span> archiv.tar.bz2 <span class="sy0">/</span>cesta<span class="sy0">/</span>k<span class="sy0">/</span>slozce<span class="sy0">/</span>kterou<span class="sy0">/</span>chcete<span class="sy0">/</span>zabalit
+&nbsp;
+<span class="co0"># Opačný proces:</span>
+$ <span class="kw2">tar</span> <span class="re5">-jxvf</span> archiv.tar.bz2</pre>
+
+<p>
+Pokud chcete archiv extrahovat do vybrané složky, dopíšte prefix -C a vybere kam. Příklad:
+</p>
+<pre class="code bash"><span class="kw2">tar</span> <span class="re5">-xvf</span> archiv.tar <span class="re5">-C</span> <span class="sy0">/</span>sem<span class="sy0">/</span>to<span class="sy0">/</span>chci<span class="sy0">/</span>extrahovat</pre>
+
+</div>
+<!-- EDIT4 SECTION ".bz2" [1004-1461] -->
+<h2 class="sectionedit5" id="tar_pv">tar + pv</h2>
+<div class="level2">
+<pre class="code bash"><span class="co0"># pro zobrazení průbehu je potřeba mít nainstalovaný balíček pv (sudo apt-get install pv)</span>
+$ <span class="kw2">sudo</span> <span class="kw2">tar</span> cf - <span class="sy0">/</span>folder-with-big-files <span class="re5">-P</span> <span class="sy0">|</span> pv <span class="re5">-s</span> $<span class="br0">&#40;</span><span class="kw2">du</span> <span class="re5">-sb</span> <span class="sy0">/</span>folder-with-big-files <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{print $1}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">gzip</span> <span class="sy0">&gt;</span> big-files.tar.gz
+&nbsp;
+<span class="co0"># výsledek:</span>
+231MB <span class="nu0">0</span>:00:<span class="nu0">14</span> <span class="br0">&#91;</span><span class="nu0">15</span>,8MB<span class="sy0">/</span>s<span class="br0">&#93;</span> <span class="br0">&#91;</span>=============<span class="sy0">&gt;</span>               <span class="br0">&#93;</span> <span class="nu0">51</span><span class="sy0">%</span></pre>
+
+</div>
+<!-- EDIT5 SECTION "tar + pv" [1462-1805] -->
+<h2 class="sectionedit6" id="automaticky_script">automatický script</h2>
+<div class="level2">
+<pre class="code bash">extract <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+   <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-f</span> <span class="re4">$1</span> <span class="br0">&#93;</span> ; <span class="kw1">then</span>
+       <span class="kw1">case</span> <span class="re4">$1</span> <span class="kw1">in</span>
+	<span class="sy0">*</span>.tar.bz2<span class="br0">&#41;</span>	<span class="kw2">tar</span> xvjf <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .tar.bz2<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.tar.gz<span class="br0">&#41;</span>	<span class="kw2">tar</span> xvzf <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .tar.gz<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.tar.xz<span class="br0">&#41;</span>	<span class="kw2">tar</span> Jxvf <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .tar.xz<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.bz2<span class="br0">&#41;</span>		<span class="kw2">bunzip2</span> <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> <span class="sy0">/</span>bz2<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.rar<span class="br0">&#41;</span>		unrar x <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .rar<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.gz<span class="br0">&#41;</span>		<span class="kw2">gunzip</span> <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .gz<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.tar<span class="br0">&#41;</span>		<span class="kw2">tar</span> xvf <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .tar<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.tbz2<span class="br0">&#41;</span>		<span class="kw2">tar</span> xvjf <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .tbz2<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.tgz<span class="br0">&#41;</span>		<span class="kw2">tar</span> xvzf <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .tgz<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.zip<span class="br0">&#41;</span>		<span class="kw2">unzip</span> <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .zip<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.Z<span class="br0">&#41;</span>		uncompress <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .Z<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span>.7z<span class="br0">&#41;</span>		7z x <span class="re4">$1</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">cd</span> $<span class="br0">&#40;</span><span class="kw2">basename</span> <span class="st0">&quot;$1&quot;</span> .7z<span class="br0">&#41;</span> <span class="sy0">;;</span>
+	<span class="sy0">*</span><span class="br0">&#41;</span>		<span class="kw3">echo</span> <span class="st0">&quot;don't know how to extract '$1'...&quot;</span> <span class="sy0">;;</span>
+       <span class="kw1">esac</span>
+   <span class="kw1">else</span>
+       <span class="kw3">echo</span> <span class="st0">&quot;'$1' is not a valid file!&quot;</span>
+   <span class="kw1">fi</span>
+ <span class="br0">&#125;</span></pre>
+
+<p>
+ — <em>2015/01/17 23:47 <a href="mailto:&#x65;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x6a;&#x61;&#x6b;&#x75;&#x62;&#x6b;&#x72;&#x69;&#x7a;&#x6b;&#x61;&#x2e;&#x63;&#x7a;" class="mail" title="&#x65;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#x6a;&#x61;&#x6b;&#x75;&#x62;&#x6b;&#x72;&#x69;&#x7a;&#x6b;&#x61;&#x2e;&#x63;&#x7a;">Jakub Křižka</a> </em>
+</p>
+
+</div>
+<!-- EDIT6 SECTION "automatický script" [1806-] -->

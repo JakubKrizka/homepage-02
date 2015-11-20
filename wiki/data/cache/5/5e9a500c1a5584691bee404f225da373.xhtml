@@ -1,0 +1,21 @@
+
+<h1 class="sectionedit1" id="public_ip">public_ip</h1>
+<div class="level1">
+<hr />
+<pre class="code bash"><span class="co0"># banchmark speed test</span>
+<span class="kw2">wget</span> https:<span class="sy0">//</span>raw.githubusercontent.com<span class="sy0">/</span>rsp<span class="sy0">/</span>scripts<span class="sy0">/</span>master<span class="sy0">/</span>externalip-benchmark
+<span class="kw2">chmod</span> a+x externalip-benchmark
+.<span class="sy0">/</span>externalip-benchmark
+&nbsp;
+<span class="co0"># secure solution</span>
+curl <span class="re5">-s</span> https:<span class="sy0">//</span><span class="nu0">4</span>.ifcfg.me<span class="sy0">/</span>
+<span class="co0"># nebo klasik </span>
+curl <span class="re5">-s</span> icanhazip.com
+<span class="co0"># nebo </span>
+curl <span class="re5">-s</span> http:<span class="sy0">//</span>ifconfig.me
+<span class="co0"># nebo</span>
+curl <span class="re5">-s</span> http:<span class="sy0">//</span>whatismijnip.nl <span class="sy0">|</span><span class="kw2">cut</span> <span class="re5">-d</span> <span class="st0">&quot; &quot;</span> <span class="re5">-f</span> <span class="nu0">5</span>
+<span class="co0"># nebo</span>
+<span class="kw2">dig</span> +short myip.opendns.com <span class="sy0">@</span>resolver1.opendns.com</pre>
+
+</div>

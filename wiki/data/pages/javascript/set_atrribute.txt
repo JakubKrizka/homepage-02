@@ -1,0 +1,7 @@
+<code javascript>
+document.getElementById('htmlFive').setAttribute('poster','newvalue');
+
+// a nebo s jquery
+
+$('#htmlFive').attr('poster', 'newvalue');
+</code>

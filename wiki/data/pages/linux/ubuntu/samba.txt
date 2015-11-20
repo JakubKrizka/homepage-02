@@ -1,0 +1,88 @@
+====== samba ======
+
+Server to provide AD and SMB/CIFS services to clients
+
+<code>
+samba [-D] [-i] [-M <model>] [--maximum-runtime=<seconds>] [-b]
+        [--help] [--usage] [-d <debug level>] [--debug-stderr]
+        [-s <configuration file>] [--option=<smb_conf_param>=<value>]
+        [-l <log directory>] [--leak-report] [--leak-report-full] [-V]
+</code>
+
+[[http://linux.die.net/man/7/samba|(man samba)]]
+
+----
+===== firewall =====
+
+<code bash>
+# seznam použitých portů
+$ sudo netstat -tulpn | egrep "samba|smbd|nmbd|winbind" 
+
+tcp        0      0 0.0.0.0:139             0.0.0.0:*               LISTEN      26712/smbd
+tcp        0      0 0.0.0.0:445             0.0.0.0:*               LISTEN      26712/smbd
+tcp6       0      0 :::139                  :::*                    LISTEN      26712/smbd
+tcp6       0      0 :::445                  :::*                    LISTEN      26712/smbd
+udp        0      0 192.168.1.255:137       0.0.0.0:*                           1548/nmbd
+udp        0      0 192.168.1.111:137       0.0.0.0:*                           1548/nmbd
+udp        0      0 0.0.0.0:137             0.0.0.0:*                           1548/nmbd
+udp        0      0 192.168.1.255:138       0.0.0.0:*                           1548/nmbd
+udp        0      0 192.168.1.111:138       0.0.0.0:*                           1548/nmbd
+udp        0      0 0.0.0.0:138             0.0.0.0:*                           1548/nmbd
+</code>
+
+hlavní porty pro komunikaci: **139** & **445**
+
+----
+
+
+===== nastavení tiskárny =====
+
+<code bash>
+$ sudo su
+$ apt-get install cups samba
+</code>
+
+  * **/etc/cups/cupsd.conf**
+
+<code bash>
+# ze základu cups naslouchá pouze na localhost:631
+http://localhost:631
+
+# pokud bude stránka vyžadovat přihlášení, jedná se o udaje uživatele Linuxu
+</code>
+
+{{ :linux:ubuntu:snimek1.png?direct&333 |}}
+\\
+{{ :linux:ubuntu:snimek2.png?direct&333 |}}
+\\
+{{ :linux:ubuntu:snimek3.png?direct&333 |}}
+\\
+{{ :linux:ubuntu:snimek4.png?direct&333 |}}
+\\
+{{ :linux:ubuntu:snimek5.png?direct&333 |}}
+\\
+{{ :linux:ubuntu:snimek6.png?direct&333 |}}
+\\
+
+===== nastavení samba serveru =====
+
+  * **/etc/samba/smb.conf**
+
+<code bash>
+[samba]
+path = /home/user
+available = yes
+valid users = user
+read only = no
+browseable = yes
+public = no
+writable = yes
+</code>
+
+<code bash>
+# přidání uživatele
+$ smbpasswd -a user
+</code>
+{{ :linux:ubuntu:snimek7.png?direct&333 |}}
+
+----

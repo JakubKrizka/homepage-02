@@ -1,0 +1,9 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:001:<span class="nu0">0</span><span class="sy0">&gt;</span> a = <span class="nu0">10</span>
+=<span class="sy0">&gt;</span> <span class="nu0">10</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:002:<span class="nu0">0</span><span class="sy0">&gt;</span> a.class
+=<span class="sy0">&gt;</span> Fixnum
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:003:<span class="nu0">0</span><span class="sy0">&gt;</span> a = <span class="nu0">10</span>_000_000_000
+=<span class="sy0">&gt;</span> <span class="nu0">10000000000</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:004:<span class="nu0">0</span><span class="sy0">&gt;</span> a.class
+=<span class="sy0">&gt;</span> Bignum
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:005:<span class="nu0">0</span><span class="sy0">&gt;</span>

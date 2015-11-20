@@ -1,0 +1,7 @@
+a:2:{s:7:"current";a:7:{s:4:"date";a:2:{s:7:"created";i:1421539122;s:8:"modified";i:1409566052;}s:4:"user";s:0:"";s:7:"creator";s:0:"";s:5:"title";s:11:"AVI support";s:11:"description";a:2:{s:15:"tableofcontents";a:6:{i:0;a:4:{s:3:"hid";s:11:"avi_support";s:5:"title";s:11:"AVI support";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:12:"h264_support";s:5:"title";s:13:"H.264 support";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:2;a:4:{s:3:"hid";s:21:"mpeg-4_part_2_support";s:5:"title";s:21:"MPEG-4 Part 2 support";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:3;a:4:{s:3:"hid";s:16:"wmv_vc-1_support";s:5:"title";s:18:"WMV (VC-1) support";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:4;a:4:{s:3:"hid";s:31:"maximum_bit_rate_and_resolution";s:5:"title";s:31:"Maximum bit rate and resolution";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:5;a:4:{s:3:"hid";s:33:"maximum_supported_video_file_size";s:5:"title";s:33:"Maximum supported video file size";s:4:"type";s:2:"ul";s:5:"level";i:1;}}s:8:"abstract";s:282:"AVI support
+
+	*  File extensions: .avi, .divx
+	*  Containers: AVI
+	*  Video profiles: MPEG-4 Part 2 (Simple Profile and Advanced Simple Profile)
+	*  Video bit rate: 5 Mbps with resolutions of 1280 × 720 at 30 fps
+	*  Audio profiles: Dolby® Digital (2 channel and 5.1 channel), MP3";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:3:{s:4:"date";a:1:{s:7:"created";i:1421539122;}s:4:"user";s:0:"";s:7:"creator";s:0:"";}}

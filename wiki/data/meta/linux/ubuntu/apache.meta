@@ -1,0 +1,10 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1422649320;s:8:"modified";i:1422817098;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";b:0;s:11:"contributor";a:1:{s:11:"jakubkrizka";s:14:"Jakub Křižka";}s:5:"title";s:6:"apache";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:6:"apache";s:5:"title";s:6:"apache";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:10:"apacheconf";s:5:"title";s:11:"apache.conf";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:2;a:4:{s:3:"hid";s:9:"portsconf";s:5:"title";s:10:"ports.conf";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:3;a:4:{s:3:"hid";s:31:"sites-available_000-defaultconf";s:5:"title";s:32:"sites-available/000-default.conf";s:4:"type";s:2:"ul";s:5:"level";i:1;}}s:8:"abstract";s:433:"apache
+
+httpd - Apache Hypertext Transfer Protocol Server
+
+
+httpd [ -d serverroot ] [ -f config ] [ -C directive ] [ -c directive ] [ -D parameter ] [ -e level ] [ -E file ] [ -k start|restart|graceful|stop|graceful-stop ] [ -R directory ] [ -h ] [ -l ] [ -L ] [ -S ] [ -t ] [ -v ] [ -V ] [ -X ] [ -M ]
+
+# On Windows systems, the following additional arguments are available:
+
+httpd [ -k install|config|uninstall ] [ -n name ] [ -w ]";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1422649320;s:8:"modified";i:1422817098;}s:7:"creator";s:14:"Jakub Křižka";s:4:"user";s:11:"jakubkrizka";s:11:"last_change";b:0;s:11:"contributor";a:1:{s:11:"jakubkrizka";s:14:"Jakub Křižka";}}}

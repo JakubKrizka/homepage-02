@@ -1,0 +1,22 @@
+====== Embedded content ======
+
+- aneb přídavný obsah
+<code>
+Embedded content is content that imports another resource into the document, or content from another vocabulary that is inserted into the document.
+
+  * audio 
+  * canvas 
+  * embed 
+  * iframe 
+  * img 
+  * math 
+  * object 
+  * svg 
+  * video
+<code>
+
+http://www.w3.org/TR/2014/REC-html5-20141028/dom.html#embedded-content-2
+
+----
+
+

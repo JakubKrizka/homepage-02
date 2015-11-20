@@ -1,0 +1,115 @@
+====== uTorrent na Linux Ubuntu Server ======
+
+----
+
+===== Systém =====
+
+**Ubuntu 14.04.2 LTS (GNU/Linux 3.13.0-53-generic x86_64)**
+
+----
+
+===== Balíček =====
+
+[[http://www.utorrent.com/downloads/linux]]
+
+----
+
+===== Instalace =====
+
+
+<code bash>
+tar -xvzf utserver.tar.gz -C /opt/
+# /opt/utorrent-server-*
+
+# chmod -R 777 /opt/utorrent-server-v3_0/
+# vytvořit odkaz (cesta se může lišit číslem verze!)
+ln -s /opt/utserver/utorrent-server-alpha-v3_3/utserver /usr/bin/utserver
+</code>
+
+----
+
+===== Spuštění =====
+
+{{ :linux:ubuntu:vystrizek.png?nolink&720 |}}
+<code bash>
+# spušění
+utserver -settingspath /opt/utorrent-server-alpha-v3_3/
+# zjištění ipadresy
+ip addr 
+# webUI
+http://ip-adresa:8080/gui/
+</code>
+	
+  * jméno: admin
+  * heslo: nechat prázdné a přihlásit
+
+----
+
+===== Automatické spuštění se systémem=====
+
+<code bash>
+nano /etc/init.d/utserver
+</code>
+
+sem vložit následující text: **(třeba nastavit hodnoty: CHDIR & USER)**
+<code bash>
+CHDIR=*****cesta k souboru v /opt/....*****
+NAME=utserver
+OPTIONS="-LOGFILE"
+DAEMON=$CHDIR/$NAME
+USER=*****uživatel, který to bude spouštět*****
+PIDFILE=/var/run/$NAME.pid
+STOP_TIMEOUT=5
+ 
+[ -x $DAEMON ] || exit 1
+
+. /lib/lsb/init-functions
+
+start_daemon () {
+        pgrep -U $USER $NAME >/dev/null && echo "$NAME is already running" && log_end_msg 1
+        rm -f $PIDFILE >/dev/null
+        start-stop-daemon --start --quiet --make-pidfile --pidfile $PIDFILE --chuid $USER --chdir $CHDIR --background --exec $DAEMON -- $OPTIONS
+}
+ 
+case "$1" in
+    start)             
+        log_daemon_msg "Starting $NAME daemon" "$NAME"
+        start_daemon
+        log_end_msg 0
+        ;;
+    stop)
+        log_daemon_msg "Stopping $NAME daemon" "$NAME"
+        start-stop-daemon --stop --quiet --pidfile $PIDFILE --exec $DAEMON --retry $STOP_TIMEOUT || log_end_msg 1
+        pgrep -U $USER $NAME >/dev/null || rm -f $PIDFILE >/dev/null
+        log_end_msg 0
+        ;;
+    restart)
+        log_daemon_msg "Restarting $NAME daemon" "$NAME"
+        start-stop-daemon --stop --quiet --pidfile $PIDFILE --exec $DAEMON --retry $STOP_TIMEOUT || log_end_msg 1
+        start_daemon
+        log_end_msg 0
+        ;;
+    *)
+        echo "Usage: /etc/init.d/$NAME {start|stop|restart}"
+        exit 2
+        ;;
+esac
+     
+exit 0
+</code>
+
+<code bash>
+# nastavit práva
+chmod a+x /etc/init.d/utserver
+# nastavení po spuštění
+update-rc.d utserver defaults
+</code> 
+
+
+----
+
+===== Možné chyby =====
+
+  * Nejdříve upozorním že to musíte dělat jako root, pokud byste to dělali jako jiní uživatelé, tak před ty příkazy dávejte příkaz "sudo" 
+  * Někomu může v průběhu zahlásit chybějící balíček, ten doinstalujete příkazem "apt-get install libssl0.9.8:i386" ale mě osobně se to nestalo tak nevím.
+  * Vše ok ale při stahování/odesílání se nepřipojíte? Zkontrolujte směrování portů, je možné, že vám to blokuje firewall nebo modem, v nastavení můžete změnit port. A nebo si vyberte na zkoušku jakýkoliv populární torrent a uvidíte v čem je problém. 

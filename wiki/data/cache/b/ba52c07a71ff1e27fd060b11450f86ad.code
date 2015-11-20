@@ -1,0 +1,6 @@
+<span class="kw2">tar</span> <span class="re5">-xvzf</span> utserver.tar.gz <span class="re5">-C</span> <span class="sy0">/</span>opt<span class="sy0">/</span>
+<span class="co0"># /opt/utorrent-server-*</span>
+&nbsp;
+<span class="co0"># chmod -R 777 /opt/utorrent-server-v3_0/</span>
+<span class="co0"># vytvořit odkaz (cesta se může lišit číslem verze!)</span>
+<span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>opt<span class="sy0">/</span>utserver<span class="sy0">/</span>utorrent-server-alpha-v3_3<span class="sy0">/</span>utserver <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>utserver

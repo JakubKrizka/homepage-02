@@ -1,0 +1,175 @@
+====== Home ======
+
+
+
+----
+====== BASH ======
+
+  * [[bash:public ip]]
+
+----
+
+===== HTML =====
+
+  * [[html:qr code api]]
+  * [[html:if_javascript_disable]]
+
+----
+
+===== CSS =====
+
+  * [[css:lineární pozadí]]
+  * [[http://keithclark.co.uk/articles/moving-ie-specific-css-into-media-blocks/media-tests/|media queries IE 6-10]]
+  * [[http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml|google_style_guide]]
+  * [[http://designpieces.com/2012/12/twitter-colour-palette/]]
+
+----
+===== JavaScript =====
+
+  * [[javascript:set atrribute]]
+  * [[javascript:run on load]]
+  * [[javascript:flip clock (htc)]]
+  * [[http://fancybox.net/home|fancy-box]]
+  * [[http://stackoverflow.com/questions/2821061/facebook-api-how-do-i-get-a-facebook-users-profile-image-through-the-facebook|facebook api login img]]
+  * [[https://github.com/datejs/Datejs|dateJS]]
+  * [[https://github.com/nnattawat/flip|jQuery flip]]
+  * [[http://illyism.github.io/jquery.vibrate.js/|jquery.vibrate.js]]
+
+----
+===== SQL =====
+
+  * [[sql:vložení]]
+  * [[sql:editace]]
+  * [[sql:řazení]]
+  * [[sql:filtry]]
+
+----
+
+===== Linux =====
+
+==== Ubuntu ====
+
+  * [[linux:ubuntu:adduser]]
+  * [[linux:ubuntu:apache]]
+  * [[linux:ubuntu:apt]]
+  * [[linux:ubuntu:bittorrent-sync]]
+  * [[linux:ubuntu:clamav]]
+  * [[linux:ubuntu:cron]]
+  * [[linux:ubuntu:composer]]
+  * [[linux:ubuntu:df]]
+  * [[linux:ubuntu:ffmpeg]]
+  * [[linux:ubuntu:gdrive]]
+  * [[linux:ubuntu:jobs]]
+  * [[linux:ubuntu:keepass]]
+  * [[linux:ubuntu:miniDLNA]]
+  * [[linux:ubuntu:monitorix]]
+  * [[linux:ubuntu:mount]]
+  * [[linux:ubuntu:netstat]]
+  * [[linux:ubuntu:nfs]]
+  * [[linux:ubuntu:ntp]]
+  * [[linux:ubuntu:rsync]]
+  * [[linux:ubuntu:samba]]
+  * [[linux:ubuntu:shellinabox]]
+  * [[linux:ubuntu:screen]]
+  * [[linux:ubuntu:ssh]]
+  * [[linux:ubuntu:tar]]
+  * [[linux:ubuntu:ufw]]
+  * [[linux:ubuntu:unetbootin]]
+  * [[linux:ubuntu:utorrent server]]
+  * [[linux:ubuntu:vsftpd]]
+  * [[linux:ubuntu:wodim]]
+
+\\
+  * [[linux:ubuntu:PC info]]
+  * [[linux:ubuntu:měření teploty]]
+  * [[linux:ubuntu:generátor náhodných znaků]]
+  * [[linux:ubuntu:nalezené chyby]]
+  * [[linux:ubuntu:zjištění info o procesu]]
+  * [[linux:ubuntu:wifi terminal]]
+
+
+----
+===== MAC OS =====
+
+  * [[mac:php storm]]
+
+
+----
+
+===== Ruby =====
+
+  * [[ruby:instalace rails]]
+  * [[ruby:image color palete]]
+  * [[ruby:základ]]
+  * [[ruby:ffmpeg]]
+
+
+----
+
+===== PHP =====
+
+  * [[php:nette:připojení k databázi c9]]
+  * [[php:vypsat text mezi tagy]]
+  * [[php:zahashovat text]]
+  * [[php:odeslat post požadavek do jiného php a následně vypsat výsledek]]
+  * [[php:vypsat výsledek html nebo php stránky]]
+  * [[php:práce s datem]]
+
+----
+
+===== Microsoft =====
+
+  * [[windows_putty]]
+  * [[https://scognito.wordpress.com/2009/11/19/watch-movies-with-subtitles-on-xbox-360/]]
+
+----
+
+===== AWS =====
+
+[[aws:ssh]]
+
+----
+
+===== Další projekty =====
+
+  * [[http://www.openfl.org|games]]
+
+----
+
+jen drobné poznámky, které je třeba uchovat...
+
+  * [[v0.1.0]]
+
+----
+
+  * [[citáty]]
+  * [[aws s3 + shiftedit]]
+  * [[když nevýš kam, vyber si]]
+
+----
+===== Poznámky =====
+
+  * http://codemirror.net/index.html
+  * http://julian.com/research/velocity/demo.html
+  * https://github.com/lokesh/color-thief/
+  * http://material-ui.com/#/
+  * http://weareoutman.github.io/clockpicker/
+  * http://kimmobrunfeldt.github.io/progressbar.js/#introduction
+  * http://www.webappers.com/page/4/
+
+
+====== Errors ======
+
+===== Linux =====
+
+==== Debian ====
+
+  * [[bash smbpasswd command not found]]
+
+==== Ubuntu ====
+
+  * [[dpkg gzip stdout No space left on device]]
+
+=== Google Chrome ===
+
+  * [[černá nabídka menu pravým tlačítkem myši]]

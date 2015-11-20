@@ -1,0 +1,20 @@
+====== řezení ======
+
+[[http://campus.codeschool.com/courses/try-sql/level/1/section/3/video/1]]
+
+----
+
+===== od nejmenšího po největší =====
+<code sql>
+SELECT *
+FROM tablka
+ORDER BY sloupec
+</code>
+
+===== obráceně =====
+
+<code sql>
+SELECT *
+FROM tablka
+ORDER BY sloupec DESC
+</code>

@@ -1,0 +1,12 @@
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:061:<span class="nu0">0</span><span class="sy0">&gt;</span> a = <span class="nu0">9</span>
+=<span class="sy0">&gt;</span> <span class="nu0">9</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:062:<span class="nu0">0</span><span class="sy0">&gt;</span> a += <span class="nu0">1</span>  <span class="co0"># ekvivalentni k: a = a + 1</span>
+=<span class="sy0">&gt;</span> <span class="nu0">10</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:063:<span class="nu0">0</span><span class="sy0">&gt;</span> a -= <span class="nu0">3</span>  <span class="co0"># ekvivalentni k: a = a - 3</span>
+=<span class="sy0">&gt;</span> <span class="nu0">7</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:064:<span class="nu0">0</span><span class="sy0">&gt;</span> a <span class="sy0">*</span>= <span class="nu0">4</span>  <span class="co0"># ekvivalentni k: a = a * 4</span>
+=<span class="sy0">&gt;</span> <span class="nu0">28</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:065:<span class="nu0">0</span><span class="sy0">&gt;</span> a <span class="sy0">/</span>= <span class="nu0">2</span>  <span class="co0"># ekvivalentni k: a = a / 2</span>
+=<span class="sy0">&gt;</span> <span class="nu0">14</span>
+irb<span class="br0">&#40;</span>main<span class="br0">&#41;</span>:066:<span class="nu0">0</span><span class="sy0">&gt;</span> a <span class="sy0">%</span>= <span class="nu0">9</span>  <span class="co0"># ekvivalentni k: a = a % 9</span>
+=<span class="sy0">&gt;</span> <span class="nu0">5</span>

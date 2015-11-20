@@ -1,0 +1,131 @@
+====== ssh ======
+
+OpenSSH SSH client (remote login program)
+
+<code>
+ ssh [-1246AaCfgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+         [-D [bind_address:]port] [-E log_file] [-e escape_char]
+         [-F configfile] [-I pkcs11] [-i identity_file]
+         [-L [bind_address:]port:host:hostport] [-l login_name] [-m mac_spec]
+         [-O ctl_cmd] [-o option] [-p port]
+         [-Q cipher | cipher-auth | mac | kex | key]
+         [-R [bind_address:]port:host:hostport] [-S ctl_path] [-W host:port]
+         [-w local_tun[:remote_tun]] [user@]hostname [command]
+</code>
+
+[[http://linux.die.net/man/1/ssh|(man ssh)]]
+
+----
+
+===== Převod SSH klíče na .PPK =====
+
+<code bash>
+# instalace balíčku
+$ sudo apt-get install putty-tools
+# převod
+$ puttygen private-key.file -o keyname.ppk
+</code>
+
+
+
+----
+
+===== Přihlašování pomocí klíče =====
+
+
+==== local ====
+**/Users/username/.ssh/config**
+<code bash>
+Host hostname
+HostName example.com
+User domainuser
+</code>
+
+následně se přes ssh pripojí následovně:
+
+<code bash>
+ssh hostname
+</code>
+
+----
+==== Linux ====
+
+
+Zde je jen potřeba rozlišit klienta a server. Na straně klienta zadáme příkaz:
+
+<code bash>
+$ ssh-keygen
+# enter... pak se to zeptá jestli chceme použít heslo, podobné jako v případě putty (viz. výše) ...enter
+</code>
+
+Vytvoří se nám 2 klíče privátní (identifikace - klient) **~/.ssh/id_rsa** a veřejný (ověření - server) **~/.ssh/id_rsa.pub**
+
+<code bash>
+# opět bezpečnost především
+$ chmod 700 ~/.ssh/id_rsa
+</code>
+
+Otevřeme u klienta veřejný klíč **~/.ssh/id_rsa.pub** a zkopírujeme celý řádek na server do souboru (**~/.ssh/authorized_keys**) a ještě musí být zapnutá funkce ověření pomocí klíče, upravíme soubor **/etc/ssh/sshd_config**
+
+<code bash>
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      %h/.ssh/authorized_keys
+
+# pro ještě větší bezpečnost můžete zakázat ověření pomocí hesla, tzn. přihlášení pouze s klíčem/souborem (+ nastavení firewallu jen pro dané IP adresy)
+PasswordAuthentication no
+
+# nastavení uložit a resetovat ssh demona
+$ sudo service ssh restart
+</code> 
+
+<code bash>
+# pak se jen přihlásit
+$ ssh username@host
+</code>
+A to je vše :) 
+
+==== Windows ====
+
+Je zapotřebí program [[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html|putty]] a s ním také putty generator. 
+
+  * Spustíme puttygen.exe a klikneme na **generate**
+
+{{ :linux:ubuntu:01.png?nolink&333 |}}
+
+
+  * jezdíme random myší k vytvoření tzv. hash kódu, nebo jak to mám nazvat :D
+
+{{ :linux:ubuntu:02.png?nolink&333 |}}
+
+  * Pojmenujeme (**key comment**) k jakému cíli bude klíč náležet. Např. home-server nebo tak něco. Dále máme možnost vytvořit i heslo (**key passphrase**) k danému souboru, něco jako dvojí ověření (soubor + heslo). Pokud je to všechno tak klíč uložíme (**save private key**) a zkopírujeme (**public key**) který se nachází nahoře. 
+
+{{ :linux:ubuntu:03.png?nolink&333 |}}
+
+  * Zkopírovaný public key vložíme na cílovém serveru do souboru **~/.ssh/authorized_keys**
+
+<code bash>
+$ sudo nano ~/.ssh/authorized_keys
+# pro uložení CTRL+O (enter) CTRL+X a také nezapomonout na bezpečnost:
+$ sudo chmod 700 ~/.ssh
+</code>
+
+  * a ještě musí být zapnutá funkce ověření pomocí tohoto klíče, soubor **/etc/ssh/sshd_config**
+
+<code bash>
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      %h/.ssh/authorized_keys
+
+# pro ještě větší bezpečnost můžete zakázat ověření pomocí hesla, tzn. přihlášení pouze s klíčem/souborem (+ nastavení firewallu jen pro dané IP adresy)
+PasswordAuthentication no
+
+# nastavení uložit a resetovat ssh demona
+$ sudo service ssh restart
+</code> 
+
+  * pro přihlášení je v Putty potřeba v parametru host vyplnit uživatelské jméno (username@host) a přidat vytvořený (**private key**)
+
+{{ :linux:ubuntu:04.png?nolink&333 |}}{{ :linux:ubuntu:05.png?nolink&333 |}}
+
+[[http://kb.site5.com/shell-access-ssh/how-to-generate-ssh-keys-and-connect-to-your-account-with-putty/|Originální návod]]
